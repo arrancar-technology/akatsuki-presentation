@@ -1,0 +1,16 @@
+build
+out
+node_modules
+.gradle
+.classpath
+.project
+.settings
+.idea
+*.log
+*.iml
+*.ipr
+*.iws
+coverage
+
+.DS_Store
+scrapbook.txt
