@@ -1,6 +1,287 @@
 extends ../layouts/application
 block content
-  .input-group
-    input.location.form-control.input-lg(type='text', placeholder='Enter your town/postcode')
-    span.input-group-btn
-      button.btn.btn-lg.btn-primary(type='button') OK
+  .navbar.navbar-fixed-top.navbar-bold(data-spy='affix', data-offset-top='1000')
+    .container
+      .navbar-header
+        a.navbar-brand(href='#') Home
+        a.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+      #navbar.navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li
+            a(href='#birth-section') Birth Certificates
+          li
+            a(href='#marriage-section') Marriage Certificates
+          li
+            a(href='#death-section') Death Certificates
+          li
+            a(href='#apostilles-section') Apostilles
+          li
+            a(href='#contact-us-section') Contact Us
+  .header.vert
+    .container.text-center
+      .row
+        .col-md-5
+          h1 UK Certificates
+          p.lead Replace your UK Certificates in 3 simple steps
+        .col-md-7
+          .video-container
+            iframe(width="560", height="315", src="//www.youtube.com/embed/Sf_01AZFN8c", frameborder="0", allowfullscreen="")
+          p.lead Read More...
+  #birth-section
+    .container.text-center
+      .row
+        .col-md-7
+          h1 Birth Certificate
+          p.lead Replace your Birth Certificates in 3 simple steps
+          .video-container
+            iframe(width="560", height="315", src="//www.youtube.com/embed/Sf_01AZFN8c", frameborder="0", allowfullscreen="")
+          p.lead Read More...
+        .col-sm-4.text-left
+          h1 Details
+          form(role="form")
+            .form-group
+              label(for="date-of-birth") Date of Birth
+              input.form-control(type="email", id="date-of-birth", placeholder="Enter your date of birth")
+
+            .form-group
+              label(for="place-of-birth") Place of Birth
+              input.form-control(type="email", id="place-of-birth", placeholder="Enter your place of birth")
+
+            .form-group
+              label(for="last-name-at-birth") Last Name at Birth
+              input.form-control(type="email", id="last-name-at-birth", placeholder="Enter your last name")
+
+            .form-group
+              label(for="first-name-of-birth") First Name of Birth
+              input.form-control(type="email", id="first-name-of-birth", placeholder="Enter your first name")
+
+            .form-group
+              label(for="mother-maiden-name") Mother's Maiden Name
+              input.form-control(type="email", id="mother-maiden-name", placeholder="Enter your mother's maiden name")
+
+            .form-group
+              label(for="mother-first-name") Mother's First Name
+              input.form-control(type="email", id="mother-first-name", placeholder="Enter your mother's first name")
+
+            .form-group
+              label(for="father-last-name") Father's Last Name
+              input.form-control(type="email", id="father-last-name", placeholder="Enter your father's last name")
+
+            .form-group
+              label(for="father-first-name") Father's First Name
+              input.form-control(type="email", id="father-first-name", placeholder="Enter your father's first name")
+
+  #marriage-section.featurette
+    .container
+      .row
+        .col-md-12.text-center
+          h1 Amazing Features
+      .row
+        .col-md-2.col-md-offset-2.text-center
+          .featurette-item
+            i.fa.fa-rocket
+            h4 Rocket
+            p Up-up-and-away with this starter template.
+        .col-md-2.text-center
+          .featurette-item
+            i.fa.fa-magnet
+            h4 Magnet
+            p For you are a magnet and I am steel.
+        .col-md-2.text-center
+          .featurette-item
+            i.fa.fa-shield
+            h4 Shield
+            p Protect yourself. Don't design like it's 1999.
+        .col-md-2.text-center
+          .featurette-item
+            i.fa.fa-pencil
+            h4 Scholar
+            p Because lead pencils are pretty smart looking.
+  #death-section.callout
+    .vert
+      .col-md-12.text-center
+        h2 Sometimes People Are Cool
+      .col-md-12.text-center  
+      .col-md-8.col-md-offset-2.text-center
+        .row.hidden-xs
+          .col-sm-2
+            img.img-circle(src='http://www.gravatar.com/avatar/5c708a2c9d25d1f2e4195ece1f1c684d?s=80')
+          .col-sm-2
+            img.img-circle(src='http://www.gravatar.com/avatar/3bb38f66f79ca138f318af89fe6b02ec?s=80')
+          .col-sm-2
+            img.img-circle(src='http://www.gravatar.com/avatar/3423a3e32fda92a5aaed72c7cde3849c?s=80')
+          .col-sm-2
+            img.img-circle(src='http://www.gravatar.com/avatar/325b6c3c0a75bfdb72822035bb556826?s=80')
+          .col-sm-2
+            img.img-circle(src='http://www.gravatar.com/avatar/cdd69340b0cfac4c7acb892e3ea7556e?s=80')
+          .col-sm-2
+            img.img-circle(src='http://www.gravatar.com/avatar/889778901fb1522dac2846ffe62bd960?s=80')
+  #apostilles-section.blurb
+    .container
+      .row
+        .col-md-12.text-center
+          h1 Is That An iPhone?
+          img.img-responsive(src='http://bootply.com/assets/example/bg_smartphones.jpg')
+  hr
+  .gallery
+    .row
+      .col-md-6.col-md-offset-3.text-center
+        h5 This Template is Responsive
+        h2 Features Galore
+        br
+    .container.well.well-lg
+      .row
+        .col-sm-3
+          .list-group
+            a.list-group-item(href='#')
+              span.text-success
+                i.fa.fa-film
+              | Carousel
+        .col-sm-3
+          .list-group
+            a.list-group-item(href='#')
+              span.text-success
+                i.fa.fa-folder-close-alt
+              | Tabs
+        .col-sm-3
+          .list-group
+            a.list-group-item(href='#')
+              span.text-success
+                i.fa.fa-credit-card
+              | Modal
+        .col-sm-3
+          .list-group
+            a.list-group-item(href='#')
+              span.text-success
+                i.fa.fa-reorder
+              | Navigation
+        .col-sm-3
+          .list-group
+            a.list-group-item(href='#')
+              span.text-success
+                i.fa.fa-mobile-phone
+              | Mobile-first
+        .col-sm-3
+          .list-group
+            a.list-group-item(href='#')
+              span.text-success
+                i.fa.fa-align-justify
+              | Accordion
+        .col-sm-3
+          .list-group
+            a.list-group-item(href='#')
+              span.text-success
+                i.fa.fa-list-alt
+              | Panel
+        .col-sm-3
+          .list-group
+            a.list-group-item(href='#')
+              span.text-success
+                i.fa.fa-check
+              | Form
+        .col-sm-3
+          .list-group
+            a.list-group-item(href='#')
+              span.text-success
+                i.fa.fa-table
+              | Table
+        .col-sm-3
+          .list-group
+            a.list-group-item(href='#')
+              span.text-success
+                i.fa.fa-eye-open
+              | Icons
+        .col-sm-3
+          .list-group
+            a.list-group-item(href='#')
+              span.text-success
+                i.fa.fa-th
+              | Responsive Grid
+        .col-sm-3
+          .list-group
+            a.list-group-item(href='#')
+              span.text-success
+                i.fa.fa-font
+              | Typography
+  .blurb
+    .container
+      .row
+        .col-md-12.text-center
+          h1 Kickstart Your Web Design
+          p.lead With this Responsive Bootstrap Template
+  .blurb.bright
+    .row
+      .col-md-6.col-md-offset-3.text-center
+        h3 Smashing Heading
+        br
+    .row
+      .col-sm-4.col-sm-offset-2
+        .panel.panel-default
+          .panel-heading.text-center
+            h2
+              i.fa.fa-chevron-left
+              | Left
+          .panel-body.text-center
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+            | Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+            | dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+            | Aliquam in felis sit amet augue.
+            hr
+            button.btn.btn-lg.btn-primary.btn-block Login
+      .col-sm-4
+        .panel.panel-default
+          .panel-heading.text-center
+            h2
+              | Right
+              i.fa.fa-chevron-right
+          .panel-body.text-center
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+            | Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+            | dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+            | Aliquam in felis sit amet augue.
+            hr
+            button.btn.btn-lg.btn-primary.btn-block Sign Up
+  .blurb
+    .container
+      .row
+        .col-md-6.col-md-offset-3.text-center
+          h2 Sharing the Bootstrap Love
+          p.lead
+            a(href='http://bootply.com/85657')
+              strong Download this Template
+            br
+            small
+              a(href='http://bootply.com/templates', target='ext') More Bootstrap Templates
+  footer
+    .container
+      .row
+        .col-md-6.col-md-offset-3.text-center
+          ul.list-inline
+            li
+              i.fa.fa-facebook.fa.fa-2x
+            li
+              i.fa.fa-twitter.fa.fa-2x
+            li
+              i.fa.fa-google-plus.fa.fa-2x
+            li
+              i.fa.fa-pinterest.fa.fa-2x
+          hr
+          p
+            | Built with
+            i.fa.fa-heart-empty
+            | at
+            a(href='http://www.bootply.com') Bootply
+            | .
+            br
+            | Company ©2013
+  ul.nav.pull-right.scroll-down
+    li
+      a(href='#', title='Scroll down')
+        i.fa.fa-chevron-down.fa.fa-3x
+  ul.nav.pull-right.scroll-top
+    li
+      a(href='#', title='Scroll to top')
+        i.fa.fa-chevron-up.fa.fa-3x

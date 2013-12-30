@@ -9,9 +9,8 @@ html
     block navigation
       include ../templates/navigation
 
-    .container
-      block content
+    block content
 
-      include ../templates/footer
-      include ../templates/defer
+    include ../templates/footer
+    include ../templates/defer
   != contentFor('javascripts')
