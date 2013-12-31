@@ -4,7 +4,6 @@ html
     block head
       include ../templates/header
       link(href='/stylesheets/app/application.css', media='screen', rel='stylesheet', type='text/css')
-      script(src='/javascripts/app/application.js', type='text/javascript')
   body
     block navigation
       include ../templates/navigation
@@ -13,4 +12,5 @@ html
 
     include ../templates/footer
     include ../templates/defer
+    script(src='/javascripts/app/application.js', type='text/javascript')
   != contentFor('javascripts')

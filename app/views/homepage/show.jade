@@ -27,80 +27,65 @@ block content
           h1 UK Certificates
           p.lead Replace your UK Certificates in 3 simple steps
         .col-md-7
-          .video-container
-            iframe(width="560", height="315", src="//www.youtube.com/embed/Sf_01AZFN8c", frameborder="0", allowfullscreen="")
-          p.lead Read More...
-  #birth-section
+          videoLink = "//www.youtube.com/embed/Sf_01AZFN8c"
+          include ../templates/video
+          include ../templates/accordion
+  section = "birth"
+  .blurb(id= "#{section}-section", class= section)
     .container.text-center
       .row
         .col-md-7
           h1 Birth Certificate
           p.lead Replace your Birth Certificates in 3 simple steps
-          .video-container
-            iframe(width="560", height="315", src="//www.youtube.com/embed/Sf_01AZFN8c", frameborder="0", allowfullscreen="")
-          p.lead Read More...
-        .col-sm-4.text-left
-          h1 Details
-          form(role="form")
-            .form-group
-              label(for="date-of-birth") Date of Birth
-              input.form-control(type="email", id="date-of-birth", placeholder="Enter your date of birth")
+      .row
+        .col-md-7
+          videoLink = "//www.youtube.com/embed/Sf_01AZFN8c"
+          include ../templates/video
+          include ../templates/accordion
+        .col-md-5.certificate-hide
+          .row
+            .col-md-offset-1.col-md-12
+              h1 APPLY NOW
+            .col-md-offset-3.col-md-8.text-center
+              .featurette-item
+                i.fa.fa-pencil.dark.apply-button(data-target-form= section)
+                h4 APPLY NOW
+                p Apply with 3 Easy Steps!!!
+        .col-md-5.certificate-show.hidden
+          .row
+            .col-md-12.text-right
+              h1 Details
+              p.lead Please fill in the details for Birth Certificate
+            .col-md-12.text-right
+              include ../templates/birth_certificate_form
 
-            .form-group
-              label(for="place-of-birth") Place of Birth
-              input.form-control(type="email", id="place-of-birth", placeholder="Enter your place of birth")
-
-            .form-group
-              label(for="last-name-at-birth") Last Name at Birth
-              input.form-control(type="email", id="last-name-at-birth", placeholder="Enter your last name")
-
-            .form-group
-              label(for="first-name-of-birth") First Name of Birth
-              input.form-control(type="email", id="first-name-of-birth", placeholder="Enter your first name")
-
-            .form-group
-              label(for="mother-maiden-name") Mother's Maiden Name
-              input.form-control(type="email", id="mother-maiden-name", placeholder="Enter your mother's maiden name")
-
-            .form-group
-              label(for="mother-first-name") Mother's First Name
-              input.form-control(type="email", id="mother-first-name", placeholder="Enter your mother's first name")
-
-            .form-group
-              label(for="father-last-name") Father's Last Name
-              input.form-control(type="email", id="father-last-name", placeholder="Enter your father's last name")
-
-            .form-group
-              label(for="father-first-name") Father's First Name
-              input.form-control(type="email", id="father-first-name", placeholder="Enter your father's first name")
-
-  #marriage-section.featurette
+  .featurette
     .container
       .row
         .col-md-12.text-center
-          h1 Amazing Features
+          h1 Our Features
       .row
         .col-md-2.col-md-offset-2.text-center
           .featurette-item
-            i.fa.fa-rocket
-            h4 Rocket
-            p Up-up-and-away with this starter template.
-        .col-md-2.text-center
-          .featurette-item
             i.fa.fa-magnet
-            h4 Magnet
+            h4 Simple
             p For you are a magnet and I am steel.
         .col-md-2.text-center
           .featurette-item
             i.fa.fa-shield
-            h4 Shield
+            h4 Secure
             p Protect yourself. Don't design like it's 1999.
         .col-md-2.text-center
           .featurette-item
+            i.fa.fa-rocket
+            h4 Fast
+            p Up-up-and-away with this starter template.
+        .col-md-2.text-center
+          .featurette-item
             i.fa.fa-pencil
-            h4 Scholar
+            h4 Tracking
             p Because lead pencils are pretty smart looking.
-  #death-section.callout
+  .callout
     .vert
       .col-md-12.text-center
         h2 Sometimes People Are Cool
@@ -119,99 +104,64 @@ block content
             img.img-circle(src='http://www.gravatar.com/avatar/cdd69340b0cfac4c7acb892e3ea7556e?s=80')
           .col-sm-2
             img.img-circle(src='http://www.gravatar.com/avatar/889778901fb1522dac2846ffe62bd960?s=80')
-  #apostilles-section.blurb
-    .container
+  section = "marriage"
+  .blurb(id= "#{section}-section", class= section)
+    .container.text-center
       .row
-        .col-md-12.text-center
-          h1 Is That An iPhone?
-          img.img-responsive(src='http://bootply.com/assets/example/bg_smartphones.jpg')
+        .col-md-offset-5.col-md-7
+          h1 Marriage Certificate
+          p.lead Replace your Marriage Certificates in 3 simple steps
+      .row
+        .col-md-5.certificate-hide
+          .row
+            .col-md-offset-1.col-md-12
+              h1 APPLY NOW
+            .col-md-offset-3.col-md-8.text-center
+              .featurette-item
+                i.fa.fa-pencil.dark.apply-button(data-target-form= section)
+                h4 APPLY NOW
+                p Apply with 3 Easy Steps!!!
+        .col-md-5.certificate-show.hidden
+          .row
+            .col-md-12.text-right
+              h1 Details
+              p.lead Please fill in the details for Marriage Certificate
+            .col-md-12.text-right
+              include ../templates/birth_certificate_form
+        .col-md-7
+          videoLink = "//www.youtube.com/embed/Sf_01AZFN8c"
+          include ../templates/video
+          include ../templates/accordion
+
   hr
-  .gallery
-    .row
-      .col-md-6.col-md-offset-3.text-center
-        h5 This Template is Responsive
-        h2 Features Galore
-        br
-    .container.well.well-lg
+  section = "death"
+  .blurb(id= "#{section}-section", class= section)
+    .container.text-center
       .row
-        .col-sm-3
-          .list-group
-            a.list-group-item(href='#')
-              span.text-success
-                i.fa.fa-film
-              | Carousel
-        .col-sm-3
-          .list-group
-            a.list-group-item(href='#')
-              span.text-success
-                i.fa.fa-folder-close-alt
-              | Tabs
-        .col-sm-3
-          .list-group
-            a.list-group-item(href='#')
-              span.text-success
-                i.fa.fa-credit-card
-              | Modal
-        .col-sm-3
-          .list-group
-            a.list-group-item(href='#')
-              span.text-success
-                i.fa.fa-reorder
-              | Navigation
-        .col-sm-3
-          .list-group
-            a.list-group-item(href='#')
-              span.text-success
-                i.fa.fa-mobile-phone
-              | Mobile-first
-        .col-sm-3
-          .list-group
-            a.list-group-item(href='#')
-              span.text-success
-                i.fa.fa-align-justify
-              | Accordion
-        .col-sm-3
-          .list-group
-            a.list-group-item(href='#')
-              span.text-success
-                i.fa.fa-list-alt
-              | Panel
-        .col-sm-3
-          .list-group
-            a.list-group-item(href='#')
-              span.text-success
-                i.fa.fa-check
-              | Form
-        .col-sm-3
-          .list-group
-            a.list-group-item(href='#')
-              span.text-success
-                i.fa.fa-table
-              | Table
-        .col-sm-3
-          .list-group
-            a.list-group-item(href='#')
-              span.text-success
-                i.fa.fa-eye-open
-              | Icons
-        .col-sm-3
-          .list-group
-            a.list-group-item(href='#')
-              span.text-success
-                i.fa.fa-th
-              | Responsive Grid
-        .col-sm-3
-          .list-group
-            a.list-group-item(href='#')
-              span.text-success
-                i.fa.fa-font
-              | Typography
-  .blurb
-    .container
+        .col-md-7
+          h1 Death Certificate
+          p.lead Replace your Death Certificates in 3 simple steps
       .row
-        .col-md-12.text-center
-          h1 Kickstart Your Web Design
-          p.lead With this Responsive Bootstrap Template
+        .col-md-7
+          videoLink = "//www.youtube.com/embed/Sf_01AZFN8c"
+          include ../templates/video
+          include ../templates/accordion
+        .col-md-5.certificate-hide
+          .row
+            .col-md-offset-1.col-md-12
+              h1 APPLY NOW
+            .col-md-offset-3.col-md-8.text-center
+              .featurette-item
+                i.fa.fa-pencil.dark.apply-button(data-target-form= section)
+                h4 APPLY NOW
+                p Apply with 3 Easy Steps!!!
+        .col-md-5.certificate-show.hidden
+          .row
+            .col-md-12.text-right
+              h1 Details
+              p.lead Please fill in the details for Marriage Certificate
+            .col-md-12.text-right
+              include ../templates/birth_certificate_form
   .blurb.bright
     .row
       .col-md-6.col-md-offset-3.text-center

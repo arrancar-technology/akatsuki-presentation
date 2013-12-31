@@ -29,7 +29,6 @@ h1 {
   background-color: #0d448a;
 }
 .header {
-  height: 80%;
   background: #0d448a url("../../images/pt_squares_lg.png") repeat center center fixed;
 }
 .header .btn-lg {
@@ -86,6 +85,10 @@ h1 {
   background: #7fbbda url("http://www.bootply.com/assets/example/bg_suburb.jpg") no-repeat center center fixed;
   color: #fff;
 }
+.dark {
+  color: #333 !important;
+  border-color: #333 !important;
+}
 .featurette {
   background: #545455;
   padding: 50px 0;
@@ -94,7 +97,7 @@ h1 {
 .featurette-item {
   margin-bottom: 15px;
 }
-.featurette-item > i {
+.featurette-item i {
   border: 3px solid #fff;
   border-radius: 50%;
   display: inline-block;
@@ -105,15 +108,15 @@ h1 {
   vertical-align: middle;
   text-align: center;
 }
-.featurette-item > i:hover {
+.featurette-item i:hover {
   font-size: 68px;
 }
 .callout {
   color: #fff;
   padding-top: 7%;
-  height: 100%;
+  height: 50%;
   width: 100%;
-  background: url("http://www.bootply.com/assets/example/bg_suburb.jpg") no-repeat center center fixed;
+  background: url("../../images/uk-great-britain-flag.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -147,4 +150,14 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
+}
+@media (min-width: 992px) {
+  .certificate-show {
+    margin-top: -130px;
+  }
+}
+@media (min-width: 1200px) {
+  .certificate-show {
+    margin-top: -130px;
+  }
 }
