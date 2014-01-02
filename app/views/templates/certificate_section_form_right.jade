@@ -1,0 +1,32 @@
+sectionTitle = section.toUpperCase() + " Certificate"
+sectionTitleSubText = "Replace your " + section + " certificate in 3 simple steps"
+
+formTitle = "Details"
+formTitleSubText = "Please fill in the details for " + section + " certificate"
+
+.blurb(id= "#{section}-section", class= section)
+  .container.text-center
+    .row
+      .col-md-offset-5.col-md-7
+        h1= sectionTitle
+        p.lead= sectionTitleSubText
+    .row
+      .col-md-5.certificate-hide
+        .row
+          .col-md-offset-1.col-md-12
+            h2 APPLY NOW
+          .col-md-offset-3.col-md-8.text-center
+            .featurette-item
+              i.fa.fa-pencil.dark.apply-button(data-target-form= section)
+              h4 APPLY NOW
+              p Apply with 3 Easy Steps!!!
+      .col-md-5.certificate-show.hidden
+        .row
+          .col-md-12.text-right
+            h2= formTitle
+            p.lead= formTitleSubText
+          .col-md-12.text-right
+            include ../templates/personal_detail_form
+      .col-md-7
+        include ../templates/video
+        include ../templates/accordion

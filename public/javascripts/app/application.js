@@ -27,4 +27,10 @@
     return $("." + targetForm + " .certificate-hide").addClass('hidden');
   });
 
+  $('.animate-inview').one('inview', function() {
+    return setTimeout((function() {
+      return $('.animate').removeClass('invisible').addClass('animated');
+    }), 500);
+  });
+
 }).call(this);

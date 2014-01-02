@@ -4,7 +4,6 @@ html(ng-app='admin-app')
     block head
       include ../templates/header
       link(href='/stylesheets/app/admin.css', media='screen', rel='stylesheet', type='text/css')
-      script(src='/javascripts/app/admin.js', type='text/javascript')
   body
     block navigation
       include ../templates/navigation
@@ -13,3 +12,4 @@ html(ng-app='admin-app')
       block content
 
       include ../templates/footer
+      script(src='/javascripts/app/admin.js', type='text/javascript')

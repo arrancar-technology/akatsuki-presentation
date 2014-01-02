@@ -85,10 +85,6 @@ h1 {
   background: #7fbbda url("http://www.bootply.com/assets/example/bg_suburb.jpg") no-repeat center center fixed;
   color: #fff;
 }
-.dark {
-  color: #333 !important;
-  border-color: #333 !important;
-}
 .featurette {
   background: #545455;
   padding: 50px 0;
@@ -114,7 +110,7 @@ h1 {
 .callout {
   color: #fff;
   padding-top: 7%;
-  height: 50%;
+  height: 60%;
   width: 100%;
   background: url("../../images/uk-great-britain-flag.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -134,6 +130,19 @@ h1 {
 }
 footer {
   padding: 100px 0;
+}
+.dark {
+  color: #333 !important;
+  border-color: #333 !important;
+}
+.header .panel {
+  color: #fff;
+}
+.panel {
+  background: transparent;
+}
+.apply-button {
+  cursor: pointer;
 }
 .video-container {
   position: relative;

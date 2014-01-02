@@ -1,237 +1,35 @@
 extends ../layouts/application
 block content
-  .navbar.navbar-fixed-top.navbar-bold(data-spy='affix', data-offset-top='1000')
-    .container
-      .navbar-header
-        a.navbar-brand(href='#') Home
-        a.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-      #navbar.navbar-collapse.collapse
-        ul.nav.navbar-nav
-          li
-            a(href='#birth-section') Birth Certificates
-          li
-            a(href='#marriage-section') Marriage Certificates
-          li
-            a(href='#death-section') Death Certificates
-          li
-            a(href='#apostilles-section') Apostilles
-          li
-            a(href='#contact-us-section') Contact Us
-  .header.vert
-    .container.text-center
-      .row
-        .col-md-5
-          h1 UK Certificates
-          p.lead Replace your UK Certificates in 3 simple steps
-        .col-md-7
-          videoLink = "//www.youtube.com/embed/Sf_01AZFN8c"
-          include ../templates/video
-          include ../templates/accordion
+  // Main Header
+  include ../templates/main_header
+
+  // Birth Certificate Section
   section = "birth"
-  .blurb(id= "#{section}-section", class= section)
-    .container.text-center
-      .row
-        .col-md-7
-          h1 Birth Certificate
-          p.lead Replace your Birth Certificates in 3 simple steps
-      .row
-        .col-md-7
-          videoLink = "//www.youtube.com/embed/Sf_01AZFN8c"
-          include ../templates/video
-          include ../templates/accordion
-        .col-md-5.certificate-hide
-          .row
-            .col-md-offset-1.col-md-12
-              h1 APPLY NOW
-            .col-md-offset-3.col-md-8.text-center
-              .featurette-item
-                i.fa.fa-pencil.dark.apply-button(data-target-form= section)
-                h4 APPLY NOW
-                p Apply with 3 Easy Steps!!!
-        .col-md-5.certificate-show.hidden
-          .row
-            .col-md-12.text-right
-              h1 Details
-              p.lead Please fill in the details for Birth Certificate
-            .col-md-12.text-right
-              include ../templates/birth_certificate_form
+  videoLink = "//www.youtube.com/embed/Sf_01AZFN8c"
+  learnMoreLinkText = "Learn More.."
+  learnMoreText = "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS."
+  include ../templates/certificate_section_form_left
 
-  .featurette
-    .container
-      .row
-        .col-md-12.text-center
-          h1 Our Features
-      .row
-        .col-md-2.col-md-offset-2.text-center
-          .featurette-item
-            i.fa.fa-magnet
-            h4 Simple
-            p For you are a magnet and I am steel.
-        .col-md-2.text-center
-          .featurette-item
-            i.fa.fa-shield
-            h4 Secure
-            p Protect yourself. Don't design like it's 1999.
-        .col-md-2.text-center
-          .featurette-item
-            i.fa.fa-rocket
-            h4 Fast
-            p Up-up-and-away with this starter template.
-        .col-md-2.text-center
-          .featurette-item
-            i.fa.fa-pencil
-            h4 Tracking
-            p Because lead pencils are pretty smart looking.
-  .callout
-    .vert
-      .col-md-12.text-center
-        h2 Sometimes People Are Cool
-      .col-md-12.text-center  
-      .col-md-8.col-md-offset-2.text-center
-        .row.hidden-xs
-          .col-sm-2
-            img.img-circle(src='http://www.gravatar.com/avatar/5c708a2c9d25d1f2e4195ece1f1c684d?s=80')
-          .col-sm-2
-            img.img-circle(src='http://www.gravatar.com/avatar/3bb38f66f79ca138f318af89fe6b02ec?s=80')
-          .col-sm-2
-            img.img-circle(src='http://www.gravatar.com/avatar/3423a3e32fda92a5aaed72c7cde3849c?s=80')
-          .col-sm-2
-            img.img-circle(src='http://www.gravatar.com/avatar/325b6c3c0a75bfdb72822035bb556826?s=80')
-          .col-sm-2
-            img.img-circle(src='http://www.gravatar.com/avatar/cdd69340b0cfac4c7acb892e3ea7556e?s=80')
-          .col-sm-2
-            img.img-circle(src='http://www.gravatar.com/avatar/889778901fb1522dac2846ffe62bd960?s=80')
+  // Features
+  include ../templates/features
+
+  // Marriage Certificate Section
   section = "marriage"
-  .blurb(id= "#{section}-section", class= section)
-    .container.text-center
-      .row
-        .col-md-offset-5.col-md-7
-          h1 Marriage Certificate
-          p.lead Replace your Marriage Certificates in 3 simple steps
-      .row
-        .col-md-5.certificate-hide
-          .row
-            .col-md-offset-1.col-md-12
-              h1 APPLY NOW
-            .col-md-offset-3.col-md-8.text-center
-              .featurette-item
-                i.fa.fa-pencil.dark.apply-button(data-target-form= section)
-                h4 APPLY NOW
-                p Apply with 3 Easy Steps!!!
-        .col-md-5.certificate-show.hidden
-          .row
-            .col-md-12.text-right
-              h1 Details
-              p.lead Please fill in the details for Marriage Certificate
-            .col-md-12.text-right
-              include ../templates/birth_certificate_form
-        .col-md-7
-          videoLink = "//www.youtube.com/embed/Sf_01AZFN8c"
-          include ../templates/video
-          include ../templates/accordion
+  videoLink = "//www.youtube.com/embed/Sf_01AZFN8c"
+  learnMoreLinkText = "Learn More.."
+  learnMoreText = "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS."
+  include ../templates/certificate_section_form_right
 
-  hr
+  // Testimonial
+  include ../templates/testimonial
+
+  // Birth Certificate Section
   section = "death"
-  .blurb(id= "#{section}-section", class= section)
-    .container.text-center
-      .row
-        .col-md-7
-          h1 Death Certificate
-          p.lead Replace your Death Certificates in 3 simple steps
-      .row
-        .col-md-7
-          videoLink = "//www.youtube.com/embed/Sf_01AZFN8c"
-          include ../templates/video
-          include ../templates/accordion
-        .col-md-5.certificate-hide
-          .row
-            .col-md-offset-1.col-md-12
-              h1 APPLY NOW
-            .col-md-offset-3.col-md-8.text-center
-              .featurette-item
-                i.fa.fa-pencil.dark.apply-button(data-target-form= section)
-                h4 APPLY NOW
-                p Apply with 3 Easy Steps!!!
-        .col-md-5.certificate-show.hidden
-          .row
-            .col-md-12.text-right
-              h1 Details
-              p.lead Please fill in the details for Marriage Certificate
-            .col-md-12.text-right
-              include ../templates/birth_certificate_form
-  .blurb.bright
-    .row
-      .col-md-6.col-md-offset-3.text-center
-        h3 Smashing Heading
-        br
-    .row
-      .col-sm-4.col-sm-offset-2
-        .panel.panel-default
-          .panel-heading.text-center
-            h2
-              i.fa.fa-chevron-left
-              | Left
-          .panel-body.text-center
-            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-            | Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-            | dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-            | Aliquam in felis sit amet augue.
-            hr
-            button.btn.btn-lg.btn-primary.btn-block Login
-      .col-sm-4
-        .panel.panel-default
-          .panel-heading.text-center
-            h2
-              | Right
-              i.fa.fa-chevron-right
-          .panel-body.text-center
-            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-            | Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-            | dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-            | Aliquam in felis sit amet augue.
-            hr
-            button.btn.btn-lg.btn-primary.btn-block Sign Up
-  .blurb
-    .container
-      .row
-        .col-md-6.col-md-offset-3.text-center
-          h2 Sharing the Bootstrap Love
-          p.lead
-            a(href='http://bootply.com/85657')
-              strong Download this Template
-            br
-            small
-              a(href='http://bootply.com/templates', target='ext') More Bootstrap Templates
-  footer
-    .container
-      .row
-        .col-md-6.col-md-offset-3.text-center
-          ul.list-inline
-            li
-              i.fa.fa-facebook.fa.fa-2x
-            li
-              i.fa.fa-twitter.fa.fa-2x
-            li
-              i.fa.fa-google-plus.fa.fa-2x
-            li
-              i.fa.fa-pinterest.fa.fa-2x
-          hr
-          p
-            | Built with
-            i.fa.fa-heart-empty
-            | at
-            a(href='http://www.bootply.com') Bootply
-            | .
-            br
-            | Company ©2013
-  ul.nav.pull-right.scroll-down
-    li
-      a(href='#', title='Scroll down')
-        i.fa.fa-chevron-down.fa.fa-3x
-  ul.nav.pull-right.scroll-top
-    li
-      a(href='#', title='Scroll to top')
-        i.fa.fa-chevron-up.fa.fa-3x
+  videoLink = "//www.youtube.com/embed/Sf_01AZFN8c"
+  learnMoreLinkText = "Learn More.."
+  learnMoreText = "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS."
+  include ../templates/certificate_section_form_left
+
+  // Scroll Link
+  include ../templates/scroll
+
