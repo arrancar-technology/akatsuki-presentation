@@ -70,7 +70,7 @@ h1
   padding-top 4%
 
 .blurb
-  padding 30px 0
+  padding 60px 0
   background-color #fefefe
   .panel
     background-color transparent
@@ -153,6 +153,71 @@ footer
   left 0
   width 100%
   height 100%
+
+// Progressbar Tracker
+ol
+  &.progtrckr
+    margin 0
+    padding 0
+    li
+      display inline-block
+      text-align center
+      line-height 3em
+      &.progtrckr-done
+        color black
+        border-bottom 4px solid yellowgreen
+        &:before
+          content "\2713"
+          color white
+          background-color yellowgreen
+          height 1.2em
+          width 1.2em
+          line-height 1.2em
+          border none
+          border-radius 1.2em
+      &.progtrckr-todo
+        color silver
+        border-bottom 4px solid silver
+        &:before
+          content "\039F"
+          color silver
+          background-color white
+          font-size 1.5em
+          bottom -1.6em
+      &:after
+        content "\00a0\00a0"
+      &:before
+        position relative
+        bottom -2.5em
+        float left
+        left 50%
+        line-height 1em
+  &.progtrckr[data-progtrckr-steps="2"]
+    li
+      width 49%
+  &.progtrckr[data-progtrckr-steps="3"]
+    li
+      width 33%
+  &.progtrckr[data-progtrckr-steps="4"]
+    li
+      width 24%
+  &.progtrckr[data-progtrckr-steps="5"]
+    li
+      width 19%
+  &.progtrckr[data-progtrckr-steps="6"]
+    li
+      width 16%
+  &.progtrckr[data-progtrckr-steps="7"]
+    li
+      width 14%
+  &.progtrckr[data-progtrckr-steps="8"]
+    li
+      width 12%
+  &.progtrckr[data-progtrckr-steps="9"]
+    li
+      width 11%
+
+
 
 
 $screen-sm-min = 768px

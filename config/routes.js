@@ -2,6 +2,10 @@ exports.routes = function (map) {
 
   map.get('/', 'homepage#show');
 
+  // Certificate Details
+  map.post('/details/:section', 'certificate_details#personalDetails');
+  map.get('/details/:section', 'certificate_details#additionalDetails');
+
   // Partials
   map.get('partials/:partial', 'partials#show');
 

@@ -1,0 +1,15 @@
+.panel-heading
+  h3.panel-title= stepTitle
+.panel-body(class= paneClasses)
+  form.form-horizontal(role="form")
+    .form-group
+      label.col-sm-6.control-label(for="father-last-name") Father's Last Name
+      .col-sm-6
+        input.form-control.input-sm(type="email", id="father-last-name")
+    .form-group
+      label.col-sm-6.control-label(for="father-first-name") Father's First Name
+      .col-sm-6
+        input.form-control.input-sm(type="email", id="father-first-name")
+    .form-group
+      .col-sm-offset-6.col-sm-6
+        button.pull-right.btn.btn-success(type="submit") Proceed to Next Step

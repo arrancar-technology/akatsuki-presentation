@@ -1,0 +1,26 @@
+extends ../layouts/application
+block content
+  include ../templates/progress_bar
+
+  // Birth Certificate Section
+  section = "birth"
+  videoLink = "//www.youtube.com/embed/Sf_01AZFN8c"
+  learnMoreLinkText = "Learn More.."
+  learnMoreText = "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS."
+
+  .blurb
+    .container
+      .row
+        .col-sm-offset-2.col-sm-8.col-md-offset-3.col-md-6
+          .panel.panel-default
+            stepTitle = 'Step 1 - Personal Details'
+            paneClasses = ''
+            include ../templates/form_step
+
+            stepTitle = 'Step 2 - Additional Details'
+            paneClasses = 'hidden'
+            include ../templates/form_step
+
+            stepTitle = 'Step 3 - Secure Payment'
+            paneClasses = 'hidden'
+            include ../templates/form_step
