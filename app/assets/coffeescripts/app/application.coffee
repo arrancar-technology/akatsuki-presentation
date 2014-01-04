@@ -1,15 +1,35 @@
 controllers =
-  StatusController: ($scope) ->
-#    console.log "value: #{$scope.value}"
+  CertificateDetailsController: ["$scope", "Customer", ($scope, Customer) ->
+    $scope.model = {}
+    $scope.model.step = 1
+    $scope.model.customer = new Customer()
 
-app = angular.module('main-app', [])
-app.controller("StatusController", controllers.StatusController)
-app.directive "duplicate", ->
-  restrict: "E"
-  scope:
-    value: "=ngModel"
-  controller: "StatusController"
-  templateUrl: "/partials/duplicate"
+    $scope.saveStepAdditionalInfo = ->
+      console.log "value: b"
+      $scope.model.customer.firstName = 'mmm'
+      $scope.model.customer.lastName = 'iii'
+      Customer.create($scope.model.customer)
+
+    $scope.goToStep = (step)->
+      $scope.model.step = step
+    $scope.previousStep = ->
+      $scope.model.step--
+    $scope.nextStep = ->
+      $scope.model.step++
+  ]
+
+app = angular.module('main-app', ["ngResource"])
+app.controller("CertificateDetailsController", controllers.CertificateDetailsController)
+
+app.factory "Customer", ["$resource", ($resource) ->
+  $resource "/api/1/customers/:id",
+    id: "@id"
+  ,
+    create:
+      method: "POST"
+    update:
+      method: "PUT"
+]
 
 # Show form when click on apply
 $('.apply-button').on 'click', ->

@@ -6,6 +6,9 @@ exports.routes = function (map) {
   map.post('/details/:section', 'certificate_details#personalDetails');
   map.get('/details/:section', 'certificate_details#additionalDetails');
 
+  // Customer
+  map.resources('customers', { path: 'api/1/customers' });
+
   // Partials
   map.get('partials/:partial', 'partials#show');
 

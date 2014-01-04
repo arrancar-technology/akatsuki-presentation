@@ -169,6 +169,17 @@ ol.progtrckr li {
   text-align: center;
   line-height: 3em;
 }
+ol.progtrckr li.progtrckr-todo {
+  color: #c0c0c0;
+  border-bottom: 4px solid #c0c0c0;
+}
+ol.progtrckr li.progtrckr-todo:before {
+  content: "\039F";
+  color: #c0c0c0;
+  background-color: #fff;
+  font-size: 1.5em;
+  bottom: -1.6em;
+}
 ol.progtrckr li.progtrckr-done {
   color: #000;
   border-bottom: 4px solid #9acd05;
@@ -182,17 +193,6 @@ ol.progtrckr li.progtrckr-done:before {
   line-height: 1.2em;
   border: none;
   border-radius: 1.2em;
-}
-ol.progtrckr li.progtrckr-todo {
-  color: #c0c0c0;
-  border-bottom: 4px solid #c0c0c0;
-}
-ol.progtrckr li.progtrckr-todo:before {
-  content: "\039F";
-  color: #c0c0c0;
-  background-color: #fff;
-  font-size: 1.5em;
-  bottom: -1.6em;
 }
 ol.progtrckr li:after {
   content: "\00a0\00a0";

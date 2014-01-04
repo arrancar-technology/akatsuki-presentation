@@ -163,6 +163,15 @@ ol
       display inline-block
       text-align center
       line-height 3em
+      &.progtrckr-todo
+        color silver
+        border-bottom 4px solid silver
+        &:before
+          content "\039F"
+          color silver
+          background-color white
+          font-size 1.5em
+          bottom -1.6em
       &.progtrckr-done
         color black
         border-bottom 4px solid yellowgreen
@@ -175,15 +184,6 @@ ol
           line-height 1.2em
           border none
           border-radius 1.2em
-      &.progtrckr-todo
-        color silver
-        border-bottom 4px solid silver
-        &:before
-          content "\039F"
-          color silver
-          background-color white
-          font-size 1.5em
-          bottom -1.6em
       &:after
         content "\00a0\00a0"
       &:before
