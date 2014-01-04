@@ -8,10 +8,10 @@
 //GET       /customers/:id       customers#show.
 var actions = {
   create: function () {
-    var customer = new Customer({firstName: req.body.firstName, lastName: req.body.lastName})
+    var customer = new Customer(req.body);
     customer.save(function() {
       send(customer);
-    })
+    });
   },
   update: function() {
     send({status: statusService.getStatus(req.params.id)});

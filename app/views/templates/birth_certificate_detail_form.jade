@@ -1,8 +1,16 @@
 form.form-horizontal(role="form")
   .form-group
-    label.col-sm-6.control-label(for="date-of-birth") Date of Birth
-    .col-sm-6
-      input.form-control.input-sm(type="email", id="date-of-birth")
+    label.col-sm-6.control-label(for="date-of-birth") Place of Birth
+    .input-group.col-sm-6
+        .input-group-btn
+          select.input-sm.form-control(id="date-of-birth", ng-model="model.customer.birthDay", ng-options="day.value as day.name for day in model.days")
+            option(value="") Day
+        .input-group-btn
+          select.input-sm.form-control(id="date-of-birth", ng-model="model.customer.birthMonth", ng-options="day.value as day.name for day in model.days")
+            option(value="") Month
+        .input-group-btn
+          input.form-control.input-sm(id="place-of-birth", ng-model="model.customer.birthYear", placeholder="Year")
+
   .form-group
     label.col-sm-6.control-label(for="place-of-birth") Place of Birth
     .col-sm-6
@@ -33,4 +41,6 @@ form.form-horizontal(role="form")
       input.form-control.input-sm(type="email", id="father-first-name")
   .form-group
     .col-sm-offset-6.col-sm-6
-      button.btn.btn-primary(type="submit") Proceed
+      button.pull-left.btn.btn-warning(type="submit", data-ng-click="previousStep()", data-ng-show="model.step > 1") Previous Step
+      button.pull-right.btn.btn-success(type="submit", data-ng-click="nextStep()", data-ng-show="model.step < 3") Next Step
+      button.pull-right.btn.btn-success(type="submit", data-ng-click="saveStepAdditionalInfo()", data-ng-show="model.step == 3") Make Secure Payment
