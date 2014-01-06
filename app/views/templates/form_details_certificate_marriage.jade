@@ -6,7 +6,7 @@ form.form-horizontal(role="form")
           select.input-sm.form-control(id="date-of-marriage", ng-model="model.customer.marriage.day", ng-options="day.value as day.name for day in model.days")
             option(value="") Day
         .input-group-btn
-          select.input-sm.form-control(id="date-of-marriage", ng-model="model.customer.marriage.month", ng-options="day.value as day.name for day in model.days")
+          select.input-sm.form-control(id="date-of-marriage", ng-model="model.customer.marriage.month", ng-options="month.value as month.name for month in model.months")
             option(value="") Month
         .input-group-btn
           input.form-control.input-sm(id="year-of-marriage", ng-model="model.customer.marriage.year", placeholder="Year")

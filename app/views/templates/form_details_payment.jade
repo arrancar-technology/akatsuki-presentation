@@ -23,7 +23,7 @@ form.form-horizontal(role="form")
         select.input-sm.form-control(id="card-expiry-date-month", ng-model="model.customer.card.expiryMonth", ng-options="month.value as month.name for month in model.months")
           option(value="") Month
       .input-group-btn
-        select.input-sm.form-control(id="card-expiry-date-year", ng-model="model.customer.card.expiryYear", ng-options="year.value as year.name for year in model.years")
+        select.input-sm.form-control(id="card-expiry-date-year", ng-model="model.customer.card.expiryYear", ng-options="year.value as year.name for year in model.yearsExpiry")
           option(value="") Year
   .form-group
     label.col-sm-6.control-label.required(for="card-verification-number") Card Verification (CVC)

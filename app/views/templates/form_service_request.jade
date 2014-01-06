@@ -1,0 +1,15 @@
+form.form-horizontal(role="form")
+  .form-group
+    label.col-sm-6.control-label.required(for="country") Number of Copies
+    .input-group.col-sm-6
+      .input-group-btn
+        select.input-sm.form-control(id="date-of-birth", ng-model="model.customer.serviceRequest.numberOfCopies", ng-options="number.value as number.name for number in model.numberOfCopies")
+  .form-group
+      label.col-sm-6.control-label.required(for="country") Apostilled Copies
+      .input-group.col-sm-6
+        .input-group-btn
+          select.input-sm.form-control(id="date-of-birth", ng-model="model.customer.serviceRequest.numberOfApostilles", ng-options="number.value as number.name for number in model.numberOfApostilles")
+  .form-group
+    label.col-sm-6.control-label.required(for="phone") Phone
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="phone", ng-model="model.address.phone")
