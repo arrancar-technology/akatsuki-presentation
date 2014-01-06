@@ -131,6 +131,11 @@ h1 {
 footer {
   padding: 100px 0;
 }
+.required:after {
+  content: "*";
+  color: #f00;
+  font-weight: bold;
+}
 .dark {
   color: #333 !important;
   border-color: #333 !important;

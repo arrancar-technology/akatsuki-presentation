@@ -3,28 +3,23 @@ block content
   div(ng-controller="CertificateDetailsController")
     include ../templates/progress_bar
 
-    // Birth Certificate Section
-    section = "birth"
-    videoLink = "//www.youtube.com/embed/Sf_01AZFN8c"
-    learnMoreLinkText = "Learn More.."
-    learnMoreText = "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS."
-
     .blurb
-      .container
         .row
-          .col-sm-offset-2.col-sm-8.col-md-offset-3.col-md-6
+          .col-sm-6.col-md-offset-1.col-md-6
             .panel.panel-default
               .panel-heading
-                h3.panel-title(data-ng-click="goToStep(1)") Step 1 - Personal Details
+                h3.panel-title(data-ng-click="goToStep(1)") Step 1 - Certificate Details
               .panel-body(data-ng-show="model.step == 1")
-                include ../templates/birth_certificate_detail_form
+                include ../templates/form_details_certificate_birth
 
               .panel-heading
                 h3.panel-title(data-ng-click="goToStep(2)") Step 2 - Additional Details
               .panel-body(data-ng-show="model.step == 2")
-                include ../templates/form_step
+                include ../templates/form_details_additional
 
               .panel-heading
-                h3.panel-title(data-ng-click="goToStep(3)") Step 3 - Secure Payment
+                h3.panel-title(data-ng-click="goToStep(3)") Step 3 - Payment Details
               .panel-body(data-ng-show="model.step == 3")
-                include ../templates/form_step
+                include ../templates/form_details_payment
+          .col-sm-6.col-md-4
+            include ../templates/order_summary

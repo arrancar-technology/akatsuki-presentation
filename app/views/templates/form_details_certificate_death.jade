@@ -1,0 +1,27 @@
+form.form-horizontal(role="form")
+  .form-group
+    label.col-sm-6.control-label.required(for="date-of-death") Place of Death
+    .input-group.col-sm-6
+        .input-group-btn
+          select.input-sm.form-control(id="date-of-death", ng-model="model.customer.death.day", ng-options="day.value as day.name for day in model.days")
+            option(value="") Day
+        .input-group-btn
+          select.input-sm.form-control(id="date-of-death", ng-model="model.customer.death.month", ng-options="day.value as day.name for day in model.days")
+            option(value="") Month
+        .input-group-btn
+          input.form-control.input-sm(id="year-of-death", ng-model="model.customer.death.year", placeholder="Year")
+  .form-group
+    label.col-sm-6.control-label.required(for="place-of-death") Place of Death
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="place-of-death", ng-model="model.customer.death.place")
+  .form-group
+    label.col-sm-6.control-label.required(for="last-name-at-death") Last Name
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="last-name-at-death", ng-model="model.customer.death.lastName")
+  .form-group
+    label.col-sm-6.control-label.required(for="first-name-of-death") First Name
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="first-name-of-death", ng-model="model.customer.death.firstName")
+  .form-group
+    .col-sm-offset-6.col-sm-6
+      include ../templates/buttons_step

@@ -123,6 +123,12 @@ footer
   padding 100px 0
 
 // Custom css
+.required
+  &:after
+    content "*"
+    color red
+    font-weight bold
+
 .dark
   color #333 !important
   border-color #333 !important
@@ -216,9 +222,6 @@ ol
   &.progtrckr[data-progtrckr-steps="9"]
     li
       width 11%
-
-
-
 
 $screen-sm-min = 768px
 $screen-md-min = 992px

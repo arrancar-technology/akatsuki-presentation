@@ -1,0 +1,35 @@
+form.form-horizontal(role="form")
+  .form-group
+    label.col-sm-6.control-label.required(for="date-of-marriage") Date of Marriage
+    .input-group.col-sm-6
+        .input-group-btn
+          select.input-sm.form-control(id="date-of-marriage", ng-model="model.customer.marriage.day", ng-options="day.value as day.name for day in model.days")
+            option(value="") Day
+        .input-group-btn
+          select.input-sm.form-control(id="date-of-marriage", ng-model="model.customer.marriage.month", ng-options="day.value as day.name for day in model.days")
+            option(value="") Month
+        .input-group-btn
+          input.form-control.input-sm(id="year-of-marriage", ng-model="model.customer.marriage.year", placeholder="Year")
+  .form-group
+    label.col-sm-6.control-label.required(for="place-of-marriage") Place of Marriage
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="place-of-marriage", ng-model="model.customer.marriage.place")
+  .form-group
+    label.col-sm-6.control-label.required(for="woman-last-name") Woman's Last Name
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="woman-last-name", ng-model="model.customer.marriage.woman.lastName")
+  .form-group
+    label.col-sm-6.control-label.required(for="woman-first-name") Woman's First Name
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="woman-first-name", ng-model="model.customer.marriage.woman.firstName")
+  .form-group
+    label.col-sm-6.control-label.required(for="man-last-name") Man's Last Name
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="man-last-name", ng-model="model.customer.marriage.man.lastName")
+  .form-group
+    label.col-sm-6.control-label.required(for="man-first-name") Man's First Name
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="man-first-name", ng-model="model.customer.marriage.man.firstName")
+  .form-group
+    .col-sm-offset-6.col-sm-6
+      include ../templates/buttons_step

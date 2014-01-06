@@ -1,0 +1,29 @@
+form.form-horizontal(role="form")
+  .form-group
+    label.col-sm-6.control-label.required(for="address-1") Address 1
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="address-1", ng-model="model.address.address1")
+  .form-group
+    label.col-sm-6.control-label(for="address-2") Address 2
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="address-2", ng-model="model.address.address2")
+  .form-group
+    label.col-sm-6.control-label.required(for="city") City
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="city", ng-model="model.address.city")
+  .form-group
+    label.col-sm-6.control-label.required(for="postcode") Postcode
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="postcode", ng-model="model.address.postcode")
+  .form-group
+    label.col-sm-6.control-label.required(for="country") Country
+    .input-group.col-sm-6
+      .input-group-btn
+        select.input-sm.form-control(id="date-of-birth", ng-model="model.address.country", ng-options="country.value as country.name for country in model.countries")
+  .form-group
+    label.col-sm-6.control-label.required(for="phone") Phone
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="phone", ng-model="model.address.phone")
+  .form-group
+    .col-sm-offset-6.col-sm-6
+      include ../templates/buttons_step

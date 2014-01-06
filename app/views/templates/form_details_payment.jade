@@ -1,0 +1,35 @@
+form.form-horizontal(role="form")
+  .form-group
+    label.col-sm-6.control-label.required(for="email-address") Email Address
+    .col-sm-6
+      input.form-control.input-sm(type="email", id="email-address", ng-model="model.customer.emailAddress")
+  .form-group
+    label.col-sm-6.control-label.required(for="card-type") Card Type
+    .input-group.col-sm-6
+      .input-group-btn
+        select.input-sm.form-control(id="card-type", ng-model="model.customer.card.type", ng-options="type.value as type.name for type in model.cardTypes")
+  .form-group
+    label.col-sm-6.control-label.required(for="cardholder-name") Cardholder Name
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="cardholder-name", ng-model="model.customer.card.holderName")
+  .form-group
+    label.col-sm-6.control-label.required(for="card-number") Card Number
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="card-number", ng-model="model.customer.card.number")
+  .form-group
+    label.col-sm-6.control-label.required(for="card-expiry-date") Expiry Date
+    .input-group.col-sm-6
+      .input-group-btn
+        select.input-sm.form-control(id="card-expiry-date-month", ng-model="model.customer.card.expiryMonth", ng-options="month.value as month.name for month in model.months")
+          option(value="") Month
+      .input-group-btn
+        select.input-sm.form-control(id="card-expiry-date-year", ng-model="model.customer.card.expiryYear", ng-options="year.value as year.name for year in model.years")
+          option(value="") Year
+  .form-group
+    label.col-sm-6.control-label.required(for="card-verification-number") Card Verification (CVC)
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="card-verification-number", ng-model="model.customer.card.verificationNumber")
+      span (last 3 digits on signature strip)
+  .form-group
+    .col-sm-offset-6.col-sm-6
+      include ../templates/buttons_step

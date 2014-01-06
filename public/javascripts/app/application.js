@@ -17,7 +17,6 @@
           return $scope.model.step++;
         };
         $scope.saveStepAdditionalInfo = function() {
-          console.log("customer: ", $scope.model.customer);
           return Customer.create($scope.model.customer);
         };
         return $scope.model.days = [

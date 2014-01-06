@@ -1,0 +1,43 @@
+form.form-horizontal(role="form")
+  .form-group
+    label.col-sm-6.control-label.required(for="date-of-birth") Date of Birth
+    .input-group.col-sm-6
+        .input-group-btn
+          select.input-sm.form-control(id="date-of-birth", ng-model="model.customer.birth.day", ng-options="day.value as day.name for day in model.days")
+            option(value="") Day
+        .input-group-btn
+          select.input-sm.form-control(id="date-of-birth", ng-model="model.customer.birth.month", ng-options="day.value as day.name for day in model.days")
+            option(value="") Month
+        .input-group-btn
+          input.form-control.input-sm(id="year-of-birth", ng-model="model.customer.birth.year", placeholder="Year")
+  .form-group
+    label.col-sm-6.control-label.required(for="place-of-birth") Place of Birth
+    .col-sm-6
+      input.form-control.input-sm(type="email", id="place-of-birth", ng-model="model.customer.birth.place")
+  .form-group
+    label.col-sm-6.control-label.required(for="last-name-at-birth") Last Name at Birth
+    .col-sm-6
+      input.form-control.input-sm(type="email", id="last-name-at-birth", ng-model="model.customer.birth.lastName")
+  .form-group
+    label.col-sm-6.control-label.required(for="first-name-of-birth") First Name at Birth
+    .col-sm-6
+      input.form-control.input-sm(type="email", id="first-name-of-birth", ng-model="model.customer.birth.firstName")
+  .form-group
+    label.col-sm-6.control-label(for="mother-maiden-name") Mother's Maiden Name
+    .col-sm-6
+      input.form-control.input-sm(type="email", id="mother-maiden-name", ng-model="model.customer.birth.mother.maidenName")
+  .form-group
+    label.col-sm-6.control-label(for="mother-first-name") Mother's First Name
+    .col-sm-6
+      input.form-control.input-sm(type="email", id="mother-first-name", ng-model="model.customer.birth.mother.firstName")
+  .form-group
+    label.col-sm-6.control-label(for="father-last-name") Father's Last Name
+    .col-sm-6
+      input.form-control.input-sm(type="email", id="father-last-name", ng-model="model.customer.birth.father.lastName")
+  .form-group
+    label.col-sm-6.control-label(for="father-first-name") Father's First Name
+    .col-sm-6
+      input.form-control.input-sm(type="email", id="father-first-name", ng-model="model.customer.birth.father.firstName")
+  .form-group
+    .col-sm-offset-6.col-sm-6
+      include ../templates/buttons_step
