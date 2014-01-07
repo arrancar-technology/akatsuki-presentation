@@ -3,17 +3,11 @@
     h3.panel-title Order Summary
   .panel-body
     h4 Certificate Details
-    .row
+    small.row
       .col-sm-6 Date of Marriage
       .col-sm-6 {{model.customer.marriage.day}}/{{model.customer.marriage.month}}/{{model.customer.marriage.year}}
-    .row
+    small.row
       .col-sm-6 Place of Marriage
       .col-sm-6 {{model.customer.marriage.place}}
-    h4 Additional Details
-    .row
-      .col-sm-6 Date of Marriage
-      .col-sm-6 {{model.customer.birth.day}}
-    h4 Payment Details
-    .row
-      .col-sm-6 Date of Marriage
-      .col-sm-6 {{model.customer.birth.day}}
+    include ../templates/order_summary_additional
+    include ../templates/order_summary_payment

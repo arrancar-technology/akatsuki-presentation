@@ -1,0 +1,19 @@
+h4 Payment Details
+small.row
+  .col-sm-6 Email Address
+  .col-sm-6 : {{model.customer.emailAddress || '--' }}
+small.row
+  .col-sm-6 Card Type
+  .col-sm-6 : {{model.customer.card.type || '--' }}
+small.row
+  .col-sm-6 Cardholder Name
+  .col-sm-6 : {{model.customer.card.holderName || '--' }}
+small.row
+  .col-sm-6 Card Number
+  .col-sm-6 : {{model.customer.card.number || '--' }}
+small.row
+  .col-sm-6 Expiry Date
+  .col-sm-6 : {{model.customer.card.expiryMonth || '--' }} / {{model.customer.card.expiryYear || '--' }}
+small.row
+  .col-sm-6 Card Verification (CVC)
+  .col-sm-6 : {{model.customer.card.verificationNumber || '--' }}

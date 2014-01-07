@@ -1,0 +1,16 @@
+.panel.panel-default
+  .panel-heading
+    h3.panel-title Order Summary
+  .panel-body
+    h4 Certificate Details
+    small.row
+      .col-sm-6 Date of Marriage
+      .col-sm-6 {{model.customer.marriage.day}}/{{model.customer.marriage.month}}/{{model.customer.marriage.year}}
+    small.row
+      .col-sm-6 Place of Marriage
+      .col-sm-6 {{model.customer.marriage.place}}
+    small.row
+      .col-sm-6 Place of Marriage
+      .col-sm-6 {{model.customer.marriage.place}}
+    include ../templates/order_summary_additional
+    include ../templates/order_summary_payment
