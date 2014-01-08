@@ -89,3 +89,33 @@ $('.animate-inview').one 'inview', ->
   setTimeout (->
     $('.animate').removeClass('invisible').addClass('animated')),
     500
+
+# Find bootstrap environment
+findBootstrapEnvironment = ->
+  envs = ["ExtraSmall", "Small", "Medium", "Large"]
+  envValues = ["xs", "sm", "md", "lg"]
+  $el = $("<div>")
+  $el.appendTo $("body")
+  i = envValues.length - 1
+
+  while i >= 0
+    envVal = envValues[i]
+    $el.addClass "hidden-" + envVal
+    if $el.is(":hidden")
+      $el.remove()
+      return envs[i]
+    i--
+
+# Initialize popovers
+bootstrapEnv = findBootstrapEnvironment()
+placement = (if (bootstrapEnv is "ExtraSmall") then "bottom" else "right")
+popoverOptions =
+  'trigger': "focus"
+  'container': "body"
+  'toggle': "popover"
+  'placement': placement
+  'original-title': ""
+  'title': ""
+$("#place-of-birth").popover(Object.merge(popoverOptions, {'content': "Please enter place of birth"}))
+$("#last-name-at-birth").popover(Object.merge(popoverOptions, {'content': "Please enter last name at birth"}))
+

@@ -1,5 +1,5 @@
 (function() {
-  var app, controllers, factories;
+  var app, bootstrapEnv, controllers, factories, findBootstrapEnvironment, placement, popoverOptions;
 
   controllers = {
     CertificateDetailsController: [
@@ -163,5 +163,44 @@
       return $('.animate').removeClass('invisible').addClass('animated');
     }), 500);
   });
+
+  findBootstrapEnvironment = function() {
+    var $el, envVal, envValues, envs, i;
+    envs = ["ExtraSmall", "Small", "Medium", "Large"];
+    envValues = ["xs", "sm", "md", "lg"];
+    $el = $("<div>");
+    $el.appendTo($("body"));
+    i = envValues.length - 1;
+    while (i >= 0) {
+      envVal = envValues[i];
+      $el.addClass("hidden-" + envVal);
+      if ($el.is(":hidden")) {
+        $el.remove();
+        return envs[i];
+      }
+      i--;
+    }
+  };
+
+  bootstrapEnv = findBootstrapEnvironment();
+
+  placement = (bootstrapEnv === "ExtraSmall" ? "bottom" : "right");
+
+  popoverOptions = {
+    'trigger': "focus",
+    'container': "body",
+    'toggle': "popover",
+    'placement': placement,
+    'original-title': "",
+    'title': ""
+  };
+
+  $("#place-of-birth").popover(Object.merge(popoverOptions, {
+    'content': "Please enter place of birth"
+  }));
+
+  $("#last-name-at-birth").popover(Object.merge(popoverOptions, {
+    'content': "Please enter last name at birth"
+  }));
 
 }).call(this);
