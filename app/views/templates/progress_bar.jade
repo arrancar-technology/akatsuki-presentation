@@ -4,6 +4,6 @@
       .col-md-12.text-center  
       .col-md-12.text-center  
         ol.progtrckr(data-progtrckr-steps='3')
-          li.progtrckr-todo(data-ng-class="{'progtrckr-done': model.step > 1}") Personal Details
-          li.progtrckr-todo(data-ng-class="{'progtrckr-done': model.step > 2}") Additional Details
-          li.progtrckr-todo(data-ng-class="{'progtrckr-done': model.step > 3}") Payment
+          li.progtrckr-todo(data-ng-class="{'progtrckr-done': model.steps.current > 1}") Personal Details
+          li.progtrckr-todo(data-ng-class="{'progtrckr-done': model.steps.current > 2}") Additional Details
+          li.progtrckr-todo(data-ng-class="{'progtrckr-done': model.steps.current > 3}") Payment

@@ -1,7 +1,11 @@
 controllers =
   CertificateDetailsController: ["$scope", "Customer", ($scope, Customer) ->
     $scope.model = {}
-    $scope.model.step = 1
+    $scope.model.steps = {}
+    $scope.model.steps[1] = {} # Certificate Details
+    $scope.model.steps[2] = {} # Additional Details
+    $scope.model.steps[3] = {} # Payment Details
+    $scope.model.steps.current = 1
     $scope.model.customer = new Customer()
 
     # Defaults
@@ -13,11 +17,13 @@ controllers =
     $scope.model.customer.card.type = 'visa'
 
     $scope.goToStep = (step)->
-      $scope.model.step = step
+      $scope.model.steps.current = step
     $scope.previousStep = ->
-      $scope.model.step--
+      $scope.model.steps.current--
     $scope.nextStep = ->
-      $scope.model.step++
+      if $scope.birth_form.$valid
+        $scope.model.steps.current++
+      $scope.model.steps[$scope.model.steps.current].submitted = true
 
     $scope.saveStepAdditionalInfo = ->
       Customer.create($scope.model.customer)

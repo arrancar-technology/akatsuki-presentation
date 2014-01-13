@@ -1,4 +1,4 @@
-form.form-horizontal(role="form")
+form.form-horizontal(name="birth_form", role="form", novalidate="novalidate")
   .form-group
     label.col-sm-6.control-label.required(for="date-of-birth") Date of Birth
     .input-group.col-sm-6
@@ -10,18 +10,18 @@ form.form-horizontal(role="form")
             option(value="") Month
         .input-group-btn
           input.form-control.input-sm(id="year-of-birth", ng-model="model.customer.birth.year", placeholder="Year")
-  .form-group
+  .form-group(ng-class='{"has-error": birth_form["place-of-birth"].$invalid && model.steps.1.submitted}')
     label.col-sm-6.control-label.required(for="place-of-birth") Place of Birth
     .col-sm-6
-      input.form-control.input-sm(type="text", id="place-of-birth", data-ng-model="model.customer.birth.place")
-  .form-group
+      input.form-control.input-sm(type="text", id="place-of-birth", name="place-of-birth", data-ng-model="model.customer.birth.place", required='required')
+  .form-group(ng-class='{"has-error": birth_form["last-name-at-birth"].$invalid && model.steps.1.submitted}')
     label.col-sm-6.control-label.required(for="last-name-at-birth") Last Name at Birth
     .col-sm-6
-      input.form-control.input-sm(type="text", id="last-name-at-birth", ng-model="model.customer.birth.lastName")
-  .form-group
+      input.form-control.input-sm(type="text", id="last-name-at-birth", name="last-name-at-birth", ng-model="model.customer.birth.lastName", required='required')
+  .form-group(ng-class='{"has-error": birth_form["first-name-of-birth"].$invalid && model.steps.1.submitted}')
     label.col-sm-6.control-label.required(for="first-name-of-birth") First Name at Birth
     .col-sm-6
-      input.form-control.input-sm(type="text", id="first-name-of-birth", ng-model="model.customer.birth.firstName")
+      input.form-control.input-sm(type="text", id="first-name-of-birth", name="first-name-of-birth", ng-model="model.customer.birth.firstName", required='required')
   .form-group
     label.col-sm-6.control-label(for="mother-maiden-name") Mother's Maiden Name
     .col-sm-6

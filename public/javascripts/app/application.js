@@ -6,7 +6,11 @@
       "$scope", "Customer", function($scope, Customer) {
         var num;
         $scope.model = {};
-        $scope.model.step = 1;
+        $scope.model.steps = {};
+        $scope.model.steps[1] = {};
+        $scope.model.steps[2] = {};
+        $scope.model.steps[3] = {};
+        $scope.model.steps.current = 1;
         $scope.model.customer = new Customer();
         $scope.model.customer.serviceRequest = {};
         $scope.model.customer.serviceRequest.numberOfCopies = 1;
@@ -14,13 +18,16 @@
         $scope.model.customer.card = {};
         $scope.model.customer.card.type = 'visa';
         $scope.goToStep = function(step) {
-          return $scope.model.step = step;
+          return $scope.model.steps.current = step;
         };
         $scope.previousStep = function() {
-          return $scope.model.step--;
+          return $scope.model.steps.current--;
         };
         $scope.nextStep = function() {
-          return $scope.model.step++;
+          if ($scope.birth_form.$valid) {
+            $scope.model.steps.current++;
+          }
+          return $scope.model.steps[$scope.model.steps.current].submitted = true;
         };
         $scope.saveStepAdditionalInfo = function() {
           return Customer.create($scope.model.customer);
