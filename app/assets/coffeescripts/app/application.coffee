@@ -1,3 +1,39 @@
+# Find bootstrap environment
+findBootstrapEnvironment = ->
+  envs = ["ExtraSmall", "Small", "Medium", "Large"]
+  envValues = ["xs", "sm", "md", "lg"]
+  $el = $("<div>")
+  $el.appendTo $("body")
+  i = envValues.length - 1
+
+  while i >= 0
+    envVal = envValues[i]
+    $el.addClass "hidden-" + envVal
+    if $el.is(":hidden")
+      $el.remove()
+      return envs[i]
+    i--
+
+# Initialize popovers
+bootstrapEnv = findBootstrapEnvironment()
+placement = (if (bootstrapEnv is "ExtraSmall") then "bottom" else "right")
+popoverOptions =
+  'trigger': "focus"
+  'container': "body"
+  'toggle': "popover"
+  'placement': placement
+  'original-title': ""
+  'title': ""
+
+popoverContents =
+  "year-of-birth": "Please enter year of birth in YYYY format"
+  "place-of-birth": "Please enter place of birth"
+  "last-name-at-birth": "Please enter last name at birth"
+  "first-name-at-birth": "Please enter first name at birth"
+
+initializePopover = (elementId) ->
+  $("##{elementId}").popover(Object.merge(popoverOptions, {'content': popoverContents[elementId]}))
+
 controllers =
   CertificateDetailsController: ["$scope", "Customer", ($scope, Customer) ->
     $scope.model = {}
@@ -23,6 +59,8 @@ controllers =
     $scope.nextStep = ->
       if $scope.birth_form.$valid
         $scope.model.steps.current++
+      else
+        initializePopover $(element).attr('id') for element in $(".step.#{$scope.model.steps.current} input[required]")
       $scope.model.steps[$scope.model.steps.current].submitted = true
 
     $scope.saveStepAdditionalInfo = ->
@@ -95,34 +133,3 @@ $('.animate-inview').one 'inview', ->
   setTimeout (->
     $('.animate').removeClass('invisible').addClass('animated')),
     500
-
-# Find bootstrap environment
-findBootstrapEnvironment = ->
-  envs = ["ExtraSmall", "Small", "Medium", "Large"]
-  envValues = ["xs", "sm", "md", "lg"]
-  $el = $("<div>")
-  $el.appendTo $("body")
-  i = envValues.length - 1
-
-  while i >= 0
-    envVal = envValues[i]
-    $el.addClass "hidden-" + envVal
-    if $el.is(":hidden")
-      $el.remove()
-      return envs[i]
-    i--
-
-# Initialize popovers
-bootstrapEnv = findBootstrapEnvironment()
-placement = (if (bootstrapEnv is "ExtraSmall") then "bottom" else "right")
-popoverOptions =
-  'trigger': "focus"
-  'container': "body"
-  'toggle': "popover"
-  'placement': placement
-  'original-title': ""
-  'title': ""
-$("#year-of-birth").popover(Object.merge(popoverOptions, {'content': "Please enter year of birth in YYYY format"}))
-$("#place-of-birth").popover(Object.merge(popoverOptions, {'content': "Please enter place of birth"}))
-$("#last-name-at-birth").popover(Object.merge(popoverOptions, {'content': "Please enter last name at birth"}))
-$("#first-name-at-birth").popover(Object.merge(popoverOptions, {'content': "Please enter first name at birth"}))

@@ -1,5 +1,49 @@
 (function() {
-  var app, bootstrapEnv, controllers, factories, findBootstrapEnvironment, placement, popoverOptions;
+  var app, bootstrapEnv, controllers, factories, findBootstrapEnvironment, initializePopover, placement, popoverContents, popoverOptions;
+
+  findBootstrapEnvironment = function() {
+    var $el, envVal, envValues, envs, i;
+    envs = ["ExtraSmall", "Small", "Medium", "Large"];
+    envValues = ["xs", "sm", "md", "lg"];
+    $el = $("<div>");
+    $el.appendTo($("body"));
+    i = envValues.length - 1;
+    while (i >= 0) {
+      envVal = envValues[i];
+      $el.addClass("hidden-" + envVal);
+      if ($el.is(":hidden")) {
+        $el.remove();
+        return envs[i];
+      }
+      i--;
+    }
+  };
+
+  bootstrapEnv = findBootstrapEnvironment();
+
+  placement = (bootstrapEnv === "ExtraSmall" ? "bottom" : "right");
+
+  popoverOptions = {
+    'trigger': "focus",
+    'container': "body",
+    'toggle': "popover",
+    'placement': placement,
+    'original-title': "",
+    'title': ""
+  };
+
+  popoverContents = {
+    "year-of-birth": "Please enter year of birth in YYYY format",
+    "place-of-birth": "Please enter place of birth",
+    "last-name-at-birth": "Please enter last name at birth",
+    "first-name-at-birth": "Please enter first name at birth"
+  };
+
+  initializePopover = function(elementId) {
+    return $("#" + elementId).popover(Object.merge(popoverOptions, {
+      'content': popoverContents[elementId]
+    }));
+  };
 
   controllers = {
     CertificateDetailsController: [
@@ -24,8 +68,15 @@
           return $scope.model.steps.current--;
         };
         $scope.nextStep = function() {
+          var element, _i, _len, _ref;
           if ($scope.birth_form.$valid) {
             $scope.model.steps.current++;
+          } else {
+            _ref = $(".step." + $scope.model.steps.current + " input[required]");
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+              element = _ref[_i];
+              initializePopover($(element).attr('id'));
+            }
           }
           return $scope.model.steps[$scope.model.steps.current].submitted = true;
         };
@@ -170,52 +221,5 @@
       return $('.animate').removeClass('invisible').addClass('animated');
     }), 500);
   });
-
-  findBootstrapEnvironment = function() {
-    var $el, envVal, envValues, envs, i;
-    envs = ["ExtraSmall", "Small", "Medium", "Large"];
-    envValues = ["xs", "sm", "md", "lg"];
-    $el = $("<div>");
-    $el.appendTo($("body"));
-    i = envValues.length - 1;
-    while (i >= 0) {
-      envVal = envValues[i];
-      $el.addClass("hidden-" + envVal);
-      if ($el.is(":hidden")) {
-        $el.remove();
-        return envs[i];
-      }
-      i--;
-    }
-  };
-
-  bootstrapEnv = findBootstrapEnvironment();
-
-  placement = (bootstrapEnv === "ExtraSmall" ? "bottom" : "right");
-
-  popoverOptions = {
-    'trigger': "focus",
-    'container': "body",
-    'toggle': "popover",
-    'placement': placement,
-    'original-title': "",
-    'title': ""
-  };
-
-  $("#year-of-birth").popover(Object.merge(popoverOptions, {
-    'content': "Please enter year of birth in YYYY format"
-  }));
-
-  $("#place-of-birth").popover(Object.merge(popoverOptions, {
-    'content': "Please enter place of birth"
-  }));
-
-  $("#last-name-at-birth").popover(Object.merge(popoverOptions, {
-    'content': "Please enter last name at birth"
-  }));
-
-  $("#first-name-at-birth").popover(Object.merge(popoverOptions, {
-    'content': "Please enter first name at birth"
-  }));
 
 }).call(this);
