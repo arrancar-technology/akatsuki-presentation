@@ -2,14 +2,14 @@ form.form-horizontal(name="birth_form", role="form", novalidate="novalidate")
   .form-group
     label.col-sm-6.control-label.required(for="date-of-birth") Date of Birth
     .input-group.col-sm-6
-        .input-group-btn
-          select.input-sm.form-control(id="date-of-birth", ng-model="model.customer.birth.day", ng-options="day.value as day.name for day in model.days")
+        .input-group-btn(ng-class='{"has-error": birth_form["date-of-birth"].$invalid && model.steps.1.submitted}')
+          select.input-sm.form-control(id="date-of-birth", name="date-of-birth", ng-model="model.customer.birth.day", ng-options="day.value as day.name for day in model.days", required='required')
             option(value="") Day
-        .input-group-btn
-          select.input-sm.form-control(id="date-of-birth", ng-model="model.customer.birth.month", ng-options="month.value as month.name for month in model.months")
+        .input-group-btn(ng-class='{"has-error": birth_form["month-of-birth"].$invalid && model.steps.1.submitted}')
+          select.input-sm.form-control(id="month-of-birth", name="month-of-birth", ng-model="model.customer.birth.month", ng-options="month.value as month.name for month in model.months", required='required')
             option(value="") Month
-        .input-group-btn
-          input.form-control.input-sm(id="year-of-birth", ng-model="model.customer.birth.year", placeholder="Year")
+        .input-group-btn(ng-class='{"has-error": birth_form["year-of-birth"].$invalid && model.steps.1.submitted}')
+          input.form-control.input-sm(id="year-of-birth", name="year-of-birth", ng-model="model.customer.birth.year", placeholder="Year", required='required', ng-pattern=/19\d{2}|20\d{2}/)
   .form-group(ng-class='{"has-error": birth_form["place-of-birth"].$invalid && model.steps.1.submitted}')
     label.col-sm-6.control-label.required(for="place-of-birth") Place of Birth
     .col-sm-6
@@ -18,10 +18,10 @@ form.form-horizontal(name="birth_form", role="form", novalidate="novalidate")
     label.col-sm-6.control-label.required(for="last-name-at-birth") Last Name at Birth
     .col-sm-6
       input.form-control.input-sm(type="text", id="last-name-at-birth", name="last-name-at-birth", ng-model="model.customer.birth.lastName", required='required')
-  .form-group(ng-class='{"has-error": birth_form["first-name-of-birth"].$invalid && model.steps.1.submitted}')
-    label.col-sm-6.control-label.required(for="first-name-of-birth") First Name at Birth
+  .form-group(ng-class='{"has-error": birth_form["first-name-at-birth"].$invalid && model.steps.1.submitted}')
+    label.col-sm-6.control-label.required(for="first-name-at-birth") First Name at Birth
     .col-sm-6
-      input.form-control.input-sm(type="text", id="first-name-of-birth", name="first-name-of-birth", ng-model="model.customer.birth.firstName", required='required')
+      input.form-control.input-sm(type="text", id="first-name-at-birth", name="first-name-at-birth", ng-model="model.customer.birth.firstName", required='required')
   .form-group
     label.col-sm-6.control-label(for="mother-maiden-name") Mother's Maiden Name
     .col-sm-6

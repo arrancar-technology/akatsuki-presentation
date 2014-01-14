@@ -122,6 +122,7 @@ popoverOptions =
   'placement': placement
   'original-title': ""
   'title': ""
+$("#year-of-birth").popover(Object.merge(popoverOptions, {'content': "Please enter year of birth in YYYY format"}))
 $("#place-of-birth").popover(Object.merge(popoverOptions, {'content': "Please enter place of birth"}))
 $("#last-name-at-birth").popover(Object.merge(popoverOptions, {'content': "Please enter last name at birth"}))
-
+$("#first-name-at-birth").popover(Object.merge(popoverOptions, {'content': "Please enter first name at birth"}))
