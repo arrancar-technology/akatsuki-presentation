@@ -19,7 +19,8 @@
     "yamljs": "0.1.4",
     "q": "0.9.6",
     "strong-agent": "latest",
-    "jugglingdb-mongodb": "0.0.4-3"
+    "jugglingdb-mongodb": "0.0.4-3",
+    "sugar": "~1.4.1"
   },
   "devDependencies": {
     "co-generators": "*",

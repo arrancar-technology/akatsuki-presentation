@@ -1,3 +1,4 @@
-button.pull-left.btn.btn-sm.btn-warning(type="submit", data-ng-click="previousStep()", data-ng-show="model.steps.current > 1") Previous
-button.pull-right.btn.btn-sm.btn-success(type="submit", data-ng-click="nextStep()", data-ng-show="model.steps.current < 3") Next
-button.pull-right.btn.btn-sm.btn-success(type="submit", data-ng-click="saveStepAdditionalInfo()", data-ng-show="model.steps.current == 3") Secure Payment
+.step-navigation
+  button.button-previous.pull-left.btn.btn-sm.btn-warning(type="submit", data-ng-click="previousStep()", data-ng-show="model.steps.current > 1") Previous
+  button.button-next.pull-right.btn.btn-sm.btn-success(type="submit", data-ng-click="nextStep()", data-ng-show="model.steps.current < 3") Next
+  button.button-payment.pull-right.btn.btn-sm.btn-success(type="submit", data-ng-click="saveStepAdditionalInfo()", data-ng-show="model.steps.current == 3") Secure Payment

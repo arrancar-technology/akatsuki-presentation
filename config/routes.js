@@ -3,8 +3,8 @@ exports.routes = function (map) {
   map.get('/', 'homepage#show');
 
   // Certificate Details
-  map.post('/details/:section', 'certificate_details#personalDetails');
-  map.get('/details/:section', 'certificate_details#additionalDetails');
+  map.post('/certificate/:section', 'certificate#personalDetails');
+  map.get('/certificate/:section', 'certificate#additionalDetails');
 
   // Customer
   map.resources('customers', { path: 'api/1/customers' });
