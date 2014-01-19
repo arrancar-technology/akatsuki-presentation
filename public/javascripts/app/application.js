@@ -50,11 +50,11 @@
       "$scope", "Customer", function($scope, Customer) {
         var num;
         $scope.model = {};
-        $scope.model.steps = {};
-        $scope.model.steps[1] = {};
-        $scope.model.steps[2] = {};
-        $scope.model.steps[3] = {};
-        $scope.model.steps.current = 1;
+        $scope.model.step = {};
+        $scope.model.step[1] = {};
+        $scope.model.step[2] = {};
+        $scope.model.step[3] = {};
+        $scope.model.step.current = 1;
         $scope.model.customer = new Customer();
         $scope.model.customer.serviceRequest = {};
         $scope.model.customer.serviceRequest.numberOfCopies = 1;
@@ -62,23 +62,23 @@
         $scope.model.customer.card = {};
         $scope.model.customer.card.type = 'visa';
         $scope.goToStep = function(step) {
-          return $scope.model.steps.current = step;
+          return $scope.model.step.current = step;
         };
         $scope.previousStep = function() {
-          return $scope.model.steps.current--;
+          return $scope.model.step.current--;
         };
         $scope.nextStep = function() {
           var element, _i, _len, _ref;
           if ($scope.birth_form.$valid) {
-            $scope.model.steps.current++;
+            $scope.model.step.current++;
           } else {
-            _ref = $(".step." + $scope.model.steps.current + " input[required]");
+            _ref = $(".step." + $scope.model.step.current + " input[required]");
             for (_i = 0, _len = _ref.length; _i < _len; _i++) {
               element = _ref[_i];
               initializePopover($(element).attr('id'));
             }
           }
-          return $scope.model.steps[$scope.model.steps.current].submitted = true;
+          return $scope.model.step[$scope.model.step.current].submitted = true;
         };
         $scope.saveStepAdditionalInfo = function() {
           return Customer.create($scope.model.customer);

@@ -19,7 +19,7 @@ form.form-horizontal(role="form")
     label.col-sm-6.control-label.required(for="country") Country
     .input-group.col-sm-6
       .input-group-btn
-        select.input-sm.form-control(id="date-of-birth", ng-model="model.address.country", ng-options="country.value as country.name for country in model.countries")
+        select.input-sm.form-control(id="country", ng-model="model.address.country", ng-options="country.value as country.name for country in model.countries")
   .form-group
     label.col-sm-6.control-label.required(for="phone") Phone
     .col-sm-6

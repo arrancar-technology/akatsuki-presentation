@@ -1,24 +1,24 @@
-form.form-horizontal.step.first(name="birth_form", role="form", novalidate="novalidate")
-  .form-group
-    label.col-sm-6.control-label.required(for="date-of-birth") Date of Birth
+form.form-horizontal.step.1.first(name="birth_form", role="form", novalidate="novalidate")
+  .form-group.date-of-birth-container(ng-class='{"has-error": (birth_form["day-of-birth"].$invalid || birth_form["month-of-birth"].$invalid|| birth_form["year-of-birth"].$invalid) && model.step.1.submitted}')
+    label.col-sm-6.control-label.required(for="day-of-birth") Date of Birth
     .input-group.col-sm-6
-        .input-group-btn(ng-class='{"has-error": birth_form["date-of-birth"].$invalid && model.steps.1.submitted}')
-          select.input-sm.form-control(id="date-of-birth", name="date-of-birth", ng-model="model.customer.birth.day", ng-options="day.value as day.name for day in model.days", required='required')
+        .input-group-btn(ng-class='{"has-error": birth_form["day-of-birth"].$invalid && model.step.1.submitted, "has-success": birth_form["day-of-birth"].$valid && model.step.1.submitted}')
+          select.day.input-sm.form-control(id="day-of-birth", name="day-of-birth", ng-model="model.customer.birth.day", ng-options="day.value as day.name for day in model.days", required='required')
             option(value="") Day
-        .input-group-btn(ng-class='{"has-error": birth_form["month-of-birth"].$invalid && model.steps.1.submitted}')
-          select.input-sm.form-control(id="month-of-birth", name="month-of-birth", ng-model="model.customer.birth.month", ng-options="month.value as month.name for month in model.months", required='required')
+        .input-group-btn(ng-class='{"has-error": birth_form["month-of-birth"].$invalid && model.step.1.submitted, "has-success": birth_form["month-of-birth"].$valid && model.step.1.submitted}')
+          select.month.input-sm.form-control(id="month-of-birth", name="month-of-birth", ng-model="model.customer.birth.month", ng-options="month.value as month.name for month in model.months", required='required')
             option(value="") Month
-        .input-group-btn(ng-class='{"has-error": birth_form["year-of-birth"].$invalid && model.steps.1.submitted}')
-          input.form-control.input-sm(id="year-of-birth", name="year-of-birth", ng-model="model.customer.birth.year", placeholder="Year", required='required', ng-pattern=/19\d{2}|20\d{2}/, maxlength="4")
-  .form-group(ng-class='{"has-error": birth_form["place-of-birth"].$invalid && model.steps.1.submitted}')
+        .input-group-btn(ng-class='{"has-error": birth_form["year-of-birth"].$invalid && model.step.1.submitted, "has-success": birth_form["year-of-birth"].$valid && model.step.1.submitted}')
+          input.year.form-control.input-sm(id="year-of-birth", name="year-of-birth", ng-model="model.customer.birth.year", placeholder="Year", required='required', ng-pattern=/19\d{2}|20\d{2}/, maxlength="4")
+  .form-group(ng-class='{"has-error": birth_form["place-of-birth"].$invalid && model.step.1.submitted, "has-success": birth_form["place-of-birth"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="place-of-birth") Place of Birth
     .col-sm-6
       input.form-control.input-sm(type="text", id="place-of-birth", name="place-of-birth", data-ng-model="model.customer.birth.place", required='required')
-  .form-group(ng-class='{"has-error": birth_form["last-name-at-birth"].$invalid && model.steps.1.submitted}')
+  .form-group(ng-class='{"has-error": birth_form["last-name-at-birth"].$invalid && model.step.1.submitted, "has-success": birth_form["last-name-at-birth"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="last-name-at-birth") Last Name at Birth
     .col-sm-6
       input.form-control.input-sm(type="text", id="last-name-at-birth", name="last-name-at-birth", ng-model="model.customer.birth.lastName", required='required')
-  .form-group(ng-class='{"has-error": birth_form["first-name-at-birth"].$invalid && model.steps.1.submitted}')
+  .form-group(ng-class='{"has-error": birth_form["first-name-at-birth"].$invalid && model.step.1.submitted, "has-success": birth_form["first-name-at-birth"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="first-name-at-birth") First Name at Birth
     .col-sm-6
       input.form-control.input-sm(type="text", id="first-name-at-birth", name="first-name-at-birth", ng-model="model.customer.birth.firstName", required='required')

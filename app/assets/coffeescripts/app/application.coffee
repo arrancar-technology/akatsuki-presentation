@@ -37,11 +37,11 @@ initializePopover = (elementId) ->
 controllers =
   CertificateDetailsController: ["$scope", "Customer", ($scope, Customer) ->
     $scope.model = {}
-    $scope.model.steps = {}
-    $scope.model.steps[1] = {} # Certificate Details
-    $scope.model.steps[2] = {} # Additional Details
-    $scope.model.steps[3] = {} # Payment Details
-    $scope.model.steps.current = 1
+    $scope.model.step = {}
+    $scope.model.step[1] = {} # Certificate Details
+    $scope.model.step[2] = {} # Additional Details
+    $scope.model.step[3] = {} # Payment Details
+    $scope.model.step.current = 1
     $scope.model.customer = new Customer()
 
     # Defaults
@@ -53,15 +53,15 @@ controllers =
     $scope.model.customer.card.type = 'visa'
 
     $scope.goToStep = (step)->
-      $scope.model.steps.current = step
+      $scope.model.step.current = step
     $scope.previousStep = ->
-      $scope.model.steps.current--
+      $scope.model.step.current--
     $scope.nextStep = ->
       if $scope.birth_form.$valid
-        $scope.model.steps.current++
+        $scope.model.step.current++
       else
-        initializePopover $(element).attr('id') for element in $(".step.#{$scope.model.steps.current} input[required]")
-      $scope.model.steps[$scope.model.steps.current].submitted = true
+        initializePopover $(element).attr('id') for element in $(".step.#{$scope.model.step.current} input[required]")
+      $scope.model.step[$scope.model.step.current].submitted = true
 
     $scope.saveStepAdditionalInfo = ->
       Customer.create($scope.model.customer)

@@ -9,17 +9,17 @@ block content
             .panel.panel-default
               .panel-heading
                 h3.panel-title Step 1 - Certificate Details
-              .panel-body(data-ng-show="model.steps.current == 1")
+              .panel-body(data-ng-show="model.step.current == 1")
                 include ../templates/form_details_certificate_birth
 
               .panel-heading
                 h3.panel-title Step 2 - Additional Details
-              .panel-body(data-ng-show="model.steps.current == 2")
+              .panel-body(data-ng-show="model.step.current == 2")
                 include ../templates/form_details_additional
 
               .panel-heading
                 h3.panel-title Step 3 - Payment Details
-              .panel-body(data-ng-show="model.steps.current == 3")
+              .panel-body(data-ng-show="model.step.current == 3")
                 include ../templates/form_details_payment
           .col-sm-6.col-md-4.hidden-xs
             include ../templates/order_summary_details_birth
