@@ -66,45 +66,29 @@ controllers =
     $scope.saveStepAdditionalInfo = ->
       Customer.create($scope.model.customer)
 
-    $scope.model.numberOfCopies = ({name: num, value: num} for num in [1..10])
-    $scope.model.numberOfApostilles = ({name: num, value: num} for num in [1..10])
-    $scope.model.yearsExpiry = ({name: num, value: num} for num in [2014..2020])
-    $scope.model.coutries = []
-    $scope.model.cardTypes = [
-      name: 'Visa', value: 'visa'
-    ,
-      name: 'Visa Debit', value: 'visaDebit'
-    ,
-      name: 'Master', value: 'master'
-    ,
-      name: 'Maestro', value: 'maestro'
-    ]
-    $scope.model.months = [
-      name: 'January', value: 1
-    ,
-      name: 'February', value: 2
-    ,
-      name: 'March', value: 3
-    ,
-      name: 'April', value: 4
-    ,
-      name: 'May', value: 5
-    ,
-      name: 'June', value: 6
-    ,
-      name: 'July', value: 7
-    ,
-      name: 'August', value: 8
-    ,
-      name: 'September', value: 9
-    ,
-      name: 'October', value: 10
-    ,
-      name: 'November', value: 11
-    ,
-      name: 'December', value: 12
-    ]
-    $scope.model.days = ({name: num, value: num} for num in [1..31])
+    $scope.model.numberOfCopies = [1..10]
+    $scope.model.numberOfApostilles = [1..10]
+    $scope.model.yearsExpiry = [2014..2020]
+    $scope.model.coutries = [] #TODO: [DK] find an up-to-date country list
+    $scope.model.cardTypes =
+      'visa': 'Visa',
+      'visaDebit': 'Visa Debit',
+      'master': 'Master',
+      'maestro': 'Maestro'
+    $scope.model.months =
+      1: 'January',
+      2: 'February',
+      3: 'March',
+      4: 'April',
+      5: 'May',
+      6: 'June',
+      7: 'July',
+      8: 'August',
+      9: 'September',
+      10: 'October',
+      11: 'November',
+      12: 'December'
+    $scope.model.days = [1..31]
   ]
 
 factories =

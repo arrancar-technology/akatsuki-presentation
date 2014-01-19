@@ -48,7 +48,7 @@
   controllers = {
     CertificateDetailsController: [
       "$scope", "Customer", function($scope, Customer) {
-        var num;
+        var _i, _results;
         $scope.model = {};
         $scope.model.step = {};
         $scope.model.step[1] = {};
@@ -83,105 +83,35 @@
         $scope.saveStepAdditionalInfo = function() {
           return Customer.create($scope.model.customer);
         };
-        $scope.model.numberOfCopies = (function() {
-          var _i, _results;
-          _results = [];
-          for (num = _i = 1; _i <= 10; num = ++_i) {
-            _results.push({
-              name: num,
-              value: num
-            });
-          }
-          return _results;
-        })();
-        $scope.model.numberOfApostilles = (function() {
-          var _i, _results;
-          _results = [];
-          for (num = _i = 1; _i <= 10; num = ++_i) {
-            _results.push({
-              name: num,
-              value: num
-            });
-          }
-          return _results;
-        })();
-        $scope.model.yearsExpiry = (function() {
-          var _i, _results;
-          _results = [];
-          for (num = _i = 2014; _i <= 2020; num = ++_i) {
-            _results.push({
-              name: num,
-              value: num
-            });
-          }
-          return _results;
-        })();
+        $scope.model.numberOfCopies = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        $scope.model.numberOfApostilles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        $scope.model.yearsExpiry = [2014, 2015, 2016, 2017, 2018, 2019, 2020];
         $scope.model.coutries = [];
-        $scope.model.cardTypes = [
-          {
-            name: 'Visa',
-            value: 'visa'
-          }, {
-            name: 'Visa Debit',
-            value: 'visaDebit'
-          }, {
-            name: 'Master',
-            value: 'master'
-          }, {
-            name: 'Maestro',
-            value: 'maestro'
-          }
-        ];
-        $scope.model.months = [
-          {
-            name: 'January',
-            value: 1
-          }, {
-            name: 'February',
-            value: 2
-          }, {
-            name: 'March',
-            value: 3
-          }, {
-            name: 'April',
-            value: 4
-          }, {
-            name: 'May',
-            value: 5
-          }, {
-            name: 'June',
-            value: 6
-          }, {
-            name: 'July',
-            value: 7
-          }, {
-            name: 'August',
-            value: 8
-          }, {
-            name: 'September',
-            value: 9
-          }, {
-            name: 'October',
-            value: 10
-          }, {
-            name: 'November',
-            value: 11
-          }, {
-            name: 'December',
-            value: 12
-          }
-        ];
+        $scope.model.cardTypes = {
+          'visa': 'Visa',
+          'visaDebit': 'Visa Debit',
+          'master': 'Master',
+          'maestro': 'Maestro'
+        };
+        $scope.model.months = {
+          1: 'January',
+          2: 'February',
+          3: 'March',
+          4: 'April',
+          5: 'May',
+          6: 'June',
+          7: 'July',
+          8: 'August',
+          9: 'September',
+          10: 'October',
+          11: 'November',
+          12: 'December'
+        };
         return $scope.model.days = (function() {
-          var _i, _results;
           _results = [];
-          for (num = _i = 1; _i <= 31; num = ++_i) {
-            _results.push({
-              name: num,
-              value: num
-            });
-          }
+          for (_i = 1; _i <= 31; _i++){ _results.push(_i); }
           return _results;
-        })();
+        }).apply(this);
       }
     ]
   };

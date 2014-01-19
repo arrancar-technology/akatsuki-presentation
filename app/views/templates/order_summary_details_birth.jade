@@ -5,7 +5,7 @@
     h4 Certificate Details
     small.row
       .col-sm-6 Date of Birth
-      .col-sm-6 : {{model.customer.birth.day || '--' }} / {{model.customer.birth.month || '--' }} / {{model.customer.birth.year || '--' }}
+      .col-sm-6 : {{model.customer.birth.day || '--' }} / {{model.months[model.customer.birth.month] || '--' }} / {{model.customer.birth.year || '--' }}
     small.row
       .col-sm-6 Place of Birth
       .col-sm-6 : {{model.customer.birth.place || '--' }}
