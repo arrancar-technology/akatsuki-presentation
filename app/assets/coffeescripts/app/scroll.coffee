@@ -10,6 +10,5 @@ $(".scroll-down").click ->
     scrollTop: $(window).scrollTop() + 800
   , 1000
 
-
 # highlight the top nav as scrolling occurs
 $("body").scrollspy target: "#navbar"
