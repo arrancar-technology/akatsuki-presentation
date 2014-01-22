@@ -36,7 +36,11 @@
     "year-of-birth": "Please enter year of birth in YYYY format",
     "place-of-birth": "Please enter place of birth",
     "last-name-at-birth": "Please enter last name at birth",
-    "first-name-at-birth": "Please enter first name at birth"
+    "first-name-at-birth": "Please enter first name at birth",
+    "address-1": "Please enter your address",
+    "city": "Please enter your city",
+    "postcode": "Please enter your postcode",
+    "phone": "Please enter your phone number"
   };
 
   initializePopover = function(elementId) {
@@ -71,11 +75,11 @@
         $scope.nextStep = function() {
           var element, _i, _len, _ref, _results;
           $scope.model.step[$scope.model.step.current].submitted = true;
-          if ($scope.birth_form.$valid) {
+          if ($scope.birth_form.$valid && $scope.model.step.current === 1) {
             return $scope.model.step.current = 2;
-          } else if ($scope.service_request_form.$valid && $scope.address_form.$valid) {
+          } else if ($scope.service_request_form.$valid && $scope.address_form.$valid && $scope.model.step.current === 2) {
             return $scope.model.step.current = 3;
-          } else if ($scope.birth_form.$valid) {
+          } else if ($scope.birth_form.$valid && $scope.model.step.current === 3) {
             return $scope.model.step.current = 4;
           } else {
             _ref = $(".step." + $scope.model.step.current + " input[required]");
