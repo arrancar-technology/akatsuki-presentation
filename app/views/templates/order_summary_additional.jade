@@ -22,7 +22,7 @@ small.row
   .col-sm-6 : {{model.address.postcode || '--' }}
 small.row
   .col-sm-6 Country
-  .col-sm-6 : {{model.address.country || '--' }}
+  .col-sm-6 : {{(model.address.country | countryLookUp) || '--' }}
 small.row
   .col-sm-6 Phone
   .col-sm-6 : {{model.address.phone || '--' }}

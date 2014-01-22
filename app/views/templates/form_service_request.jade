@@ -1,15 +1,12 @@
-form.form-horizontal.step.2.second(role="form")
+form.form-horizontal(name="service_request_form", role="form", novalidate="novalidate")
   .form-group
     label.col-sm-6.control-label.required(for="number-of-copies") Number of Copies
     .input-group.col-sm-6
       .input-group-btn
-        select.input-sm.form-control(id="number-of-copies", ng-model="model.customer.serviceRequest.numberOfCopies", ng-options="number for number in model.numberOfCopies")
-  .form-group
-      label.col-sm-6.control-label.required(for="number-of-apostilles") Apostilled Copies
-      .input-group.col-sm-6
-        .input-group-btn
-          select.input-sm.form-control(id="number-of-apostilles", ng-model="model.customer.serviceRequest.numberOfApostilles", ng-options="number for number in model.numberOfApostilles")
-  .form-group
-    label.col-sm-6.control-label.required(for="phone") Phone
-    .col-sm-6
-      input.form-control.input-sm(type="text", id="phone", ng-model="model.address.phone")
+        select.input-sm.form-control(id="number-of-copies", name="number-of-copies", ng-model="model.customer.serviceRequest.numberOfCopies", ng-options="number for number in model.numberOfCopies")
+  .form-group(ng-class='{"has-error": service_request_form["number-of-apostilles"].$invalid && model.step.2.submitted, "has-success": service_request_form["number-of-apostilles"].$valid && model.step.2.submitted}')
+    label.col-sm-6.control-label.required(for="number-of-apostilles") Apostilled Copies
+    .input-group.col-sm-6
+      .input-group-btn
+        select.input-sm.form-control(id="number-of-apostilles", name="number-of-apostilles", ng-model="model.customer.serviceRequest.numberOfApostilles", ng-options="number for number in model.numberOfApostilles", required='required')
+          option(value="") -
