@@ -34,6 +34,10 @@ popoverContents =
   "city": "Please enter your city"
   "postcode": "Please enter your postcode"
   "phone": "Please enter your phone number"
+  "email-address": "Please enter your email address"
+  "cardholder-name": "Please enter cardholder's name as it is displayed on the card"
+  "card-number": "Please enter 16 digit card number"
+  "card-verification-number": "Please enter last 3 digits as it is displayed on signature strip"
 
 initializePopover = (elementId) ->
   $("##{elementId}").popover(Object.merge(popoverOptions, {'content': popoverContents[elementId]}))
@@ -68,8 +72,8 @@ controllers =
         $scope.model.step.current = 2
       else if $scope.service_request_form.$valid && $scope.address_form.$valid && $scope.model.step.current == 2
         $scope.model.step.current = 3
-      else if $scope.birth_form.$valid && $scope.model.step.current == 3
-        $scope.model.step.current = 4
+      else if $scope.payment_form.$valid && $scope.model.step.current == 3
+        # make payment
       else
         initializePopover $(element).attr('id') for element in $(".step.#{$scope.model.step.current} input[required]")
 
