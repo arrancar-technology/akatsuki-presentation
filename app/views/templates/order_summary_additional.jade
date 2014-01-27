@@ -6,9 +6,6 @@
   small.row.apostilledCopies
     .col-sm-6 Apostilled Copies
     .col-sm-6 : {{model.customer.serviceRequest.numberOfApostilles || '--' }}
-  small.row.phone
-    .col-sm-6 Phone
-    .col-sm-6 : {{model.address.phone || '--' }}
   small.row.address-1
     .col-sm-6 Address 1
     .col-sm-6 : {{model.address.address1 || '--' }}
@@ -24,3 +21,6 @@
   small.row.country
     .col-sm-6 Country
     .col-sm-6 : {{(model.address.country | countryLookUp) || '--' }}
+  small.row.phone
+    .col-sm-6 Phone
+    .col-sm-6 : {{model.address.phone || '--' }}
