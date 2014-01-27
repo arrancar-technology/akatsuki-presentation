@@ -2,8 +2,8 @@
   .container.text-center
     .row
       .col-md-12.text-center  
-      .col-md-12.text-center  
+      .col-md-12.text-center.progress-tracker-container
         ol.progtrckr(data-progtrckr-steps='3')
-          li.progtrckr-todo(data-ng-class="{'progtrckr-done': model.step.current > 1}") Personal Details
+          li.progtrckr-todo(data-ng-class="{'progtrckr-done': model.step.current > 1}") Certificate Details
           li.progtrckr-todo(data-ng-class="{'progtrckr-done': model.step.current > 2}") Additional Details
           li.progtrckr-todo(data-ng-class="{'progtrckr-done': model.step.current > 3}") Payment
