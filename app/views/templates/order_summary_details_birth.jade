@@ -1,31 +1,33 @@
-.panel.panel-default
-  .panel-heading
-    h3.panel-title Order Summary
-  .panel-body
-    h4 Certificate Details
-    small.row
-      .col-sm-6 Date of Birth
-      .col-sm-6 : {{model.customer.birth.day || '--' }} / {{model.months[model.customer.birth.month] || '--' }} / {{model.customer.birth.year || '--' }}
-    small.row
-      .col-sm-6 Place of Birth
-      .col-sm-6 : {{model.customer.birth.place || '--' }}
-    small.row
-      .col-sm-6 Last Name at Birth
-      .col-sm-6 : {{model.customer.birth.lastName || '--' }}
-    small.row
-      .col-sm-6 First Name at Birth
-      .col-sm-6 : {{model.customer.birth.firstName || '--' }}
-    small.row
-      .col-sm-6 Mother's Maiden Name
-      .col-sm-6 : {{model.customer.birth.mother.maidenName || '--' }}
-    small.row
-      .col-sm-6 Mother's First Name
-      .col-sm-6 : {{model.customer.birth.mother.firstName || '--' }}
-    small.row
-      .col-sm-6 Father's Last Name
-      .col-sm-6 : {{model.customer.birth.father.lastName || '--' }}
-    small.row
-      .col-sm-6 Father's First Name
-      .col-sm-6 : {{model.customer.birth.father.firstName || '--' }}
-    include ../templates/order_summary_additional
-    include ../templates/order_summary_payment
+.order-summary-details-container
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title Order Summary
+    .panel-body
+      .certificate-details-container
+        h4 Certificate Details
+        small.row.dateOfBirth
+          .col-sm-6 Date of Birth
+          .col-sm-6 : {{model.customer.birth.day || '--' }} / {{model.months[model.customer.birth.month] || '--' }} / {{model.customer.birth.year || '--' }}
+        small.row.placeOfBirth
+          .col-sm-6 Place of Birth
+          .col-sm-6 : {{model.customer.birth.place || '--' }}
+        small.row.lastNameAtBirth
+          .col-sm-6 Last Name at Birth
+          .col-sm-6 : {{model.customer.birth.lastName || '--' }}
+        small.row.firstNameAtBirth
+          .col-sm-6 First Name at Birth
+          .col-sm-6 : {{model.customer.birth.firstName || '--' }}
+        small.row.motherMaidenName
+          .col-sm-6 Mother's Maiden Name
+          .col-sm-6 : {{model.customer.birth.mother.maidenName || '--' }}
+        small.row.motherFirstName
+          .col-sm-6 Mother's First Name
+          .col-sm-6 : {{model.customer.birth.mother.firstName || '--' }}
+        small.row.fatherLastName
+          .col-sm-6 Father's Last Name
+          .col-sm-6 : {{model.customer.birth.father.lastName || '--' }}
+        small.row.fatherFirstName
+          .col-sm-6 Father's First Name
+          .col-sm-6 : {{model.customer.birth.father.firstName || '--' }}
+      include ../templates/order_summary_additional
+      include ../templates/order_summary_payment
