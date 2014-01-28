@@ -80,9 +80,10 @@ controllers =
     $scope.saveStepAdditionalInfo = ->
       Customer.create($scope.model.customer)
 
+    expiryYearStart = new Date().getFullYear()
+    $scope.model.yearsExpiry = [expiryYearStart..expiryYearStart+10]
     $scope.model.numberOfCopies = [1..10]
     $scope.model.numberOfApostilles = [0..10]
-    $scope.model.yearsExpiry = [2014..2020]
     $scope.model.countries = Lookups.countries
     $scope.model.cardTypes = Lookups.cardTypes
     $scope.model.months = Lookups.months

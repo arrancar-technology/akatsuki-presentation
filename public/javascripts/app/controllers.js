@@ -56,7 +56,7 @@
   controllers = {
     CertificateDetailsController: [
       "$scope", "Customer", "Lookups", function($scope, Customer, Lookups) {
-        var _i, _results;
+        var expiryYearStart, _i, _j, _ref, _results, _results1;
         $scope.model = {};
         $scope.model.step = {};
         $scope.model.step[1] = {};
@@ -98,16 +98,21 @@
         $scope.saveStepAdditionalInfo = function() {
           return Customer.create($scope.model.customer);
         };
+        expiryYearStart = new Date().getFullYear();
+        $scope.model.yearsExpiry = (function() {
+          _results = [];
+          for (var _i = expiryYearStart, _ref = expiryYearStart + 10; expiryYearStart <= _ref ? _i <= _ref : _i >= _ref; expiryYearStart <= _ref ? _i++ : _i--){ _results.push(_i); }
+          return _results;
+        }).apply(this);
         $scope.model.numberOfCopies = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         $scope.model.numberOfApostilles = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        $scope.model.yearsExpiry = [2014, 2015, 2016, 2017, 2018, 2019, 2020];
         $scope.model.countries = Lookups.countries;
         $scope.model.cardTypes = Lookups.cardTypes;
         $scope.model.months = Lookups.months;
         return $scope.model.days = (function() {
-          _results = [];
-          for (_i = 1; _i <= 31; _i++){ _results.push(_i); }
-          return _results;
+          _results1 = [];
+          for (_j = 1; _j <= 31; _j++){ _results1.push(_j); }
+          return _results1;
         }).apply(this);
       }
     ]
