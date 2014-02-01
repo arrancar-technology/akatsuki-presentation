@@ -506,6 +506,6 @@ lookups =
   ,
     code: 'ZW', name: 'Zimbabwe']
 
-app = angular.module 'main-app'
+app = angular.module appName
 app.factory 'Lookups', ->
   lookups

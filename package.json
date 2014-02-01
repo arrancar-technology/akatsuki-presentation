@@ -20,7 +20,8 @@
     "q": "0.9.6",
     "strong-agent": "latest",
     "jugglingdb-mongodb": "0.0.4-3",
-    "sugar": "~1.4.1"
+    "sugar": "~1.4.1",
+    "mongoskin": "~0.6.1"
   },
   "devDependencies": {
     "co-generators": "*",

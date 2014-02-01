@@ -1,7 +1,9 @@
 (function() {
-  var app;
+  var app, appName, exports;
 
-  app = angular.module('main-app', ["ngResource"]);
+  appName = 'main-app';
+
+  app = angular.module(appName, ["ngResource"]);
 
   $('.apply-button').on('click', function() {
     var targetForm;
@@ -15,5 +17,9 @@
       return $('.animate').removeClass('invisible').addClass('animated');
     }), 500);
   });
+
+  exports = this;
+
+  exports.appName = appName;
 
 }).call(this);

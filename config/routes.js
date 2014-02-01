@@ -13,7 +13,9 @@ exports.routes = function (map) {
   map.get('partials/:partial', 'partials#show');
 
   // Admin
-  map.get('admin*', 'admin#index');
+  map.get('admin/status', 'admin#index');
+  map.get('admin/status/*', 'admin#index');
+  map.get('admin/orders', 'admin#orders_list');
   map.resources('status', { path: 'api/1/status' });
 
   // Fixtures

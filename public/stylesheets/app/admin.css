@@ -1,3 +1,19 @@
-body {
-  background: #fff;
+@import "application.css";
+.scroll-top {
+  background-color: #11cc45;
+}
+.header {
+  background: #11cc45 url("../../images/pt_squares_lg.png") repeat center center fixed;
+}
+.navbar-bold {
+  background-color: #11cc45;
+}
+.navbar-bold.affix {
+  background-color: #11cc45;
+}
+.navbar-bold li a:hover {
+  background-color: #00bb34;
+}
+.navbar-bold li.active {
+  background-color: #00bb34;
 }

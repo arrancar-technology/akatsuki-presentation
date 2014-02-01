@@ -1,5 +1,8 @@
 var config = {
   development: {
+    database: {
+      url:  "localhost:27017/test"
+    }
   },
   func01: {
   },

@@ -73,12 +73,9 @@ controllers =
       else if $scope.service_request_form.$valid && $scope.address_form.$valid && $scope.model.step.current == 2
         $scope.model.step.current = 3
       else if $scope.payment_form.$valid && $scope.model.step.current == 3
-        # make payment
+        Customer.create($scope.model.customer)
       else
         initializePopover $(element).attr('id') for element in $(".step.#{$scope.model.step.current} input[required]")
-
-    $scope.saveStepAdditionalInfo = ->
-      Customer.create($scope.model.customer)
 
     expiryYearStart = new Date().getFullYear()
     $scope.model.yearsExpiry = [expiryYearStart..expiryYearStart+10]
@@ -90,5 +87,5 @@ controllers =
     $scope.model.days = [1..31]
   ]
 
-app = angular.module 'main-app'
+app = angular.module appName
 app.controller controllers

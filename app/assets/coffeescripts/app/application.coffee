@@ -1,4 +1,6 @@
-app = angular.module 'main-app', ["ngResource"]
+appName = 'main-app'
+
+app = angular.module appName, ["ngResource"]
 
 # Show form when click on apply
 $('.apply-button').on 'click', ->
@@ -10,3 +12,6 @@ $('.animate-inview').one 'inview', ->
   setTimeout (->
     $('.animate').removeClass('invisible').addClass('animated')),
     500
+
+exports = this
+exports.appName = appName

@@ -6,5 +6,5 @@ filters =
       foundCountry.name
   ]
 
-app = angular.module 'main-app'
+app = angular.module appName
 app.filter 'countryLookUp', filters.countryLookUp

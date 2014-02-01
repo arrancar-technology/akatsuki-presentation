@@ -6,17 +6,25 @@
 //DELETE    /customers/:id       customers#destroy
 //PUT       /customers/:id       customers#update
 //GET       /customers/:id       customers#show.
+var db = require('./app/service/DbService')(compound);
+
 var actions = {
-  create: function () {
-    var customer = new Customer(req.body);
-    customer.save(function() {
-      send(customer);
+  index: function() {
+    var orders = [];
+    db.collection('orders').find({}).toArray(function(err, result) {
+      if (err) throw err;
+      orders = result;
+      send(orders);
     });
+
   },
-  update: function() {
-    send({status: statusService.getStatus(req.params.id)});
+  create: function () {
+    db.collection('orders').save(req.body, function(err, result) {
+      if (err) throw err;
+      if (result) console.log('Result: ', result);
+    });
   }
 };
 
+action('index', actions.index);
 action('create', actions.create);
-action('update', actions.update);

@@ -1,4 +1,5 @@
 require('sugar');
+var orderService = require('./app/service/DbService')(compound);
 
 var actions = {
   personalDetails: function () {
@@ -6,7 +7,6 @@ var actions = {
   },
   additionalDetails: function () {
     var section = req.params.section;
-    console.log('type: ', typeof section);
     render(section, {title: 'UK ' + section.capitalize()  + ' Certificate'});
   }
 };

@@ -1,7 +1,9 @@
 (function() {
-  var app, controllers;
+  var app, appName, exports;
 
-  app = angular.module(appName, ['ngResource']);
+  appName = 'admin-app';
+
+  app = angular.module(appName, ['ngResource', 'ngRoute', 'xeditable']);
 
   app.config([
     '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -18,20 +20,12 @@
     }
   ]);
 
-  app.factory('Status', [
-    '$resource', function($resource) {
-      return $resource('/api/1/status/:section');
-    }
-  ]);
+  app.run(function(editableOptions) {
+    return editableOptions.theme = 'bs3';
+  });
 
-  controllers = {
-    StatusController: function($scope, $routeParams, Status) {
-      return $scope.params = Status.get({
-        section: $routeParams.section
-      });
-    }
-  };
+  exports = this;
 
-  app.controller("StatusController", ['$scope', '$routeParams', 'Status', controllers.StatusController]);
+  exports.appName = appName;
 
 }).call(this);

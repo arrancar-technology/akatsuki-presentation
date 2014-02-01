@@ -1,0 +1,15 @@
+.navbar.navbar-fixed-top.navbar-bold(data-spy='affix', data-offset-top='1000')
+  .container
+    .navbar-header
+      a.navbar-brand(href='/admin', target="_self") Admin Home
+      a.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    #navbar.navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li
+          a(href='/admin/orders', target="_self") Orders
+      ul.nav.navbar-nav
+        li
+          a(href='/admin/status', target="_self") Status

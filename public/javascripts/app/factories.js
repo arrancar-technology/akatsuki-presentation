@@ -7,6 +7,10 @@
         return $resource("/api/1/customers/:id", {
           id: "@id"
         }, {
+          get: {
+            method: 'GET',
+            isArray: true
+          },
           create: {
             method: "POST"
           },
@@ -18,7 +22,7 @@
     ]
   };
 
-  app = angular.module('main-app');
+  app = angular.module(appName);
 
   app.factory(factories);
 
