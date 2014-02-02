@@ -7,27 +7,27 @@
         h4 Certificate Details
         small.row.dateOfBirth
           .col-sm-6 Date of Birth
-          .col-sm-6 : {{model.customer.birth.day || '--' }} / {{model.months[model.customer.birth.month] || '--' }} / {{model.customer.birth.year || '--' }}
+          .col-sm-6 : {{model.order.certificate.day || '--' }} / {{model.months[model.order.certificate.month] || '--' }} / {{model.order.certificate.year || '--' }}
         small.row.placeOfBirth
           .col-sm-6 Place of Birth
-          .col-sm-6 : {{model.customer.birth.place || '--' }}
+          .col-sm-6 : {{model.order.certificate.place || '--' }}
         small.row.lastNameAtBirth
           .col-sm-6 Last Name at Birth
-          .col-sm-6 : {{model.customer.birth.lastName || '--' }}
+          .col-sm-6 : {{model.order.certificate.lastName || '--' }}
         small.row.firstNameAtBirth
           .col-sm-6 First Name at Birth
-          .col-sm-6 : {{model.customer.birth.firstName || '--' }}
+          .col-sm-6 : {{model.order.certificate.firstName || '--' }}
         small.row.motherMaidenName
           .col-sm-6 Mother's Maiden Name
-          .col-sm-6 : {{model.customer.birth.mother.maidenName || '--' }}
+          .col-sm-6 : {{model.order.certificate.mother.maidenName || '--' }}
         small.row.motherFirstName
           .col-sm-6 Mother's First Name
-          .col-sm-6 : {{model.customer.birth.mother.firstName || '--' }}
+          .col-sm-6 : {{model.order.certificate.mother.firstName || '--' }}
         small.row.fatherLastName
           .col-sm-6 Father's Last Name
-          .col-sm-6 : {{model.customer.birth.father.lastName || '--' }}
+          .col-sm-6 : {{model.order.certificate.father.lastName || '--' }}
         small.row.fatherFirstName
           .col-sm-6 Father's First Name
-          .col-sm-6 : {{model.customer.birth.father.firstName || '--' }}
+          .col-sm-6 : {{model.order.certificate.father.firstName || '--' }}
       include ../templates/order_summary_additional
       include ../templates/order_summary_payment

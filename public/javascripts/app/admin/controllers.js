@@ -3,9 +3,9 @@
 
   controllers = {
     OrdersController: [
-      "$scope", "Customer", "Lookups", function($scope, Customer, Lookups) {
+      "$scope", "Order", "Lookups", function($scope, Order, Lookups) {
         $scope.model = {};
-        $scope.model.orders = Customer.get({}, function() {});
+        $scope.model.orders = Order.get({}, function() {});
         $scope.filterByCertificateBirth = function(order) {
           return order.birth;
         };

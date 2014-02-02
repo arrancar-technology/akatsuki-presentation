@@ -43,24 +43,36 @@ initializePopover = (elementId) ->
   $("##{elementId}").popover(Object.merge(popoverOptions, {'content': popoverContents[elementId]}))
 
 controllers =
-  CertificateDetailsController: ["$scope", "Customer", "Lookups", ($scope, Customer, Lookups) ->
-    $scope.model = {}
-    $scope.model.step = {}
-    $scope.model.step[1] = {} # Certificate Details
-    $scope.model.step[2] = {} # Additional Details
-    $scope.model.step[3] = {} # Payment Details
-    $scope.model.step.current = 1
-    $scope.model.customer = new Customer()
+  CertificateDetailsController: ["$scope", "Order", "Lookups", ($scope, Order, Lookups) ->
+    $scope.init = (type) ->
+      $scope.type = type
+      $scope.model = {}
+      $scope.model.step = {}
+      $scope.model.step[1] = {} # Certificate Details
+      $scope.model.step[2] = {} # Additional Details
+      $scope.model.step[3] = {} # Payment Details
+      $scope.model.step.current = 1
+      $scope.model.order = new Order()
 
-    # Defaults
-    $scope.model.customer.serviceRequest = {}
-    $scope.model.customer.serviceRequest.numberOfCopies = 1
+      # Defaults
+      $scope.model.order.certificate = {}
+      $scope.model.order.certificate.type = $scope.type
+      $scope.model.order.certificate.numberOfCopies = 1
 
-    $scope.model.customer.card = {}
-    $scope.model.customer.card.type = 'visa'
+      $scope.model.order.card = {}
+      $scope.model.order.card.type = 'visa'
 
-    $scope.model.address = {}
-    $scope.model.address.country = 'GB'
+      $scope.model.order.address = {}
+      $scope.model.order.address.country = 'GB'
+
+      expiryYearStart = new Date().getFullYear()
+      $scope.model.yearsExpiry = [expiryYearStart..expiryYearStart+10]
+      $scope.model.numberOfCopies = [1..10]
+      $scope.model.numberOfApostilles = [0..10]
+      $scope.model.countries = Lookups.countries
+      $scope.model.cardTypes = Lookups.cardTypes
+      $scope.model.months = Lookups.months
+      $scope.model.days = [1..31]
 
     $scope.goToStep = (step)->
       $scope.model.step.current = step
@@ -68,23 +80,14 @@ controllers =
       $scope.model.step.current--
     $scope.nextStep = ->
       $scope.model.step[$scope.model.step.current].submitted = true
-      if $scope.birth_form.$valid && $scope.model.step.current == 1
+      if $scope["#{$scope.type}_form"].$valid && $scope.model.step.current == 1
         $scope.model.step.current = 2
       else if $scope.service_request_form.$valid && $scope.address_form.$valid && $scope.model.step.current == 2
         $scope.model.step.current = 3
       else if $scope.payment_form.$valid && $scope.model.step.current == 3
-        Customer.create($scope.model.customer)
+        Order.create($scope.model.order)
       else
         initializePopover $(element).attr('id') for element in $(".step.#{$scope.model.step.current} input[required]")
-
-    expiryYearStart = new Date().getFullYear()
-    $scope.model.yearsExpiry = [expiryYearStart..expiryYearStart+10]
-    $scope.model.numberOfCopies = [1..10]
-    $scope.model.numberOfApostilles = [0..10]
-    $scope.model.countries = Lookups.countries
-    $scope.model.cardTypes = Lookups.cardTypes
-    $scope.model.months = Lookups.months
-    $scope.model.days = [1..31]
   ]
 
 app = angular.module appName

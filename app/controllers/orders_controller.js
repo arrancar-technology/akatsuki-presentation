@@ -1,11 +1,11 @@
 //method    | path           | controller#action
-//GET       /customers           customers#index
-//POST      /customers           customers#create
-//GET       /customers/new       customers#new
-//GET       /customers/:id/edit  customers#edit
-//DELETE    /customers/:id       customers#destroy
-//PUT       /customers/:id       customers#update
-//GET       /customers/:id       customers#show.
+//GET       /orders           orders#index
+//POST      /orders           orders#create
+//GET       /orders/new       orders#new
+//GET       /orders/:id/edit  orders#edit
+//DELETE    /orders/:id       orders#destroy
+//PUT       /orders/:id       orders#update
+//GET       /orders/:id       orders#show.
 var db = require('./app/service/DbService')(compound);
 
 var actions = {

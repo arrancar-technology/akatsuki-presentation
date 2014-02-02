@@ -1,4 +1,4 @@
-define('Customer', function () {
+define('Order', function () {
   property('firstName', String);
   property('lastName', String);
   property('birthDay', Number);

@@ -2,25 +2,25 @@
   h4 Additional Details
   small.row.numberOfCopies
     .col-sm-6 Number of Copies
-    .col-sm-6 : {{model.customer.serviceRequest.numberOfCopies || '--' }}
+    .col-sm-6 : {{model.order.certificate.numberOfCopies || '--' }}
   small.row.apostilledCopies
     .col-sm-6 Apostilled Copies
-    .col-sm-6 : {{model.customer.serviceRequest.numberOfApostilles || '--' }}
+    .col-sm-6 : {{model.order.certificate.numberOfApostilles || '--' }}
   small.row.address-1
     .col-sm-6 Address 1
-    .col-sm-6 : {{model.address.address1 || '--' }}
+    .col-sm-6 : {{model.order.address.address1 || '--' }}
   small.row.address-2
     .col-sm-6 Address 2
-    .col-sm-6 : {{model.address.address2 || '--' }}
+    .col-sm-6 : {{model.order.address.address2 || '--' }}
   small.row.city
     .col-sm-6 City
-    .col-sm-6 : {{model.address.city || '--' }}
+    .col-sm-6 : {{model.order.address.city || '--' }}
   small.row.postcode
     .col-sm-6 Postcode
-    .col-sm-6 : {{model.address.postcode || '--' }}
+    .col-sm-6 : {{model.order.address.postcode || '--' }}
   small.row.country
     .col-sm-6 Country
-    .col-sm-6 : {{(model.address.country | countryLookUp) || '--' }}
+    .col-sm-6 : {{(model.order.address.country | countryLookUp) || '--' }}
   small.row.phone
     .col-sm-6 Phone
-    .col-sm-6 : {{model.address.phone || '--' }}
+    .col-sm-6 : {{model.order.address.phone || '--' }}

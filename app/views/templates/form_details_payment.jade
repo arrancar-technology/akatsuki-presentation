@@ -2,33 +2,33 @@ form.form-horizontal.step.3.third(name="payment_form", role="form", novalidate="
   .form-group(ng-class='{"has-error": payment_form["email-address"].$invalid && model.step.3.submitted, "has-success": payment_form["email-address"].$valid && model.step.3.submitted}')
     label.col-sm-6.control-label.required(for="email-address") Email Address
     .col-sm-6
-      input.form-control.input-sm(type="email", id="email-address", name="email-address", ng-model="model.customer.emailAddress", required='required')
+      input.form-control.input-sm(type="email", id="email-address", name="email-address", ng-model="model.order.emailAddress", required='required')
   .form-group(ng-class='{"has-error": payment_form["card-type"].$invalid && model.step.3.submitted, "has-success": payment_form["card-type"].$valid && model.step.3.submitted}')
     label.col-sm-6.control-label.required(for="card-type") Card Type
     .input-group.col-sm-6
       .input-group-btn
-        select.input-sm.form-control(id="card-type", name="card-type", ng-model="model.customer.card.type", ng-options="select as label for (select,label) in model.cardTypes", required='required')
+        select.input-sm.form-control(id="card-type", name="card-type", ng-model="model.order.card.type", ng-options="select as label for (select,label) in model.cardTypes", required='required')
   .form-group(ng-class='{"has-error": payment_form["cardholder-name"].$invalid && model.step.3.submitted, "has-success": payment_form["cardholder-name"].$valid && model.step.3.submitted}')
     label.col-sm-6.control-label.required(for="cardholder-name") Cardholder Name
     .col-sm-6
-      input.form-control.input-sm(type="text", id="cardholder-name", name="cardholder-name", ng-model="model.customer.card.holderName", required='required')
+      input.form-control.input-sm(type="text", id="cardholder-name", name="cardholder-name", ng-model="model.order.card.holderName", required='required')
   .form-group(ng-class='{"has-error": payment_form["card-number"].$invalid && model.step.3.submitted, "has-success": payment_form["card-number"].$valid && model.step.3.submitted}')
     label.col-sm-6.control-label.required(for="card-number") Card Number
     .col-sm-6
-      input.form-control.input-sm(type="text", id="card-number", name="card-number", ng-model="model.customer.card.number", required='required', ng-pattern=/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/, maxlength="16")
+      input.form-control.input-sm(type="text", id="card-number", name="card-number", ng-model="model.order.card.number", required='required', ng-pattern=/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/, maxlength="16")
   .form-group.expiry-date(ng-class='{"has-error": (payment_form["card-expiry-date-month"].$invalid || payment_form["card-expiry-date-year"].$invalid) && model.step.3.submitted, "has-success": payment_form["card-expiry-date-month"].$valid  && payment_form["card-expiry-date-month"].$valid && model.step.3.submitted}')
     label.col-sm-6.control-label.required(for="card-expiry-date") Expiry Date
     .input-group.col-sm-6
       .input-group-btn(ng-class='{"has-error": payment_form["card-expiry-date-month"].$invalid && model.step.3.submitted, "has-success": payment_form["card-expiry-date-month"].$valid && model.step.3.submitted}')
-        select.month.input-sm.form-control(id="card-expiry-date-month", name="card-expiry-date-month", ng-model="model.customer.card.expiryMonth", ng-options="select as label for (select,label) in model.months", required='required')
+        select.month.input-sm.form-control(id="card-expiry-date-month", name="card-expiry-date-month", ng-model="model.order.card.expiryMonth", ng-options="select as label for (select,label) in model.months", required='required')
           option(value="") Month
       .input-group-btn(ng-class='{"has-error": payment_form["card-expiry-date-year"].$invalid && model.step.3.submitted, "has-success": payment_form["card-expiry-date-year"].$valid && model.step.3.submitted}')
-        select.year.input-sm.form-control(id="card-expiry-date-year", name="card-expiry-date-year", ng-model="model.customer.card.expiryYear", ng-options="year for year in model.yearsExpiry", required='required')
+        select.year.input-sm.form-control(id="card-expiry-date-year", name="card-expiry-date-year", ng-model="model.order.card.expiryYear", ng-options="year for year in model.yearsExpiry", required='required')
           option(value="") Year
   .form-group(ng-class='{"has-error": payment_form["card-verification-number"].$invalid && model.step.3.submitted, "has-success": payment_form["card-verification-number"].$valid && model.step.3.submitted}')
     label.col-sm-6.control-label.required(for="card-verification-number") Card Verification (CVC)
     .col-sm-6
-      input.form-control.input-sm(type="text", id="card-verification-number", name="card-verification-number", ng-model="model.customer.card.verificationNumber", required='required', ng-pattern=/\d{3}/, maxlength="3")
+      input.form-control.input-sm(type="text", id="card-verification-number", name="card-verification-number", ng-model="model.order.card.verificationNumber", required='required', ng-pattern=/\d{3}/, maxlength="3")
       span (last 3 digits on signature strip)
   .form-group
     .col-sm-offset-6.col-sm-6

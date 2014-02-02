@@ -2,19 +2,19 @@
   h4 Payment Details
   small.row.emailAddress
     .col-sm-6 Email Address
-    .col-sm-6 : {{model.customer.emailAddress || '--' }}
+    .col-sm-6 : {{model.order.emailAddress || '--' }}
   small.row.cardType
     .col-sm-6 Card Type
-    .col-sm-6 : {{model.cardTypes[model.customer.card.type] || '--' }}
+    .col-sm-6 : {{model.cardTypes[model.order.card.type] || '--' }}
   small.row.cardholderName
     .col-sm-6 Cardholder Name
-    .col-sm-6 : {{model.customer.card.holderName || '--' }}
+    .col-sm-6 : {{model.order.card.holderName || '--' }}
   small.row.cardNumber
     .col-sm-6 Card Number
-    .col-sm-6 : {{model.customer.card.number || '--' }}
+    .col-sm-6 : {{model.order.card.number || '--' }}
   small.row.expiryDate
     .col-sm-6 Expiry Date
-    .col-sm-6 : {{model.months[model.customer.card.expiryMonth] || '--' }} / {{model.customer.card.expiryYear || '--' }}
+    .col-sm-6 : {{model.months[model.order.card.expiryMonth] || '--' }} / {{model.order.card.expiryYear || '--' }}
   small.row.cardVerificationNumber
     .col-sm-6 Card Verification (CVC)
-    .col-sm-6 : {{model.customer.card.verificationNumber || '--' }}
+    .col-sm-6 : {{model.order.card.verificationNumber || '--' }}

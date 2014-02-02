@@ -13,7 +13,7 @@ block content
         tr(ng-repeat="order in model.orders | filter: filterByBirthCertificate")
           td {{$index+1}}
           td
-            span(editable-text="order.birth.firstName", e-name="firstName", e-form="rowform") {{ order.birth.firstName || '--' }}
+            span(editable-text="order.certificate.firstName", e-name="firstName", e-form="rowform") {{ order.certificate.firstName || '--' }}
           td(style="white-space: nowrap")
             form.form-buttons.form-inline(editable-form, name='rowform', ng-show='rowform.$visible')
               button.btn.btn-primary(type='submit', ng-disabled='rowform.$waiting')
@@ -28,11 +28,11 @@ block content
         tr
           th
         tr(ng-repeat="order in model.orders | filter: filterByCertificateMarriage")
-          td {{order.birth.firstName}}
+          td {{order.certificate.firstName}}
 
       h2 Death
       table.table
         tr
           th
         tr(ng-repeat="order in model.orders | filter: filterByCertificateDeath")
-          td {{order.birth.firstName}}
+          td {{order.certificate.firstName}}

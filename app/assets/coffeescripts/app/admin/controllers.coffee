@@ -1,7 +1,7 @@
 controllers =
-  OrdersController: ["$scope", "Customer", "Lookups", ($scope, Customer, Lookups) ->
+  OrdersController: ["$scope", "Order", "Lookups", ($scope, Order, Lookups) ->
     $scope.model = {}
-    $scope.model.orders = Customer.get {}, ->
+    $scope.model.orders = Order.get {}, ->
 
     $scope.filterByCertificateBirth = (order) ->
       order.birth

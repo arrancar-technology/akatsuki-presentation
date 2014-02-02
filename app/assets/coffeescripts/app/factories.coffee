@@ -1,6 +1,6 @@
 factories =
-  Customer: ["$resource", ($resource) ->
-    $resource "/api/1/customers/:id",
+  Order: ["$resource", ($resource) ->
+    $resource "/api/1/orders/:id",
       id: "@id"
     ,
       get:

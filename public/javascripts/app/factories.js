@@ -2,9 +2,9 @@
   var app, factories;
 
   factories = {
-    Customer: [
+    Order: [
       "$resource", function($resource) {
-        return $resource("/api/1/customers/:id", {
+        return $resource("/api/1/orders/:id", {
           id: "@id"
         }, {
           get: {
