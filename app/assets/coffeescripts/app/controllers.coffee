@@ -55,6 +55,7 @@ controllers =
       $scope.model.order = new Order()
 
       # Defaults
+      $scope.model.order.status = 'received'
       $scope.model.order.certificate = {}
       $scope.model.order.certificate.type = $scope.type
       $scope.model.order.certificate.numberOfCopies = 1

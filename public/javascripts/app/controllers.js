@@ -66,6 +66,7 @@
           $scope.model.step[3] = {};
           $scope.model.step.current = 1;
           $scope.model.order = new Order();
+          $scope.model.order.status = 'received';
           $scope.model.order.certificate = {};
           $scope.model.order.certificate.type = $scope.type;
           $scope.model.order.certificate.numberOfCopies = 1;

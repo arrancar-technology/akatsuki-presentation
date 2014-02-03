@@ -5,15 +5,16 @@
     OrdersController: [
       "$scope", "Order", "Lookups", function($scope, Order, Lookups) {
         $scope.model = {};
+        $scope.model.lists = {};
+        $scope.model.lists.birth = {};
+        $scope.model.lists.birth.filter = 'received';
+        $scope.model.lists.marriage = {};
+        $scope.model.lists.marriage.filter = 'received';
+        $scope.model.lists.death = {};
+        $scope.model.lists.death.filter = 'received';
         $scope.model.orders = Order.get({}, function() {});
-        $scope.filterByCertificateBirth = function(order) {
-          return order.birth;
-        };
-        $scope.filterByCertificateMarriage = function(order) {
-          return order.marriage;
-        };
-        return $scope.filterByCertificateDeath = function(order) {
-          return order.death;
+        return $scope.selectOrder = function(index) {
+          return $scope.model.orderSelected = $scope.model.orders[index];
         };
       }
     ],

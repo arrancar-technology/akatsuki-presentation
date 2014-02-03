@@ -1,5 +1,4 @@
 require('sugar');
-var orderService = require('./app/service/DbService')(compound);
 
 var actions = {
   personalDetails: function () {

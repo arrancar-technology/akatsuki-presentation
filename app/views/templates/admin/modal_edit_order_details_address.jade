@@ -1,0 +1,24 @@
+.form-group.row
+  label.col-sm-6.control-label(for="address-1") Address 1
+  .col-sm-6
+    span(id="address-1", editable-text='model.orderSelected.address.address1', e-name='address-1', onbeforesave='', e-required) {{ model.orderSelected.address.address1 || '--' }}
+.form-group.row
+  label.col-sm-6.control-label(for="address-2") Address 2
+  .col-sm-6
+    span(id="address-2", editable-text='model.orderSelected.address.address2', e-name='address-2', onbeforesave='', e-required) {{ model.orderSelected.address.address2 || '--' }}
+.form-group.row
+  label.col-sm-6.control-label(for="city") City
+  .col-sm-6
+    span(id="city", editable-text='model.orderSelected.address.city', e-name='city', onbeforesave='', e-required) {{ model.orderSelected.address.city || '--' }}
+.form-group.row
+  label.col-sm-6.control-label(for="postcode") Postcode
+  .col-sm-6
+    span(id="postcode", editable-text='model.orderSelected.address.postcode', e-name='postcode', onbeforesave='', e-required) {{ model.orderSelected.address.postcode || '--' }}
+.form-group.row
+  label.col-sm-6.control-label(for="country") Country
+  .col-sm-6
+    span(id="country", editable-text='model.orderSelected.address.country', e-name='country', onbeforesave='', e-required) {{ model.orderSelected.address.country || '--' }}
+.form-group.row
+  label.col-sm-6.control-label(for="phone") Phone
+  .col-sm-6
+    span(id="phone", editable-text='model.orderSelected.address.phone', e-name='phone', onbeforesave='', e-required) {{ model.orderSelected.address.phone || '--' }}

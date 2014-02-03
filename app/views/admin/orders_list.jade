@@ -4,35 +4,49 @@ block content
     .blurb
       h1 Orders
 
-      h2 Birth
-      table.table.table-hover.table-condensed
-        tr
-          th #
-          th First Name
-          th Edit
-        tr(ng-repeat="order in model.orders | filter: filterByBirthCertificate")
-          td {{$index+1}}
-          td
-            span(editable-text="order.certificate.firstName", e-name="firstName", e-form="rowform") {{ order.certificate.firstName || '--' }}
-          td(style="white-space: nowrap")
-            form.form-buttons.form-inline(editable-form, name='rowform', ng-show='rowform.$visible')
-              button.btn.btn-primary(type='submit', ng-disabled='rowform.$waiting')
-                | save
-              button.btn.btn-default(type='button', ng-disabled='rowform.$waiting', ng-click='rowform.$cancel()')
-                | cancel
-            .buttons(ng-show='!rowform.$visible')
-              button.btn.btn-primary(ng-click='rowform.$show()') edit
+      .birth.col-md-offset-2.col-md-8
+        .row
+          .col-md-6: h4 Birth
+          .col-md-6
+            .btn-group.pull-right
+              button.btn.btn-info(type='button', ng-click='model.lists.birth.filter = "received"') Received
+              button.btn.btn-warning(type='button', ng-click='model.lists.birth.filter = "processing"') Processing
+              button.btn.btn-success(type='button', ng-click='model.lists.birth.filter = "done"') Done
+        .row
+          table.table.table-hover.table-condensed
+            tr
+              td: strong #
+              td: strong First Name
+              td: strong Last Name
+              td: strong Email
+              td: strong Phone
+              td: strong Status
+              td: strong.pull-right Details
+            tr(ng-repeat="order in model.orders | filter: {certificate.type: 'birth', status: model.lists.birth.filter}")
+              td {{$index+1}}
+              td: span {{ order.certificate.firstName || '--' }}
+              td: span {{ order.certificate.lastName || '--' }}
+              td: span {{ order.emailAddress || '--' }}
+              td: span {{ order.address.phone || '--' }}
+              td: span {{ order.status || '--' }}
+              td
+                .buttons.pull-right
+                  button.btn.btn-primary(data-toggle='modal', data-target='.bs-modal-lg', ng-click="selectOrder($index)") Details
 
-      h2 Marriage
-      table.table
-        tr
-          th
-        tr(ng-repeat="order in model.orders | filter: filterByCertificateMarriage")
-          td {{order.certificate.firstName}}
+      .marriage.col-md-offset-2.col-md-8
+        h4 Marriage
+        table.table
+          tr
+            th
+          tr(ng-repeat="order in model.orders | filter: {certificate.type: 'marriage'}")
+            td {{order.certificate.firstName}}
 
-      h2 Death
-      table.table
-        tr
-          th
-        tr(ng-repeat="order in model.orders | filter: filterByCertificateDeath")
-          td {{order.certificate.firstName}}
+      .death.col-md-offset-2.col-md-8
+        h4 Death
+        table.table
+          tr
+            th
+          tr(ng-repeat="order in model.orders | filter: {certificate.type: 'death'}")
+            td {{order.certificate.firstName}}
+
+      include ../templates/admin/modal_edit_order_birth
