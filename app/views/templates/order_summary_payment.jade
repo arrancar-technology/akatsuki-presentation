@@ -1,8 +1,5 @@
 .payment-details-container
   h4 Payment Details
-  small.row.emailAddress
-    .col-sm-6 Email Address
-    .col-sm-6 : {{model.order.emailAddress || '--' }}
   small.row.cardType
     .col-sm-6 Card Type
     .col-sm-6 : {{model.cardTypes[model.order.card.type] || '--' }}

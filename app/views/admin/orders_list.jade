@@ -24,14 +24,14 @@ block content
               td: strong.pull-right Details
             tr(ng-repeat="order in model.orders | filter: {certificate.type: 'birth', status: model.lists.birth.filter}")
               td {{$index+1}}
-              td: span {{ order.certificate.firstName || '--' }}
-              td: span {{ order.certificate.lastName || '--' }}
-              td: span {{ order.emailAddress || '--' }}
+              td: span {{ order.firstName || '--' }}
+              td: span {{ order.lastName || '--' }}
+              td: span {{ order.email || '--' }}
               td: span {{ order.address.phone || '--' }}
               td: span {{ order.status || '--' }}
               td
                 .buttons.pull-right
-                  button.btn.btn-primary(data-toggle='modal', data-target='.bs-modal-lg', ng-click="selectOrder($index)") Details
+                  button.btn.btn-primary(data-toggle='modal', data-target='.bs-modal-lg', ng-click="selectOrder(order._id)") Details
 
       .marriage.col-md-offset-2.col-md-8
         h4 Marriage

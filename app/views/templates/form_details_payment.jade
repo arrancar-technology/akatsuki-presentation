@@ -1,8 +1,4 @@
-form.form-horizontal.step.3.third(name="payment_form", role="form", novalidate="novalidate")
-  .form-group(ng-class='{"has-error": payment_form["email-address"].$invalid && model.step.3.submitted, "has-success": payment_form["email-address"].$valid && model.step.3.submitted}')
-    label.col-sm-6.control-label.required(for="email-address") Email Address
-    .col-sm-6
-      input.form-control.input-sm(type="email", id="email-address", name="email-address", ng-model="model.order.emailAddress", required='required')
+form.form-horizontal.step.3.third(name="payment_form", role="form", novalidate)
   .form-group(ng-class='{"has-error": payment_form["card-type"].$invalid && model.step.3.submitted, "has-success": payment_form["card-type"].$valid && model.step.3.submitted}')
     label.col-sm-6.control-label.required(for="card-type") Card Type
     .input-group.col-sm-6

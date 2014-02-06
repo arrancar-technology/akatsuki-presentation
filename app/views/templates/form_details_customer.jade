@@ -1,0 +1,13 @@
+form.form-horizontal(name="customer_details_form", role="form", novalidate)
+  .form-group(ng-class='{"has-error": customer_details_form["firstName"].$invalid && model.step.2.submitted, "has-success": customer_details_form["firstName"].$valid && model.step.2.submitted}')
+    label.col-sm-6.control-label.required(for="firstName") First Name
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="first-name", name="firstName", ng-model="model.order.firstName", required='required')
+  .form-group(ng-class='{"has-error": customer_details_form["lastName"].$invalid && model.step.2.submitted, "has-success": customer_details_form["lastName"].$valid && model.step.2.submitted}')
+    label.col-sm-6.control-label.required(for="lastName") Last Name
+    .col-sm-6
+      input.form-control.input-sm(type="text", id="last-name", name="lastName", ng-model="model.order.lastName", required='required')
+  .form-group(ng-class='{"has-error": customer_details_form["email"].$invalid && model.step.2.submitted, "has-success": customer_details_form["email"].$valid && model.step.2.submitted}')
+    label.col-sm-6.control-label.required(for="email") Email Address
+    .col-sm-6
+      input.form-control.input-sm(type="email", id="email", name="email", ng-model="model.order.email", required='required')

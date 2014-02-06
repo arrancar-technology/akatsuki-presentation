@@ -1,4 +1,4 @@
-form.form-horizontal(name="address_form", role="form", novalidate="novalidate")
+form.form-horizontal(name="address_form", role="form", novalidate)
   .form-group(ng-class='{"has-error": address_form["address-1"].$invalid && model.step.2.submitted, "has-success": address_form["address-1"].$valid && model.step.2.submitted}')
     label.col-sm-6.control-label.required(for="address-1") Address 1
     .col-sm-6

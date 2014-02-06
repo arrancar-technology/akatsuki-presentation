@@ -37,11 +37,13 @@
     "place-of-birth": "Please enter place of birth",
     "last-name-at-birth": "Please enter last name at birth",
     "first-name-at-birth": "Please enter first name at birth",
+    "first-name": "Please enter your first name",
+    "last-name": "Please enter your last name",
+    "email": "Please enter your email address",
     "address-1": "Please enter your address",
     "city": "Please enter your city",
     "postcode": "Please enter your postcode",
     "phone": "Please enter your phone number",
-    "email-address": "Please enter your email address",
     "cardholder-name": "Please enter cardholder's name as it is displayed on the card",
     "card-number": "Please enter 16 digit card number",
     "card-verification-number": "Please enter last 3 digits as it is displayed on signature strip"
@@ -55,9 +57,9 @@
 
   controllers = {
     CertificateDetailsController: [
-      "$scope", "Order", "Lookups", function($scope, Order, Lookups) {
+      "$scope", "$cookies", "Order", "Lookups", function($scope, $cookies, Order, Lookups) {
         $scope.init = function(type) {
-          var expiryYearStart, _i, _j, _ref, _results, _results1;
+          var expiryYearStart, orderId, _i, _j, _ref, _results, _results1;
           $scope.type = type;
           $scope.model = {};
           $scope.model.step = {};
@@ -65,7 +67,18 @@
           $scope.model.step[2] = {};
           $scope.model.step[3] = {};
           $scope.model.step.current = 1;
+          orderId = $cookies.o_id;
           $scope.model.order = new Order();
+          if (orderId) {
+            Order.getOne({
+              id: orderId
+            }, function(order) {
+              $scope.model.order._id = order._id;
+              $scope.model.order.firstName = order.firstName;
+              $scope.model.order.lastName = order.lastName;
+              return $scope.model.order.email = order.email;
+            });
+          }
           $scope.model.order.status = 'received';
           $scope.model.order.certificate = {};
           $scope.model.order.certificate.type = $scope.type;
@@ -102,7 +115,7 @@
           $scope.model.step[$scope.model.step.current].submitted = true;
           if ($scope["" + $scope.type + "_form"].$valid && $scope.model.step.current === 1) {
             return $scope.model.step.current = 2;
-          } else if ($scope.service_request_form.$valid && $scope.address_form.$valid && $scope.model.step.current === 2) {
+          } else if ($scope.address_form.$valid && $scope.model.step.current === 2) {
             return $scope.model.step.current = 3;
           } else if ($scope.payment_form.$valid && $scope.model.step.current === 3) {
             return Order.create($scope.model.order);

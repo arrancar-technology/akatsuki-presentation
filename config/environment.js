@@ -10,8 +10,8 @@ module.exports = function (compound) {
         app.set('cssEngine', 'stylus');
         app.set('view options', { layout: false });
         app.use(express.bodyParser());
-        app.use(express.cookieParser('secret'));
-        app.use(express.session({secret: 'secret'}));
+        app.use(express.cookieParser('fJKL123jk'));
+        // app.use(express.session({secret: 'fJKL123jk'}));
         app.use(express.methodOverride());
         app.use(app.router);
     });

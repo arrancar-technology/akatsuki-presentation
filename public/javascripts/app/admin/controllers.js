@@ -13,8 +13,15 @@
         $scope.model.lists.death = {};
         $scope.model.lists.death.filter = 'received';
         $scope.model.orders = Order.get({}, function() {});
-        return $scope.selectOrder = function(index) {
-          return $scope.model.orderSelected = $scope.model.orders[index];
+        $scope.selectOrder = function(orderId) {
+          return $scope.model.orderSelected = $scope.model.orders.find(function(order) {
+            return order._id === orderId;
+          });
+        };
+        return $scope.saveOrder = function() {
+          return Order.update({
+            id: $scope.model.orderSelected._id
+          }, $scope.model.orderSelected);
         };
       }
     ],

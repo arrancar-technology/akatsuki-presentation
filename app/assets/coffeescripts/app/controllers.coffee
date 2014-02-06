@@ -30,11 +30,13 @@ popoverContents =
   "place-of-birth": "Please enter place of birth"
   "last-name-at-birth": "Please enter last name at birth"
   "first-name-at-birth": "Please enter first name at birth"
+  "first-name": "Please enter your first name"
+  "last-name": "Please enter your last name"
+  "email": "Please enter your email address"
   "address-1": "Please enter your address"
   "city": "Please enter your city"
   "postcode": "Please enter your postcode"
   "phone": "Please enter your phone number"
-  "email-address": "Please enter your email address"
   "cardholder-name": "Please enter cardholder's name as it is displayed on the card"
   "card-number": "Please enter 16 digit card number"
   "card-verification-number": "Please enter last 3 digits as it is displayed on signature strip"
@@ -43,7 +45,7 @@ initializePopover = (elementId) ->
   $("##{elementId}").popover(Object.merge(popoverOptions, {'content': popoverContents[elementId]}))
 
 controllers =
-  CertificateDetailsController: ["$scope", "Order", "Lookups", ($scope, Order, Lookups) ->
+  CertificateDetailsController: ["$scope", "$cookies", "Order", "Lookups", ($scope, $cookies, Order, Lookups) ->
     $scope.init = (type) ->
       $scope.type = type
       $scope.model = {}
@@ -52,7 +54,16 @@ controllers =
       $scope.model.step[2] = {} # Additional Details
       $scope.model.step[3] = {} # Payment Details
       $scope.model.step.current = 1
+      orderId = $cookies.o_id
       $scope.model.order = new Order()
+      if orderId
+        Order.getOne
+          id: orderId
+          , (order) ->
+            $scope.model.order._id = order._id
+            $scope.model.order.firstName = order.firstName
+            $scope.model.order.lastName = order.lastName
+            $scope.model.order.email = order.email
 
       # Defaults
       $scope.model.order.status = 'received'
@@ -83,9 +94,11 @@ controllers =
       $scope.model.step[$scope.model.step.current].submitted = true
       if $scope["#{$scope.type}_form"].$valid && $scope.model.step.current == 1
         $scope.model.step.current = 2
-      else if $scope.service_request_form.$valid && $scope.address_form.$valid && $scope.model.step.current == 2
+      else if $scope.address_form.$valid && $scope.model.step.current == 2
         $scope.model.step.current = 3
       else if $scope.payment_form.$valid && $scope.model.step.current == 3
+        # TODO: [DK] make payment request
+
         Order.create($scope.model.order)
       else
         initializePopover $(element).attr('id') for element in $(".step.#{$scope.model.step.current} input[required]")

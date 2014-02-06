@@ -2,11 +2,15 @@ form.form-horizontal(role="form", action="/certificate/#{section}", method="post
   .form-group
     label.col-sm-6.control-label(for="first-name") First Name
     .col-sm-6
-      input.form-control.input-sm(type="text", id="first-name")
+      input.form-control.input-sm(type="text", id="first-name", name="firstName")
   .form-group
     label.col-sm-6.control-label(for="last-name") Last Name
     .col-sm-6
-      input.form-control.input-sm(type="text", id="last-name")
+      input.form-control.input-sm(type="text", id="last-name", name="lastName")
+  .form-group
+    label.col-sm-6.control-label(for="email") Email
+    .col-sm-6
+      input.form-control.input-sm(type="email", id="email", name="email")
   .form-group
     .col-sm-offset-6.col-sm-6
       button.btn.btn-primary(type="submit") Proceed

@@ -6,6 +6,8 @@ factories =
       get:
         method: 'GET'
         isArray: true
+      getOne:
+        method: 'GET'
       create:
         method: "POST"
       update:

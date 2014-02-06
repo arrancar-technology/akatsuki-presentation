@@ -1,4 +1,4 @@
-form.form-horizontal.step.1.first(name="birth_form", role="form", novalidate="novalidate")
+form.form-horizontal.step.1.first(name="birth_form", role="form", novalidate)
   .form-group.date-of-birth-container(ng-class='{"has-error": (birth_form["day-of-birth"].$invalid || birth_form["month-of-birth"].$invalid || birth_form["year-of-birth"].$invalid) && model.step.1.submitted, "has-success": birth_form["day-of-birth"].$valid && birth_form["month-of-birth"].$valid && birth_form["year-of-birth"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="day-of-birth") Date of Birth
     .input-group.col-sm-6
@@ -38,6 +38,17 @@ form.form-horizontal.step.1.first(name="birth_form", role="form", novalidate="no
     label.col-sm-6.control-label(for="father-first-name") Father's First Name
     .col-sm-6
       input.form-control.input-sm(type="text", id="father-first-name", ng-model="model.order.certificate.father.firstName")
+  .form-group(ng-class='{"has-error": birth_form["number-of-copies"].$invalid && model.step.1.submitted, "has-success": birth_form["number-of-copies"].$valid && model.step.1.submitted}')
+    label.col-sm-6.control-label.required(for="number-of-copies") Number of Copies
+    .input-group.col-sm-6
+      .input-group-btn
+        select.input-sm.form-control(id="number-of-copies", name="number-of-copies", ng-model="model.order.certificate.numberOfCopies", ng-options="number for number in model.numberOfCopies", required='required')
+  .form-group(ng-class='{"has-error": birth_form["number-of-apostilles"].$invalid && model.step.1.submitted, "has-success": birth_form["number-of-apostilles"].$valid && model.step.1.submitted}')
+    label.col-sm-6.control-label.required(for="number-of-apostilles") Apostilled Copies
+    .input-group.col-sm-6
+      .input-group-btn
+        select.input-sm.form-control(id="number-of-apostilles", name="number-of-apostilles", ng-model="model.order.certificate.numberOfApostilles", ng-options="number for number in model.numberOfApostilles", required='required')
+          option(value="") -
   .form-group
     .col-sm-offset-6.col-sm-6
       include ../templates/buttons_step

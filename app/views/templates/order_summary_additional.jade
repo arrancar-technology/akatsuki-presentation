@@ -1,11 +1,14 @@
 .additional-details-container
   h4 Additional Details
-  small.row.numberOfCopies
-    .col-sm-6 Number of Copies
-    .col-sm-6 : {{model.order.certificate.numberOfCopies || '--' }}
-  small.row.apostilledCopies
-    .col-sm-6 Apostilled Copies
-    .col-sm-6 : {{model.order.certificate.numberOfApostilles || '--' }}
+  small.row.firstName
+    .col-sm-6 First Name
+    .col-sm-6 : {{model.order.firstName || '--' }}
+  small.row.lastName
+    .col-sm-6 Last Name
+    .col-sm-6 : {{model.order.lastName || '--' }}
+  small.row.email
+    .col-sm-6 Email Address
+    .col-sm-6 : {{model.order.email || '--' }}
   small.row.address-1
     .col-sm-6 Address 1
     .col-sm-6 : {{model.order.address.address1 || '--' }}

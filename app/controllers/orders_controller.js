@@ -12,19 +12,38 @@ var actions = {
   index: function() {
     var orders = [];
     db.collection('orders').find({}).toArray(function(err, result) {
-      if (err) throw err;
+      if (err) console.log('err: ', err);
       orders = result;
       send(orders);
     });
 
   },
-  create: function () {
-    db.collection('orders').save(req.body, function(err, result) {
-      if (err) throw err;
+  save: function() {
+    var order = req.body,
+        orderId = req.body._id;
+
+    if(orderId) {
+      console.log('orderId', orderId);
+      order._id = db.collection('orders').id(orderId);
+    }
+
+    db.collection('orders').save(order, function(err, result) {
+      if (err) console.log('err: ', err);
       if (result) console.log('Result: ', result);
+    });
+  },
+  show: function() {
+    var id = db.collection('orders').id(req.params.id);
+    db.collection('orders').find({_id: id}).toArray(function(err, result) {
+      if (err) console.log('err: ', err)
+      order = result[0];
+      console.log('order: ', order);
+      send(order);
     });
   }
 };
 
 action('index', actions.index);
-action('create', actions.create);
+action('create', actions.save);
+action('update', actions.save);
+action('show', actions.show);

@@ -29,5 +29,11 @@
         small.row.fatherFirstName
           .col-sm-6 Father's First Name
           .col-sm-6 : {{model.order.certificate.father.firstName || '--' }}
+        small.row.numberOfCopies
+          .col-sm-6 Number of Copies
+          .col-sm-6 : {{model.order.certificate.numberOfCopies || '--' }}
+        small.row.apostilledCopies
+          .col-sm-6 Apostilled Copies
+          .col-sm-6 : {{model.order.certificate.numberOfApostilles || '--' }}
       include ../templates/order_summary_additional
       include ../templates/order_summary_payment
