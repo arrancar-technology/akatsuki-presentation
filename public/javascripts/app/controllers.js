@@ -1,63 +1,9 @@
 (function() {
-  var app, bootstrapEnv, controllers, findBootstrapEnvironment, initializePopover, placement, popoverContents, popoverOptions;
-
-  findBootstrapEnvironment = function() {
-    var $el, envVal, envValues, envs, i;
-    envs = ["ExtraSmall", "Small", "Medium", "Large"];
-    envValues = ["xs", "sm", "md", "lg"];
-    $el = $("<div>");
-    $el.appendTo($("body"));
-    i = envValues.length - 1;
-    while (i >= 0) {
-      envVal = envValues[i];
-      $el.addClass("hidden-" + envVal);
-      if ($el.is(":hidden")) {
-        $el.remove();
-        return envs[i];
-      }
-      i--;
-    }
-  };
-
-  bootstrapEnv = findBootstrapEnvironment();
-
-  placement = (bootstrapEnv === "ExtraSmall" ? "bottom" : "right");
-
-  popoverOptions = {
-    'trigger': "focus",
-    'container': "body",
-    'toggle': "popover",
-    'placement': placement,
-    'original-title': "",
-    'title': ""
-  };
-
-  popoverContents = {
-    "year-of-birth": "Please enter year of birth in YYYY format",
-    "place-of-birth": "Please enter place of birth",
-    "last-name-at-birth": "Please enter last name at birth",
-    "first-name-at-birth": "Please enter first name at birth",
-    "first-name": "Please enter your first name",
-    "last-name": "Please enter your last name",
-    "email": "Please enter your email address",
-    "address-1": "Please enter your address",
-    "city": "Please enter your city",
-    "postcode": "Please enter your postcode",
-    "phone": "Please enter your phone number",
-    "cardholder-name": "Please enter cardholder's name as it is displayed on the card",
-    "card-number": "Please enter 16 digit card number",
-    "card-verification-number": "Please enter last 3 digits as it is displayed on signature strip"
-  };
-
-  initializePopover = function(elementId) {
-    return $("#" + elementId).popover(Object.merge(popoverOptions, {
-      'content': popoverContents[elementId]
-    }));
-  };
+  var app, controllers;
 
   controllers = {
     CertificateDetailsController: [
-      "$scope", "$cookies", "Order", "Lookups", function($scope, $cookies, Order, Lookups) {
+      "$scope", "$cookies", "Order", "Lookups", "PopoverService", function($scope, $cookies, Order, Lookups, PopoverService) {
         $scope.init = function(type) {
           var expiryYearStart, orderId, _i, _j, _ref, _results, _results1;
           $scope.type = type;
@@ -124,7 +70,7 @@
             _results = [];
             for (_i = 0, _len = _ref.length; _i < _len; _i++) {
               element = _ref[_i];
-              _results.push(initializePopover($(element).attr('id')));
+              _results.push(PopoverService.initializePopover($(element).attr('id')));
             }
             return _results;
           }

@@ -23,13 +23,13 @@ var actions = {
         orderId = req.body._id;
 
     if(orderId) {
-      console.log('orderId', orderId);
       order._id = db.collection('orders').id(orderId);
     }
 
     db.collection('orders').save(order, function(err, result) {
       if (err) console.log('err: ', err);
       if (result) console.log('Result: ', result);
+      send(result);
     });
   },
   show: function() {

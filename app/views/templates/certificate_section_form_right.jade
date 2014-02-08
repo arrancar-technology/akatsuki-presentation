@@ -26,7 +26,7 @@ formTitleSubText = "Please fill in the details for " + section + " certificate"
             h2= formTitle
             p.lead= formTitleSubText
           .col-md-12.text-right
-            include ../templates/form_details_personal
+            apply-form(formtype= section)
       .col-md-7
         include ../templates/video
         include ../templates/accordion
