@@ -8,8 +8,8 @@ module.exports = function (config) {
       'public/javascripts/vendor/angular-resource-min.js',
       'public/javascripts/vendor/jquery-min.js',
       'public/javascripts/vendor/bootstrap.js',
-      'app/**/*.coffee',
       'test/lib/**/*.js',
+      'app/**/*.coffee',
       'test/frontend/**/*.coffee'
     ],
     browsers: ['PhantomJS'],
