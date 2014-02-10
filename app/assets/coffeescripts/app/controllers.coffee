@@ -23,6 +23,7 @@ controllers =
       $scope.model.order.status = 'received'
       $scope.model.order.certificate = {}
       $scope.model.order.certificate.type = $scope.type
+      $scope.model.order.certificate.serviceType = 'standard'
       $scope.model.order.certificate.numberOfCopies = 1
 
       $scope.model.order.card = {}
@@ -37,6 +38,8 @@ controllers =
       $scope.model.numberOfApostilles = [0..10]
       $scope.model.countries = Lookups.countries
       $scope.model.cardTypes = Lookups.cardTypes
+      $scope.model.serviceTypes = Lookups.serviceTypes
+      $scope.model.priceList = Lookups.priceList
       $scope.model.months = Lookups.months
       $scope.model.days = [1..31]
 

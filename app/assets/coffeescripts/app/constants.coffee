@@ -1,9 +1,22 @@
+priceList =
+  standard: 25
+  rapid: 40
+  prime: 60
+  apostille: 75
+
 lookups =
   cardTypes:
     'visa': 'Visa',
     'visaDebit': 'Visa Debit',
     'master': 'Master',
     'maestro': 'Maestro'
+  priceList: priceList
+  serviceTypes: [
+    type: 'standard', label: "Standard - £#{priceList.standard} - dispatch within 10 working days"
+  ,
+    type: 'rapid', label: "Rapid - £#{priceList.rapid} - dispatch within 5 working days"
+  ,
+    type: 'prime', label: "Prime - £#{priceList.prime} - dispatch within next working day"]
   months:
     1: 'January',
     2: 'February',
