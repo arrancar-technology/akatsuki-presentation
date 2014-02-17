@@ -21,7 +21,9 @@
     "strong-agent": "latest",
     "jugglingdb-mongodb": "0.0.4-3",
     "sugar": "~1.4.1",
-    "mongoskin": "~0.6.1"
+    "mongoskin": "~0.6.1",
+    "passport": "~0.2.0",
+    "passport-local": "~0.1.6"
   },
   "devDependencies": {
     "co-generators": "*",

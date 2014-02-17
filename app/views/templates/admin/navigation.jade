@@ -6,10 +6,14 @@
         span.icon-bar
         span.icon-bar
         span.icon-bar
-    #navbar.navbar-collapse.collapse
-      ul.nav.navbar-nav
-        li
-          a(href='/admin/orders', target="_self") Orders
-      ul.nav.navbar-nav
-        li
-          a(href='/admin/status', target="_self") Status
+    if user
+      #navbar.navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li
+            a(href='/admin/orders', target="_self") Orders
+        ul.nav.navbar-nav
+          li
+            a(href='/admin/status', target="_self") Status
+        ul.nav.navbar-nav.pull-right
+          li
+            a.logout(href='/logout/admin', target="_self") Logout (#{user.username})

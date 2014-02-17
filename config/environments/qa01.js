@@ -1,5 +1,3 @@
-var config = require('./config');
-
 module.exports = function (compound) {
   var app = compound.app;
 
@@ -9,7 +7,5 @@ module.exports = function (compound) {
     app.disable('assets timestamps');
     app.use(require('express').errorHandler());
     app.settings.quiet = true;
-
-    app.set('config', config[environment]);
   });
 };

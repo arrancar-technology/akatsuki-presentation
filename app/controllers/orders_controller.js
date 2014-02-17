@@ -12,11 +12,10 @@ var actions = {
   index: function() {
     var orders = [];
     db.collection('orders').find({}).toArray(function(err, result) {
-      if (err) console.log('err: ', err);
+      if (err) console.log('>> err: ', err);
       orders = result;
       send(orders);
     });
-
   },
   save: function() {
     var order = req.body,
@@ -27,17 +26,17 @@ var actions = {
     }
 
     db.collection('orders').save(order, function(err, result) {
-      if (err) console.log('err: ', err);
-      if (result) console.log('Result: ', result);
+      if (err) console.log('>> err: ', err);
+      if (result) console.log('>> result: ', result);
       send(result);
     });
   },
   show: function() {
     var id = db.collection('orders').id(req.params.id);
     db.collection('orders').find({_id: id}).toArray(function(err, result) {
-      if (err) console.log('err: ', err)
+      if (err) console.log('>> err: ', err)
       order = result[0];
-      console.log('order: ', order);
+      console.log('>> order: ', order);
       send(order);
     });
   }

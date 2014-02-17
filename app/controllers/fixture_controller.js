@@ -15,7 +15,7 @@ var application = {
   reset: function() {
     compound.app.set('config', JSON.parse(JSON.stringify(configOriginal)));
 
-    db.dropDatabase(function() { console.log('dropped the database...'); } );
+    db.collection('orders').drop(function() { console.log('>> dropped the orders collection...'); });
 
     send(compound.app.get('config'));
   },
