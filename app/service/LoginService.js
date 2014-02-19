@@ -6,9 +6,9 @@ function LoginService(compound) {
   var db = require('./DbService')(compound);
 
   function findById(id, fn) {
-    var id = db.collection('users').id(id);
-    db.collection('users').findOne({_id: id}, function (err, user) {
-      if (err) console.log('>> err: ', err);
+    var _id = db.collection('users').id(id);
+    db.collection('users').findOne({_id: _id}, function (err, user) {
+      if (err) { console.log('>> err: ', err); }
       console.log('>> user: ', user);
       return fn(null, user);
     });
@@ -16,7 +16,7 @@ function LoginService(compound) {
 
   function findByEmail(email, fn) {
     db.collection('users').findOne({email: email}, function (err, user) {
-      if (err) console.log('>> err: ', err);
+      if (err) { console.log('>> err: ', err); }
       console.log('>> user: ', user);
       return fn(null, user);
     });
@@ -54,11 +54,11 @@ function LoginService(compound) {
           if (!user) {
             return done(null, false, { message: 'Unknown email ' + email });
           }
-          if (user.password != password) {
+          if (user.password !== password) {
             return done(null, false, { message: 'Invalid password' });
           }
           return done(null, user);
-        })
+        });
       });
     }
   ));
@@ -79,7 +79,7 @@ LoginService.prototype.ensureAuthenticated = function (req, res, next) {
 module.exports = {
   init: function (compound) {
     if (!loginService) {
-      loginService = new LoginService(compound)
+      loginService = new LoginService(compound);
     }
 
     return loginService;

@@ -1,5 +1,10 @@
 var passport = require('passport');
 
+function addUserToLocals(args) {
+  args.req.locals.user = args.req.user;
+  next();
+}
+
 before(addUserToLocals);
 
 var actions = {
@@ -32,8 +37,3 @@ action('orders_list', actions.orders_list);
 action('login_get', actions.login_get);
 action('login_post', actions.login_post);
 action('logout', actions.logout);
-
-function addUserToLocals(args) {
-  args.req.locals.user = args.req.user;
-  next();
-}

@@ -19,8 +19,8 @@ module.exports = function (compound) {
       var users = [{username: 'admin', email: 'admin@akatsuki.com', password: 'password'}];
       users.forEach(function(user) {
         db.collection('users').save(user, function(err, result) {
-          if (err) console.log('>> err: ', err);
-          if (result) console.log('>> created user: ', result.username);
+          if (err) { console.log('>> err: ', err); }
+          if (result) { console.log('>> created user: ', result.username); }
         });
       });
     });

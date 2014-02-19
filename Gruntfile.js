@@ -23,17 +23,62 @@ module.exports = function(grunt) {
           regex: 'app/assets/**/*.coffee'
         },
         public: {
-          javascript: {
-            output: 'public/javascripts/vendor-app.min.js',
-            app: {
-              output: 'public/javascripts/app.js',
-              regex: 'public/javascripts/app/**/*.js'
-            },
-            vendor: {
-              output: 'public/javascripts/vendor.js',
-              regex: 'public/javascripts/vendor/**/*.js'
+          dirVendor: 'public/vendor',
+          output: 'public/javascripts/app.min.js',
+          app: {
+            output: 'public/javascripts/app.js',
+            regex: 'public/javascripts/app/**/*.js'
+          },
+          vendor: {
+              admin: {
+                js: {
+                  output: 'public/javascripts/vendor-admin.js',
+                  files: [
+                    '<%= files.src.public.dirVendor %>/angular/angular.min.js',
+                    '<%= files.src.public.dirVendor %>/angular-resource/angular-resource.min.js',
+                    '<%= files.src.public.dirVendor %>/angular-route/angular-route.min.js',
+                    '<%= files.src.public.dirVendor %>/angular-xeditable/dist/js/xeditable.min.js',
+                    '<%= files.src.public.dirVendor %>/jquery/jquery.min.js',
+                    '<%= files.src.public.dirVendor %>/jquery.inview/jquery.inview.min.js',
+                    '<%= files.src.public.dirVendor %>/bootstrap/dist/js/bootstrap.min.js',
+                    '<%= files.src.public.dirVendor %>/sugar/release/sugar.min.js'
+                  ]
+                },
+                css: {
+                  output: 'public/stylesheets/vendor-admin.css',
+                  files: [
+                    '<%= files.src.public.dirVendor %>/bootstrap/dist/css/bootstrap.min.css',
+                    '<%= files.src.public.dirVendor %>/bootstrap/dist/css/bootstrap-theme.min.css',
+                    '<%= files.src.public.dirVendor %>/font-awesome/css/font-awesome.min.css',
+                    '<%= files.src.public.dirVendor %>/animate.css/animate.min.css',
+                    '<%= files.src.public.dirVendor %>/angular-xeditable/dist/css/xeditable.css'
+                  ]
+                }
+              },
+              app: {
+                js: {
+                  output: 'public/javascripts/vendor-app.js',
+                  files: [
+                    '<%= files.src.public.dirVendor %>/angular/angular.min.js',
+                    '<%= files.src.public.dirVendor %>/angular-cookies/angular-cookies.min.js',
+                    '<%= files.src.public.dirVendor %>/angular-resource/angular-resource.min.js',
+                    '<%= files.src.public.dirVendor %>/jquery/jquery.min.js',
+                    '<%= files.src.public.dirVendor %>/jquery.inview/jquery.inview.min.js',
+                    '<%= files.src.public.dirVendor %>/bootstrap/dist/js/bootstrap.min.js',
+                    '<%= files.src.public.dirVendor %>/sugar/release/sugar.min.js'
+                  ]
+                },
+                css: {
+                  output: 'public/stylesheets/vendor-app.css',
+                  files: [
+                    '<%= files.src.public.dirVendor %>/bootstrap/dist/css/bootstrap.min.css',
+                    '<%= files.src.public.dirVendor %>/bootstrap/dist/css/bootstrap-theme.min.css',
+                    '<%= files.src.public.dirVendor %>/font-awesome/css/font-awesome.min.css',
+                    '<%= files.src.public.dirVendor %>/animate.css/animate.min.css'
+                  ]
+                }
+              }
             }
-          }
         }
       },
       test: {
@@ -82,11 +127,25 @@ module.exports = function(grunt) {
       options: {
         stripBanners: true
       },
-      app_and_vendor: {
+      vendor_js: {
         files: {
-          '<%= files.src.public.javascript.app.output %>': ['<%= files.src.public.javascript.app.regex %>'],
-          '<%= files.src.public.javascript.vendor.output %>': ['<%= files.src.public.javascript.vendor.regex %>']
+          '<%= files.src.public.vendor.app.js.output %>': '<%= files.src.public.vendor.app.js.files %>',
+          '<%= files.src.public.vendor.admin.js.output %>': '<%= files.src.public.vendor.admin.js.files %>'
         }
+      },
+      vendor_css: {
+        files: {
+          '<%= files.src.public.vendor.app.css.output %>': '<%= files.src.public.vendor.app.css.files %>',
+          '<%= files.src.public.vendor.admin.css.output %>': '<%= files.src.public.vendor.admin.css.files %>'
+        }
+      }
+    },
+    copy: {
+      main: {
+        expand: true,
+        src: ['<%= files.src.public.dirVendor %>/bootstrap/fonts/*', '<%= files.src.public.dirVendor %>/font-awesome/fonts/*'],
+        dest: 'public/fonts',
+        flatten: true
       }
     },
     uglify: {
@@ -96,8 +155,13 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      frontend: ['<%= files.src.public.javascript.vendor.output %>', '<%= files.src.public.javascript.app.output %>'],
-      backend: ['<%= files.src.public.javascript.vendor.output %>', '<%= files.src.public.javascript.app.output %>']
+      frontend: [
+        '<%= files.src.public.vendor.app.js.output %>',
+        '<%= files.src.public.vendor.admin.js.output %>',
+        '<%= files.src.public.vendor.app.css.output %>',
+        '<%= files.src.public.vendor.admin.css.output %>',
+        'public/fonts'
+      ]
     },
     mochacli: {
       options: {
@@ -138,16 +202,17 @@ module.exports = function(grunt) {
   });
   var env = process.env.NODE_ENV || 'development';
 
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-coffeelint');
-  grunt.loadNpmTasks('grunt-mocha-cli');
   grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-mocha-cli');
 
-  grunt.registerTask('build', ['jshint', 'coffeelint', 'concat', 'uglify', 'clean']);
+  grunt.registerTask('build', ['jshint', 'coffeelint', 'clean', 'copy', 'concat']);
 
   var testTask = ['mochacli:spec'];
   if (env !== 'development') { testTask = ['mochacli:tap']; }

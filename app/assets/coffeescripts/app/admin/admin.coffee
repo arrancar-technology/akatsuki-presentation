@@ -14,7 +14,7 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
   $locationProvider.html5Mode(true)
 ]
 app.run (editableOptions) ->
-  editableOptions.theme = 'bs3';
+  editableOptions.theme = 'bs3'
 
 exports = this
 exports.appName = appName

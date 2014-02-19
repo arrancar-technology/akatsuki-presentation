@@ -1,0 +1,17 @@
+{
+  "name": "akatsuki",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "1.2.6",
+    "angular-resource": "1.2.6",
+    "angular-cookies": "1.2.6",
+    "angular-route": "1.2.6",
+    "jquery": "~1.10.2",
+    "bootstrap": "~3.1.1",
+    "font-awesome": "~4.0.3",
+    "animate.css": "~3.0.0",
+    "jquery.inview": "*",
+    "sugar": "~1.4.1",
+    "angular-xeditable": "~0.1.8"
+  }
+}

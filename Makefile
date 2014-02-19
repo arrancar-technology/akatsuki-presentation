@@ -1,6 +1,7 @@
 # type 'make -s list' to see list of targets.
 
 run-app:
+	grunt build
 	PORT=5000 ./node_modules/forever/bin/forever ./node_modules/nodemon/nodemon.js server.js
 
 test-app:
@@ -12,6 +13,7 @@ test-app-ci:
 
 setup-project:
 	npm install
+	./node_modules/bower/bin/bower install
 	git remote add func01  git@heroku.com:akatsuki-presentation-func01.git
 	git remote add qa01    git@heroku.com:akatsuki-presentation-qa01.git
 	git remote add demo01  git@heroku.com:akatsuki-presentation-demo01.git

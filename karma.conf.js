@@ -4,10 +4,10 @@ module.exports = function (config) {
     autoWatch: true,
     frameworks: ['mocha'],
     files: [
-      'public/javascripts/vendor/angular-min.js',
-      'public/javascripts/vendor/angular-resource-min.js',
-      'public/javascripts/vendor/jquery-min.js',
-      'public/javascripts/vendor/bootstrap.js',
+      'public/vendor/angular/angular.min.js',
+      'public/vendor/angular-resource/angular-resource.min.js',
+      'public/vendor/jquery/jquery.min.js',
+      'public/vendor/bootstrap/dist/js/bootstrap.min.js',
       'test/lib/**/*.js',
       'app/**/*.coffee',
       'test/frontend/**/*.coffee'
