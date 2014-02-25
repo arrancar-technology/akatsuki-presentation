@@ -1,7 +1,7 @@
 # type 'make -s list' to see list of targets.
 
 run-app:
-	grunt build
+	./node_modules/grunt-cli/bin/grunt build
 	PORT=5000 ./node_modules/forever/bin/forever ./node_modules/nodemon/nodemon.js server.js
 
 test-app:
