@@ -1,5 +1,5 @@
 controllers =
-  CertificateDetailsController: ["$scope", "$cookies", "Order", "Lookups", "PopoverService", ($scope, $cookies, Order, Lookups, PopoverService) ->
+  CertificateDetailsController: ["$scope", "$cookies", "$window", "Order", "Lookups", "PopoverService", ($scope, $cookies, $window, Order, Lookups, PopoverService) ->
     $scope.init = (type) ->
       $scope.type = type
       $scope.model = {}
@@ -20,17 +20,18 @@ controllers =
             $scope.model.order.email = order.email
 
       # Defaults
-      $scope.model.order.status = 'received'
+      $scope.model.order.status = 'created'
       $scope.model.order.certificate = {}
       $scope.model.order.certificate.type = $scope.type
       $scope.model.order.certificate.serviceType = 'standard'
       $scope.model.order.certificate.numberOfCopies = 1
 
-      $scope.model.order.card = {}
-      $scope.model.order.card.type = 'visa'
+      $scope.model.order.charge = {}
 
       $scope.model.order.address = {}
       $scope.model.order.address.country = 'GB'
+
+      $scope.model.card = {}
 
       expiryYearStart = new Date().getFullYear()
       $scope.model.yearsExpiry = [expiryYearStart..expiryYearStart+10]
@@ -54,9 +55,18 @@ controllers =
       else if $scope.address_form.$valid && $scope.model.step.current == 2
         $scope.model.step.current = 3
       else if $scope.payment_form.$valid && $scope.model.step.current == 3
-        # TODO: [DK] make payment request
-
-        Order.create($scope.model.order)
+        Stripe.card.createToken
+          number: $scope.model.card.number
+          cvc: $scope.model.card.cvc
+          exp_month: $scope.model.card.expiryMonth
+          exp_year: $scope.model.card.expiryYear
+        , (status, response) ->
+            if (response.error)
+              # TODO: [DK] show error on the page
+            else
+              $scope.model.order.charge.token = response.id
+              Order.create $scope.model.order, (order) ->
+               $window.location.href = "/certificate/success"
       else
         PopoverService.initializePopover $(element).attr('id') for element in $(".step.#{$scope.model.step.current} input[required]")
   ]

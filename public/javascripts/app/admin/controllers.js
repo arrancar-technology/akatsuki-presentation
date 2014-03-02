@@ -7,11 +7,11 @@
         $scope.model = {};
         $scope.model.lists = {};
         $scope.model.lists.birth = {};
-        $scope.model.lists.birth.filter = 'received';
+        $scope.model.lists.birth.filter = 'paid';
         $scope.model.lists.marriage = {};
-        $scope.model.lists.marriage.filter = 'received';
+        $scope.model.lists.marriage.filter = 'paid';
         $scope.model.lists.death = {};
-        $scope.model.lists.death.filter = 'received';
+        $scope.model.lists.death.filter = 'paid';
         $scope.model.orders = Order.get({}, function() {});
         $scope.selectOrder = function(orderId) {
           return $scope.model.orderSelected = $scope.model.orders.find(function(order) {

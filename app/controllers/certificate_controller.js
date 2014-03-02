@@ -12,9 +12,17 @@ var actions = {
   },
   additionalDetails: function () {
     var section = req.params.section;
-    render(section, {title: 'UK ' + section.capitalize()  + ' Certificate'});
+    render(section, {title: 'UK Official Certificate - ' + section.capitalize()  + ' Certificate'});
+  },
+  success: function() {
+    var order = req.session.order;
+
+    // TODO: [DK] redirect to homepage if there is no order in the session.
+
+    render({title: 'UK Official Certificate - Order Success', order: order});
   }
 };
 
 action('personalDetails', actions.personalDetails);
 action('additionalDetails', actions.additionalDetails);
+action('success', actions.success);

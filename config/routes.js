@@ -3,7 +3,7 @@ exports.routes = function (map) {
   map.get('/', 'homepage#show');
 
   // Certificate Details
-  map.post('/certificate/:section', 'certificate#personalDetails');
+  map.get('/certificate/success', 'certificate#success');
   map.get('/certificate/:section', 'certificate#additionalDetails');
 
   // Order

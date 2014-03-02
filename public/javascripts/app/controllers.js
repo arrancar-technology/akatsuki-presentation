@@ -3,7 +3,7 @@
 
   controllers = {
     CertificateDetailsController: [
-      "$scope", "$cookies", "Order", "Lookups", "PopoverService", function($scope, $cookies, Order, Lookups, PopoverService) {
+      "$scope", "$cookies", "$window", "Order", "Lookups", "PopoverService", function($scope, $cookies, $window, Order, Lookups, PopoverService) {
         $scope.init = function(type) {
           var expiryYearStart, orderId, _i, _j, _ref, _results, _results1;
           $scope.type = type;
@@ -25,15 +25,15 @@
               return $scope.model.order.email = order.email;
             });
           }
-          $scope.model.order.status = 'received';
+          $scope.model.order.status = 'created';
           $scope.model.order.certificate = {};
           $scope.model.order.certificate.type = $scope.type;
           $scope.model.order.certificate.serviceType = 'standard';
           $scope.model.order.certificate.numberOfCopies = 1;
-          $scope.model.order.card = {};
-          $scope.model.order.card.type = 'visa';
+          $scope.model.order.charge = {};
           $scope.model.order.address = {};
           $scope.model.order.address.country = 'GB';
+          $scope.model.card = {};
           expiryYearStart = new Date().getFullYear();
           $scope.model.yearsExpiry = (function() {
             _results = [];
@@ -67,7 +67,21 @@
           } else if ($scope.address_form.$valid && $scope.model.step.current === 2) {
             return $scope.model.step.current = 3;
           } else if ($scope.payment_form.$valid && $scope.model.step.current === 3) {
-            return Order.create($scope.model.order);
+            return Stripe.card.createToken({
+              number: $scope.model.card.number,
+              cvc: $scope.model.card.cvc,
+              exp_month: $scope.model.card.expiryMonth,
+              exp_year: $scope.model.card.expiryYear
+            }, function(status, response) {
+              if (response.error) {
+
+              } else {
+                $scope.model.order.charge.token = response.id;
+                return Order.create($scope.model.order, function(order) {
+                  return $window.location.href = "/certificate/success";
+                });
+              }
+            });
           } else {
             _ref = $(".step." + $scope.model.step.current + " input[required]");
             _results = [];

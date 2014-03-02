@@ -8,7 +8,8 @@ block content
           .col-md-6: h4 Birth
           .col-md-6
             .btn-group.pull-right
-              button.btn.btn-info(type='button', ng-click='model.lists.birth.filter = "received"') Received
+              button.btn.btn-info(type='button', ng-click='model.lists.birth.filter = "created"') Created
+              button.btn.btn-success(type='button', ng-click='model.lists.birth.filter = "paid"') Paid
               button.btn.btn-warning(type='button', ng-click='model.lists.birth.filter = "processing"') Processing
               button.btn.btn-success(type='button', ng-click='model.lists.birth.filter = "done"') Done
         .row

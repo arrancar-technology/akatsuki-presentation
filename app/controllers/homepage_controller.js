@@ -1,3 +1,3 @@
 action('show', function(){
-  render({title: 'UK Certificates'});
+  render({title: 'UK Official Certificate'});
 });
