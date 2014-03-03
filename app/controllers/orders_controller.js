@@ -9,7 +9,8 @@
 var db = require('./app/service/DbService')(compound),
   priceListService = require('./app/service/PriceListService')(),
   constants = require('./app/types/Constants'),
-  stripe = require('stripe')('sk_test_D5DgGB4bKmT9isRiYR9yA4ED');
+  stripePrivateKey = process.env.STRIPE_PRIVATE_KEY || 'sk_test_D5DgGB4bKmT9isRiYR9yA4ED',
+  stripe = require('stripe')(stripePrivateKey);
 
 var actions = {
   index: function() {

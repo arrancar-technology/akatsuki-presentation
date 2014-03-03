@@ -1,4 +1,10 @@
 extends ../layouts/application
+
+block append head
+  script(src='https://js.stripe.com/v2', type='text/javascript')
+  script(type='text/javascript')
+    Stripe.setPublishableKey("#{stripePublicKey}");
+
 block content
   div(ng-controller="CertificateDetailsController", ng-init="init('marriage')")
     include ../templates/progress_bar

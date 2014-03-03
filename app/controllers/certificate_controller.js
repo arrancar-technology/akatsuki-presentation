@@ -11,8 +11,11 @@ var actions = {
     });
   },
   additionalDetails: function () {
-    var section = req.params.section;
-    render(section, {title: 'UK Official Certificate - ' + section.capitalize()  + ' Certificate'});
+    var section = req.params.section,
+        title = 'UK Official Certificate - ' + section.capitalize()  + ' Certificate',
+        stripePublicKey = process.env.STRIPE_PUBLIC_KEY || 'pk_test_UCpDjFVwLLJsMWzoK3PQyGl8';
+
+    render(section, {title: title, stripePublicKey: stripePublicKey});
   },
   success: function() {
     var order = req.session.order;
