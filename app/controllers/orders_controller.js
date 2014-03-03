@@ -16,6 +16,8 @@ var actions = {
     var orders = [];
     db.collection('orders').find({}).toArray(function(err, result) {
       if (err) { console.log('>> err: ', err); }
+      if (result) { console.log('>> result: ', result); }
+
       orders = result;
       send(orders);
     });

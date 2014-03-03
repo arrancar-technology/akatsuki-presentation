@@ -17,8 +17,9 @@
                 var element, _i, _len, _ref, _results;
                 $scope.model.submitted = true;
                 if ($scope.apply_form.$valid) {
+                  $scope.model.order.certificate = {};
+                  $scope.model.order.certificate.type = $scope.formtype;
                   Order.create($scope.model.order, function(order) {
-                    console.log('order: ', order);
                     $cookies.o_id = order._id;
                     return $window.location.href = "/certificate/" + $scope.formtype;
                   });
