@@ -1,15 +1,15 @@
 form.form-horizontal.step.first(role="form")
   .form-group
     label.col-sm-6.control-label.required(for="date-of-marriage") Date of Marriage
-    .input-group.col-sm-6
-        .input-group-btn
-          select.input-sm.form-control(id="date-of-marriage", ng-model="model.order.marriage.day", ng-options="day.value as day.name for day in model.days")
-            option(value="") Day
-        .input-group-btn
-          select.input-sm.form-control(id="date-of-marriage", ng-model="model.order.marriage.month", ng-options="month.value as month.name for month in model.months")
-            option(value="") Month
-        .input-group-btn
-          input.form-control.input-sm(id="year-of-marriage", ng-model="model.order.marriage.year", placeholder="Year")
+    .col-sm-6
+      .input-group-btn
+        select.input-sm.form-control(id="date-of-marriage", ng-model="model.order.marriage.day", ng-options="day for day in model.days")
+          option(value="") Day
+      .input-group-btn
+        select.input-sm.form-control(id="date-of-marriage", ng-model="model.order.marriage.month", ng-options="select as label for (select,label) in model.months")
+          option(value="") Month
+      .input-group-btn
+        input.form-control.input-sm(id="year-of-marriage", ng-model="model.order.marriage.year", placeholder="Year")
   .form-group
     label.col-sm-6.control-label.required(for="place-of-marriage") Place of Marriage
     .col-sm-6

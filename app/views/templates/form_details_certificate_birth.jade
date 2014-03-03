@@ -1,7 +1,7 @@
 form.form-horizontal.step.1.first(name="birth_form", role="form", novalidate)
   .form-group.date-of-birth-container(ng-class='{"has-error": (birth_form["day-of-birth"].$invalid || birth_form["month-of-birth"].$invalid || birth_form["year-of-birth"].$invalid) && model.step.1.submitted, "has-success": birth_form["day-of-birth"].$valid && birth_form["month-of-birth"].$valid && birth_form["year-of-birth"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="day-of-birth") Date of Birth
-    .input-group.col-sm-6
+    .col-sm-6
         .input-group-btn(ng-class='{"has-error": birth_form["day-of-birth"].$invalid && model.step.1.submitted, "has-success": birth_form["day-of-birth"].$valid && model.step.1.submitted}')
           select.day.input-sm.form-control(id="day-of-birth", name="day-of-birth", ng-model="model.order.certificate.day", ng-options="day for day in model.days", required='required')
             option(value="") Day
@@ -40,17 +40,17 @@ form.form-horizontal.step.1.first(name="birth_form", role="form", novalidate)
       input.form-control.input-sm(type="text", id="father-first-name", ng-model="model.order.certificate.father.firstName")
   .form-group(ng-class='{"has-error": birth_form["service-type"].$invalid && model.step.1.submitted, "has-success": birth_form["service-type"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="service-type") Service Type
-    .input-group.col-sm-6
+    .col-sm-6
       .input-group-btn
         select.input-sm.form-control(id="service-type", name="service-type", ng-model="model.order.certificate.serviceType", ng-options="serviceType.type as serviceType.label for serviceType in model.serviceTypes", required='required')
   .form-group(ng-class='{"has-error": birth_form["number-of-copies"].$invalid && model.step.1.submitted, "has-success": birth_form["number-of-copies"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="number-of-copies") Number of Copies
-    .input-group.col-sm-6
+    .col-sm-6
       .input-group-btn
         select.input-sm.form-control(id="number-of-copies", name="number-of-copies", ng-model="model.order.certificate.numberOfCopies", ng-options="number for number in model.numberOfCopies", required='required')
   .form-group(ng-class='{"has-error": birth_form["number-of-apostilles"].$invalid && model.step.1.submitted, "has-success": birth_form["number-of-apostilles"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="number-of-apostilles") Apostilled Copies
-    .input-group.col-sm-6
+    .col-sm-6
       .input-group-btn
         select.input-sm.form-control(id="number-of-apostilles", name="number-of-apostilles", ng-model="model.order.certificate.numberOfApostilles", ng-options="number for number in model.numberOfApostilles", required='required')
           option(value="") -- (£75 per stamp)

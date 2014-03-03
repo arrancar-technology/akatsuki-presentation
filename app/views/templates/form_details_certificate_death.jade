@@ -1,15 +1,15 @@
 form.form-horizontal.step.first(role="form")
   .form-group
     label.col-sm-6.control-label.required(for="date-of-death") Place of Death
-    .input-group.col-sm-6
-        .input-group-btn
-          select.input-sm.form-control(id="date-of-death", ng-model="model.order.death.day", ng-options="day.value as day.name for day in model.days")
-            option(value="") Day
-        .input-group-btn
-          select.input-sm.form-control(id="date-of-death", ng-model="model.order.death.month", ng-options="month.value as month.name for month in model.months")
-            option(value="") Month
-        .input-group-btn
-          input.form-control.input-sm(id="year-of-death", ng-model="model.order.death.year", placeholder="Year")
+    .col-sm-6
+      .input-group-btn
+        select.input-sm.form-control(id="date-of-death", ng-model="model.order.death.day", ng-options="day for day in model.days")
+          option(value="") Day
+      .input-group-btn
+        select.input-sm.form-control(id="date-of-death", ng-model="model.order.death.month", ng-options="select as label for (select,label) in model.months")
+          option(value="") Month
+      .input-group-btn
+        input.form-control.input-sm(id="year-of-death", ng-model="model.order.death.year", placeholder="Year")
   .form-group
     label.col-sm-6.control-label.required(for="place-of-death") Place of Death
     .col-sm-6

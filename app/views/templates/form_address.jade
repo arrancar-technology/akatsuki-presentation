@@ -17,9 +17,8 @@ form.form-horizontal(name="address_form", role="form", novalidate)
       input.form-control.input-sm(type="text", id="postcode", name="postcode", ng-model="model.order.address.postcode", required='required')
   .form-group(ng-class='{"has-error": address_form["country"].$invalid && model.step.2.submitted, "has-success": address_form["country"].$valid && model.step.2.submitted}')
     label.col-sm-6.control-label.required(for="country") Country
-    .input-group.col-sm-6
-      .input-group-btn
-        select.input-sm.form-control(id="country", name="country", ng-model="model.order.address.country", ng-options="country.code as country.name for country in model.countries", required='required')
+    .col-sm-6
+      select.input-sm.form-control(id="country", name="country", ng-model="model.order.address.country", ng-options="country.code as country.name for country in model.countries", required='required')
   .form-group(ng-class='{"has-error": address_form["phone"].$invalid && model.step.2.submitted, "has-success": address_form["phone"].$valid && model.step.2.submitted}')
     label.col-sm-6.control-label.required(for="phone") Phone
     .col-sm-6
