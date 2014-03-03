@@ -7,6 +7,7 @@ $('.apply-button').on 'click', ->
   targetForm = $(@).data('target-form')
   $(".#{targetForm} .certificate-show").removeClass('hidden')
   $(".#{targetForm} .certificate-hide").addClass('hidden')
+  $(".#{targetForm}").find('input').first().focus()
 
 $('.animate-inview').one 'inview', ->
   setTimeout (->

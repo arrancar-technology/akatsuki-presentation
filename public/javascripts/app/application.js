@@ -9,7 +9,8 @@
     var targetForm;
     targetForm = $(this).data('target-form');
     $("." + targetForm + " .certificate-show").removeClass('hidden');
-    return $("." + targetForm + " .certificate-hide").addClass('hidden');
+    $("." + targetForm + " .certificate-hide").addClass('hidden');
+    return $("." + targetForm).find('input').first().focus();
   });
 
   $('.animate-inview').one('inview', function() {
