@@ -1,0 +1,16 @@
+.form-group(ng-class='{"has-error": #{formName}["service-type"].$invalid && model.step.1.submitted, "has-success": #{formName}["service-type"].$valid && model.step.1.submitted}')
+  label.col-sm-6.control-label.required(for="service-type") Service Type
+  .col-sm-6
+    .input-group-btn
+      select.input-sm.form-control(id="service-type", name="service-type", ng-model="model.order.certificate.serviceType", ng-options="serviceType.type as serviceType.label for serviceType in model.serviceTypes", required='required')
+.form-group(ng-class='{"has-error": #{formName}["number-of-copies"].$invalid && model.step.1.submitted, "has-success": #{formName}["number-of-copies"].$valid && model.step.1.submitted}')
+  label.col-sm-6.control-label.required(for="number-of-copies") Number of Copies
+  .col-sm-6
+    .input-group-btn
+      select.input-sm.form-control(id="number-of-copies", name="number-of-copies", ng-model="model.order.certificate.numberOfCopies", ng-options="number for number in model.numberOfCopies", required='required')
+.form-group(ng-class='{"has-error": #{formName}["number-of-apostilles"].$invalid && model.step.1.submitted, "has-success": #{formName}["number-of-apostilles"].$valid && model.step.1.submitted}')
+  label.col-sm-6.control-label.required(for="number-of-apostilles") Apostilled Copies
+  .col-sm-6
+    .input-group-btn
+      select.input-sm.form-control(id="number-of-apostilles", name="number-of-apostilles", ng-model="model.order.certificate.numberOfApostilles", ng-options="number for number in model.numberOfApostilles", required='required')
+        option(value="") -- (£75 per stamp)
