@@ -1,0 +1,12 @@
+small.row.serviceType
+  .col-sm-6 Service Type
+  .col-sm-6 : {{model.order.certificate.serviceType.capitalize() || '--' }}
+small.row.numberOfCopies
+  .col-sm-6 Number of Copies
+  .col-sm-6 : {{model.order.certificate.numberOfCopies || '--' }}
+small.row.apostilledCopies
+  .col-sm-6 Apostilled Copies
+  .col-sm-6 : {{model.order.certificate.numberOfApostilles || '--' }}
+small.row.total: strong
+  .col-sm-6 Total
+  .col-sm-6 : £{{model.order.certificate.numberOfCopies * model.priceList[model.order.certificate.serviceType] + (model.order.certificate.numberOfApostilles || 0) * model.priceList.apostille}}
