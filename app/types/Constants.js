@@ -7,6 +7,6 @@ var constants = {
       done: 'done'
     }
   }
-}
+};
 
 module.exports = constants;

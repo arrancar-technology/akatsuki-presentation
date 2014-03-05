@@ -32,7 +32,7 @@ var actions = {
     }
 
     var chargeToken = order.charge && order.charge.token;
-    if(chargeToken) order.charge.amount = priceListService.getPriceFor(order);
+    if(chargeToken) { order.charge.amount = priceListService.getPriceFor(order); }
     if(chargeToken) {
       console.log('>> charging order. chargeToken: ' + chargeToken);
       stripe.charges.create({
