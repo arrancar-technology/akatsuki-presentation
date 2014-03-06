@@ -1,13 +1,24 @@
-.panel.panel-default
-  .panel-heading
-    h3.panel-title Order Summary
-  .panel-body
-    h4 Certificate Details
-    small.row
-      .col-sm-6 Date of Marriage
-      .col-sm-6 {{model.order.marriage.day}}/{{model.order.marriage.month}}/{{model.order.marriage.year}}
-    small.row
-      .col-sm-6 Place of Marriage
-      .col-sm-6 {{model.order.marriage.place}}
-    include ../templates/order_summary_additional
-    include ../templates/order_summary_payment
+.order-summary-details-container
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title Order Summary
+    .panel-body
+      .certificate-details-container
+        h4 Certificate Details
+        small.row.dateOfDeath
+          .col-sm-6 Date of Death
+          .col-sm-6 : {{model.order.certificate.day || '--' }} / {{model.months[model.order.certificate.month] || '--' }} / {{model.order.certificate.year || '--' }}
+        small.row.placeOfDeath
+          .col-sm-6 Place of Death
+          .col-sm-6 : {{model.order.certificate.place || '--' }}
+        small.row.lastNameAtDeath
+          .col-sm-6 Last Name of Deceased
+          .col-sm-6 : {{model.order.certificate.lastName || '--' }}
+        small.row.firstNameAtDeath
+          .col-sm-6 First Name of Deceased
+          .col-sm-6 : {{model.order.certificate.firstName || '--' }}
+        hr
+        include ../templates/order_summary_service_type
+
+        include ../templates/order_summary_additional
+        include ../templates/order_summary_payment
