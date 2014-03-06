@@ -1,27 +1,31 @@
-form.form-horizontal.step.first(role="form")
-  .form-group
-    label.col-sm-6.control-label.required(for="date-of-death") Place of Death
+form.form-horizontal.step.1.first(name="death_form", role="form", novalidate)
+  .form-group.date-of-death-container(ng-class='{"has-error": (death_form["day-of-death"].$invalid || death_form["month-of-death"].$invalid || death_form["year-of-death"].$invalid) && model.step.1.submitted, "has-success": death_form["day-of-death"].$valid && death_form["month-of-death"].$valid && death_form["year-of-death"].$valid && model.step.1.submitted}')
+    label.col-sm-6.control-label.required(for="day-of-death") Date of Death
     .col-sm-6
-      .input-group-btn
-        select.input-sm.form-control(id="date-of-death", ng-model="model.order.death.day", ng-options="day for day in model.days")
+      .input-group-btn(ng-class='{"has-error": death_form["day-of-death"].$invalid && model.step.1.submitted, "has-success": death_form["day-of-death"].$valid && model.step.1.submitted}')
+        select.day.input-sm.form-control(id="day-of-death", name="day-of-death", ng-model="model.order.certificate.day", ng-options="day for day in model.days", required='required')
           option(value="") Day
-      .input-group-btn
-        select.input-sm.form-control(id="date-of-death", ng-model="model.order.death.month", ng-options="select as label for (select,label) in model.months")
+      .input-group-btn(ng-class='{"has-error": death_form["month-of-death"].$invalid && model.step.1.submitted, "has-success": death_form["month-of-death"].$valid && model.step.1.submitted}')
+        select.month.input-sm.form-control(id="month-of-death", name="month-of-death", ng-model="model.order.certificate.month", ng-options="select as label for (select,label) in model.months", required='required')
           option(value="") Month
-      .input-group-btn
-        input.form-control.input-sm(id="year-of-death", ng-model="model.order.death.year", placeholder="Year")
-  .form-group
+      .input-group-btn(ng-class='{"has-error": death_form["year-of-death"].$invalid && model.step.1.submitted, "has-success": death_form["year-of-death"].$valid && model.step.1.submitted}')
+        input.year.form-control.input-sm(id="year-of-death", name="year-of-death", ng-model="model.order.certificate.year", placeholder="Year", required='required', ng-pattern=/19\d{2}|20\d{2}/, maxlength="4")
+  .form-group(ng-class='{"has-error": death_form["place-of-death"].$invalid && model.step.1.submitted, "has-success": death_form["place-of-death"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="place-of-death") Place of Death
     .col-sm-6
-      input.form-control.input-sm(type="text", id="place-of-death", ng-model="model.order.death.place")
-  .form-group
-    label.col-sm-6.control-label.required(for="last-name-at-death") Last Name
+      input.form-control.input-sm(type="text", id="place-of-death", name="place-of-death", data-ng-model="model.order.certificate.place", required='required')
+  .form-group(ng-class='{"has-error": death_form["last-name-at-death"].$invalid && model.step.1.submitted, "has-success": death_form["last-name-at-death"].$valid && model.step.1.submitted}')
+    label.col-sm-6.control-label.required(for="last-name-at-death") Last Name of Deceased
     .col-sm-6
-      input.form-control.input-sm(type="text", id="last-name-at-death", ng-model="model.order.death.lastName")
-  .form-group
-    label.col-sm-6.control-label.required(for="first-name-of-death") First Name
+      input.form-control.input-sm(type="text", id="last-name-at-death", name="last-name-at-death", ng-model="model.order.certificate.lastName", required='required')
+  .form-group(ng-class='{"has-error": death_form["first-name-at-death"].$invalid && model.step.1.submitted, "has-success": death_form["first-name-at-death"].$valid && model.step.1.submitted}')
+    label.col-sm-6.control-label.required(for="first-name-at-death") First Name of Deceased
     .col-sm-6
-      input.form-control.input-sm(type="text", id="first-name-of-death", ng-model="model.order.death.firstName")
+      input.form-control.input-sm(type="text", id="first-name-at-death", name="first-name-at-death", ng-model="model.order.certificate.firstName", required='required')
+
+  formName = 'death_form'
+  include ../templates/form_details_service_information
+
   .form-group
     .col-sm-offset-6.col-sm-6
       include ../templates/buttons_step
