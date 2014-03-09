@@ -8,6 +8,7 @@ module.exports = function (compound) {
     var environment = process.env.NODE_ENV || 'development';
     app.set('config', config[environment]);
 
+    app.use(express.compress());
     app.use(express.static(app.root + '/public', { maxAge: 86400000 }));
     app.set('jsDirectory', '/javascripts/');
     app.set('cssDirectory', '/stylesheets/');
