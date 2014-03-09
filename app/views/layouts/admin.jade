@@ -3,7 +3,7 @@ html(ng-app='admin-app')
   head
     block head
       include ../templates/admin/header
-      link(href='/stylesheets/app/admin.css', media='screen', rel='stylesheet', type='text/css')
+
   body
     block navigation
       include ../templates/admin/navigation
@@ -13,3 +13,4 @@ html(ng-app='admin-app')
 
       include ../templates/admin/footer
       include ../templates/admin/defer
+      link(href='/stylesheets/app/admin.css', media='screen', rel='stylesheet', type='text/css')
