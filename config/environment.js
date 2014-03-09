@@ -9,7 +9,7 @@ module.exports = function (compound) {
     app.set('config', config[environment]);
 
     app.use(express.compress());
-    app.use(express.static(app.root + '/public', { maxAge: 604800 }));
+    app.use(express.static(app.root + '/public', { maxAge: 2592000000 }));
     app.set('jsDirectory', '/javascripts/');
     app.set('cssDirectory', '/stylesheets/');
     app.set('cssEngine', 'stylus');
