@@ -11,6 +11,7 @@ node_modules
 *.ipr
 *.iws
 coverage
+public/vendor
 
 .DS_Store
 scrapbook.txt
