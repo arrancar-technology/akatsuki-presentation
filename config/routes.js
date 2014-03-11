@@ -13,4 +13,7 @@ exports.routes = function (map) {
   map.get('fixture/reset', 'fixture#reset');
   map.get('fixture/status/applicationVersion', 'fixture#statusApplicationVersion');
   map.get('fixture/status/commitHash', 'fixture#statusCommitHash');
+
+  // Google Webmaster Tool verification
+  map.get('googlef46f912f19ecdab2.html', 'static#googleWebmasterToolVerify');
 };
