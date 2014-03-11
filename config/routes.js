@@ -29,4 +29,7 @@ exports.routes = function (map) {
   map.get('login/admin', 'admin#login_get');
   map.post('login/admin', 'admin#login_post');
   map.get('logout/admin', 'admin#logout');
+
+  // Google Webmaster Tool verification
+  map.get('googlef46f912f19ecdab2.html', 'static#googleWebmasterToolVerify');
 };
