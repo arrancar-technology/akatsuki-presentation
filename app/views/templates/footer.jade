@@ -1,6 +1,6 @@
 footer
   .container
-    .row
+    .row.hidden
       .col-md-6.col-md-offset-3.text-center
         ul.list-inline
           li
@@ -11,12 +11,47 @@ footer
             i.fa.fa-google-plus.fa.fa-2x
           li
             i.fa.fa-pinterest.fa.fa-2x
-        hr
+
+    .row
+      .col-md-6.col-md-offset-3.text-center
         p
-          | Built with
-          i.fa.fa-heart-empty
-          | at
-          a(href='http://www.bootply.com') Bootply
-          | .
-          br
-          | Company ©2013
+          | Find out more&nbsp;
+          a(href='/faq') at FAQ
+          | . View&nbsp;
+          a(href='/pricing') pricing&nbsp;
+          | details.
+
+    hr
+
+    .row(style="background: #2d333b")
+      .col-sm-offset-3.col-sm-2
+        h5 Compay
+        .row
+          a(href="/about-us") About Us
+        .row
+          a(href="/terms-and-conditions") Terms and Conditions
+        .row
+          a(href="/privacy-policy") Privacy Policy
+      .col-sm-2
+        h5 Service & Features
+        .row
+          a(href="/certificate/birth") Birth Certificate
+        .row
+          a(href="/certificate/marriage") Marriage Certificate
+        .row
+          a(href="/certificate/daeth") Death Certificate
+        .row
+          a(href="/pricing") Pricing
+      .col-sm-2
+        h5 Support
+        .row
+          a(href='/faq') FAQ
+        .row
+          a(href="/contact-us") Contact Us
+
+    .row(style="background: #2d333b")
+      .col-md-6.col-md-offset-3.text-center
+        br
+        br
+        p
+          | Simply Certificate ©2014

@@ -25,9 +25,6 @@ h1 {
   right: 0%;
   color: #f9f9f9;
 }
-.scroll-top {
-  background-color: #0d448a;
-}
 .header {
   background: #0d448a url("../../images/pt_squares_lg.png") repeat center center fixed;
 }
@@ -235,4 +232,8 @@ ol.progtrckr[data-progtrckr-steps="8"] li {
 }
 ol.progtrckr[data-progtrckr-steps="9"] li {
   width: 11%;
+}
+footer {
+  background: #2d333b;
+  color: #fff;
 }
