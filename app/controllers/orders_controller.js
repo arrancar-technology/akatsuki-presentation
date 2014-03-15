@@ -27,6 +27,8 @@ var actions = {
     var order = req.body,
         orderId = req.body._id;
 
+    console.log('>> order received. order: ', order);
+
     if(orderId) {
       order._id = db.collection('orders').id(orderId);
     }
