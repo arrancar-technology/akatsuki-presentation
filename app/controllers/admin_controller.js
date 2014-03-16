@@ -21,7 +21,7 @@ var actions = {
     render('login', {title: 'Admin - Login - UK Certificate', redirectUrl: req.query.redirectUrl || ''});
   },
   login_post: function () {
-    console.log('trying to login. user: ', req.body.email);
+    console.log('>> trying to login. user: ', req.body.email);
 
     var redirectUrl = req.query.redirectUrl;
     var failureQuery = redirectUrl ? '?redirectUrl=' + req.query.redirectUrl : '';
