@@ -237,3 +237,6 @@ footer {
   background: #2d333b;
   color: #fff;
 }
+.main-container {
+  min-height: 600px;
+}
