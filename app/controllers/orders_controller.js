@@ -34,8 +34,8 @@ var actions = {
     }
 
     var chargeToken = order.charge && order.charge.token;
-    if(chargeToken) { order.charge.amount = priceListService.getPriceFor(order); }
     if(chargeToken) {
+      order.charge.amount = priceListService.getPriceFor(order);
       console.log('>> charging order. chargeToken: ' + chargeToken);
       stripe.charges.create({
         amount: order.charge.amount * 100, // amount in cents
@@ -53,6 +53,7 @@ var actions = {
           send(result);
         } else {
           order.status = constants.status.order.paid;
+          order.charge.token = ''; // reset token after successful charge
           db.collection('orders').save(order, function(err, result) {
             if (err) { console.log('>> err: ', err); }
             if (result) { console.log('>> result: ', result); }

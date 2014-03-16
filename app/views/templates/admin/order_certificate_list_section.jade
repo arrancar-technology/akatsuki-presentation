@@ -26,4 +26,4 @@ div(class= certificateType)
         td: span {{ order.status || '--' }}
         td
           .buttons.pull-right
-            button.btn.btn-primary(data-toggle='modal', data-target='.bs-modal-lg', ng-click="selectOrder(order._id)") Details
+            button.btn.btn-primary(data-toggle='modal', data-target='.bs-modal-lg.#{certificateType}', ng-click="selectOrder(order._id)") Details

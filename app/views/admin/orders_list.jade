@@ -5,13 +5,8 @@ block content
       .col-md-offset-2.col-md-8
         h1 Orders
 
+        for certificateType in ['birth', 'marriage', 'death']
+          include ../templates/admin/order_certificate_list_section
+
         certificateType = 'birth'
-        include ../templates/admin/order_certificate_list_section
-
-        certificateType = 'marriage'
-        include ../templates/admin/order_certificate_list_section
-
-        certificateType = 'death'
-        include ../templates/admin/order_certificate_list_section
-
         include ../templates/admin/modal_edit_order_birth
