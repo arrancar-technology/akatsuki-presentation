@@ -9,12 +9,6 @@
   };
 
   lookups = {
-    cardTypes: {
-      'visa': 'Visa',
-      'visaDebit': 'Visa Debit',
-      'master': 'Master',
-      'maestro': 'Maestro'
-    },
     priceList: priceList,
     serviceTypes: [
       {
@@ -28,6 +22,7 @@
         label: "Prime - £" + priceList.prime + " - dispatch within next working day"
       }
     ],
+    eventCountries: ["England and Wales", "North Ireland", "Scotland", "Republic of Ireland", "British Overseas"],
     months: {
       1: 'January',
       2: 'February',

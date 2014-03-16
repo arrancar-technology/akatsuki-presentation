@@ -1,3 +1,8 @@
+.form-group(ng-class='{"has-error": #{formName}["event-country"].$invalid && model.step.1.submitted, "has-success": #{formName}["event-country"].$valid && model.step.1.submitted}')
+  label.col-sm-6.control-label.required(for="event-country") Country of Event
+  .col-sm-6
+    .input-group-btn
+      select.input-sm.form-control(id="event-country", name="event-country", ng-model="model.order.certificate.eventCountry", ng-options="eventCountry for eventCountry in model.eventCountries", required='required')
 .form-group(ng-class='{"has-error": #{formName}["service-type"].$invalid && model.step.1.submitted, "has-success": #{formName}["service-type"].$valid && model.step.1.submitted}')
   label.col-sm-6.control-label.required(for="service-type") Service Type
   .col-sm-6

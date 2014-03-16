@@ -29,6 +29,7 @@
           $scope.model.order.certificate = {};
           $scope.model.order.certificate.type = $scope.type;
           $scope.model.order.certificate.serviceType = 'standard';
+          $scope.model.order.certificate.eventCountry = 'England and Wales';
           $scope.model.order.certificate.numberOfCopies = 1;
           $scope.model.order.charge = {};
           $scope.model.order.address = {};
@@ -43,7 +44,7 @@
           $scope.model.numberOfCopies = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
           $scope.model.numberOfApostilles = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
           $scope.model.countries = Lookups.countries;
-          $scope.model.cardTypes = Lookups.cardTypes;
+          $scope.model.eventCountries = Lookups.eventCountries;
           $scope.model.serviceTypes = Lookups.serviceTypes;
           $scope.model.priceList = Lookups.priceList;
           $scope.model.months = Lookups.months;
