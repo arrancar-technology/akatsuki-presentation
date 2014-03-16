@@ -1,7 +1,7 @@
 var passport = require('passport');
 
 function addUserToLocals(args) {
-  args.req.locals.user = args.req.user;
+  args.req.locals.user = args.req.user; // needed for jade templates
   next();
 }
 
@@ -21,6 +21,8 @@ var actions = {
     render('login', {title: 'Admin - Login - UK Certificate', redirectUrl: req.query.redirectUrl || ''});
   },
   login_post: function () {
+    console.log('trying to login. user: ', req.body.email);
+
     var redirectUrl = req.query.redirectUrl;
     var failureQuery = redirectUrl ? '?redirectUrl=' + req.query.redirectUrl : '';
     passport.authenticate('local', { successRedirect: redirectUrl || '/admin', failureRedirect: '/login/admin' + failureQuery })(req, res, next);
