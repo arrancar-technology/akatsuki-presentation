@@ -7,40 +7,40 @@
       .modal-body
         editableForm = "editableForm" + certificateType
         form(editable-form, name= editableForm, onaftersave='saveOrder()', novalidate)
-          .form-group.row
+          .form-group.row.dateOfBirth
             label.col-sm-6.control-label(for="date-of-birth") Date of Birth
-            .col-sm-6.date-of-birth-container
+            .col-sm-6
               span.col-md-2(id="", editable-text='model.orderSelected.certificate.day', e-name='day', onbeforesave='', e-required) {{ model.orderSelected.certificate.day || '--' }} /&nbsp;
               span.col-md-2(id="", editable-text='model.orderSelected.certificate.month', e-name='month', onbeforesave='', e-required) {{ model.orderSelected.certificate.month || '--' }} /&nbsp;
               span.col-md-2(id="", editable-text='model.orderSelected.certificate.year', e-name='year', onbeforesave='', e-required) {{ model.orderSelected.certificate.year || '--' }}
-          .form-group.row
-            label.col-sm-6.control-label(for="place-of-birth") Place of Birth
+          .form-group.row.placeOfBirth
+            label.col-sm-6.control-label(for="date-of-birth") Place of Birth
             .col-sm-6
-              span(id="place-of-birth", editable-text='model.orderSelected.certificate.place', e-name="place-of-birth", onbeforesave='', e-required) {{ model.orderSelected.certificate.place || '--' }}
-          .form-group.row
-            label.col-sm-6.control-label(for="last-name-at-birth") Last Name at Birth
+              span(id="date-of-birth", editable-text='model.orderSelected.certificate.place', e-name='', onbeforesave='', e-required) {{ model.orderSelected.certificate.place || '--' }}
+          .form-group.row.lastNameAtBirth
+            label.col-sm-6.control-label(for="last-name") Last Name at Birth
             .col-sm-6
-              span(id="last-name-at-birth", editable-text='model.orderSelected.certificate.lastName', e-name="last-name-at-birth", onbeforesave='', e-required) {{ model.orderSelected.certificate.lastName || '--' }}
-          .form-group.row
-            label.col-sm-6.control-label(for="first-name-at-birth") First Name at Birth
+              span(id="last-name", editable-text='model.orderSelected.certificate.lastName', e-name='"last-name"', onbeforesave='', e-required) {{ model.orderSelected.certificate.lastName || '--' }}
+          .form-group.row.firstNameAtBirth
+            label.col-sm-6.control-label(for="first-name") First Name at Birth
             .col-sm-6
-              span(id="first-name-at-birth", editable-text='model.orderSelected.certificate.firstName', e-name="first-name-at-birth", onbeforesave='', e-required) {{ model.orderSelected.certificate.firstName || '--' }}
-          .form-group.row
+              span(id="first-name", editable-text='model.orderSelected.certificate.firstName', e-name='first-name', onbeforesave='', e-required) {{ model.orderSelected.certificate.firstName || '--' }}
+          .form-group.row.motherMaidenName
             label.col-sm-6.control-label(for="mother-maiden-name") Mother's Maiden Name
             .col-sm-6
-              span(id="mother-maiden-name", editable-text='model.orderSelected.certificate.mother.maidenName', e-name="mother-maiden-name", onbeforesave='') {{ model.orderSelected.certificate.mother.maidenName || '--' }}
-          .form-group.row
+              span(id="mother-maiden-name", editable-text='model.orderSelected.certificate.mother.maidenName', e-name='', onbeforesave='') {{ model.orderSelected.certificate.mother.maidenName || '--' }}
+          .form-group.row.motherFirstName
             label.col-sm-6.control-label(for="mother-first-name") Mother's First Name
             .col-sm-6
-              span(id="mother-first-name", editable-text='model.orderSelected.certificate.mother.firstName', e-name="mother-first-name", onbeforesave='') {{ model.orderSelected.certificate.mother.firstName || '--' }}
-          .form-group.row
+              span(id="mother-first-name", editable-text='model.orderSelected.certificate.mother.firstName', e-name='', onbeforesave='') {{ model.orderSelected.certificate.mother.firstName || '--' }}
+          .form-group.row.fatherLastName
             label.col-sm-6.control-label(for="father-last-name") Father's Last Name
             .col-sm-6
-              span(id="father-last-name", editable-text='model.orderSelected.certificate.father.lastName', e-name="father-last-name", onbeforesave='') {{ model.orderSelected.certificate.father.lastName || '--' }}
-          .form-group.row
+              span(id="father-last-name", editable-text='model.orderSelected.certificate.father.lastName', e-name='', onbeforesave='') {{ model.orderSelected.certificate.father.lastName || '--' }}
+          .form-group.row.fatherFirstName
             label.col-sm-6.control-label(for="father-first-name") Father's First Name
             .col-sm-6
-              span(id="father-first-name", editable-text='model.orderSelected.certificate.father.firstName', e-name="father-first-name", onbeforesave='') {{ model.orderSelected.certificate.father.firstName || '--' }}
+              span(id="father-first-name", editable-text='model.orderSelected.certificate.father.firstName', e-name='', onbeforesave='') {{ model.orderSelected.certificate.father.firstName || '--' }}
 
           include ../admin/modal_edit_order_details_service
           include ../admin/modal_edit_order_details_address
