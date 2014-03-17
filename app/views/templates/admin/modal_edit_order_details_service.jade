@@ -1,0 +1,16 @@
+.form-group.row.eventCountry
+  label.col-sm-6.control-label(for="event-country") Country of Event
+  .col-sm-6
+    span(id="event-country", editable-text='model.orderSelected.certificate.eventCountry', e-name='event-country', onbeforesave='', e-required) {{ model.orderSelected.certificate.eventCountry || '--' }}
+.form-group.row.serviceType
+  label.col-sm-6.control-label(for="service-type") Service Type
+  .col-sm-6
+    span(id="service-type", editable-text='model.orderSelected.certificate.serviceType', e-name="service-type", onbeforesave='', e-required) {{ model.orderSelected.certificate.serviceType || '--' }}
+.form-group.row.numberOfCopies
+  label.col-sm-6.control-label(for="number-of-copies") Number of Copies
+  .col-sm-6
+    span(id="number-of-copies", editable-text='model.orderSelected.certificate.numberOfCopies', e-name="number-of-copies", onbeforesave='', e-required) {{ model.orderSelected.certificate.numberOfCopies || '--' }}
+.form-group.row.apostilledCopies
+  label.col-sm-6.control-label(for="number-of-apostilles") Apostilled Copies
+  .col-sm-6
+    span(id="number-of-apostilles", editable-text='model.orderSelected.certificate.numberOfApostilles', e-name="number-of-apostilles", onbeforesave='', e-required) {{ model.orderSelected.certificate.postcode || '--' }}
