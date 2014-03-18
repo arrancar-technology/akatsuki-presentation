@@ -2,15 +2,15 @@ form.form-horizontal.applyForm(name="apply_form", role="form", novalidate)
   .form-group(ng-class='{"has-error": apply_form["firstName"].$invalid && model.submitted, "has-success": apply_form["firstName"].$valid&& model.submitted}')
     label.col-sm-6.control-label(for="first-name") First Name
     .col-sm-6
-      input.form-control.input-sm(type="text", id="first-name", name="firstName", ng-model="model.order.firstName", required='required')
+      input.form-control.input-sm(type="text", id="first-name", name="firstName", ng-model="model.order.firstName", maxlength="50", required='required')
   .form-group(ng-class='{"has-error": apply_form["lastName"].$invalid && model.submitted, "has-success": apply_form["lastName"].$valid && model.submitted}')
     label.col-sm-6.control-label(for="last-name") Last Name
     .col-sm-6
-      input.form-control.input-sm(type="text", id="last-name", name="lastName", ng-model="model.order.lastName", required='required')
+      input.form-control.input-sm(type="text", id="last-name", name="lastName", ng-model="model.order.lastName", maxlength="50", required='required')
   .form-group(ng-class='{"has-error": apply_form["email"].$invalid && model.submitted, "has-success": apply_form["email"].$valid && model.submitted}')
     label.col-sm-6.control-label(for="email") Email
     .col-sm-6
-      input.form-control.input-sm(type="email", id="email", name="email", ng-model="model.order.email", required='required')
+      input.form-control.input-sm(type="email", id="email", name="email", ng-model="model.order.email", maxlength="254", required='required')
   .form-group
     .col-sm-offset-6.col-sm-6
       button.btn.btn-primary(type="submit", data-ng-click="proceed()") Proceed

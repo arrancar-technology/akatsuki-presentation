@@ -2,27 +2,27 @@ form.form-horizontal(name="address_form", role="form", novalidate)
   .form-group(ng-class='{"has-error": address_form["address-1"].$invalid && model.step.2.submitted, "has-success": address_form["address-1"].$valid && model.step.2.submitted}')
     label.col-sm-6.control-label.required(for="address-1") Address 1
     .col-sm-6
-      input.form-control.input-sm(type="text", id="address-1", name="address-1", ng-model="model.order.address.address1", required='required')
+      input.form-control.input-sm(type="text", id="address-1", name="address-1", ng-model="model.order.address.address1", maxlength="100", required='required')
   .form-group
     label.col-sm-6.control-label(for="address-2") Address 2
     .col-sm-6
-      input.form-control.input-sm(type="text", id="address-2", name="address-2", ng-model="model.order.address.address2")
+      input.form-control.input-sm(type="text", id="address-2", name="address-2", ng-model="model.order.address.address2", maxlength="100")
   .form-group(ng-class='{"has-error": address_form["city"].$invalid && model.step.2.submitted, "has-success": address_form["city"].$valid && model.step.2.submitted}')
     label.col-sm-6.control-label.required(for="city") City
     .col-sm-6
-      input.form-control.input-sm(type="text", id="city", name="city", ng-model="model.order.address.city", required='required')
+      input.form-control.input-sm(type="text", id="city", name="city", ng-model="model.order.address.city", maxlength="50", required='required')
   .form-group(ng-class='{"has-error": address_form["postcode"].$invalid && model.step.2.submitted, "has-success": address_form["postcode"].$valid && model.step.2.submitted}')
     label.col-sm-6.control-label.required(for="postcode") Postcode
     .col-sm-6
-      input.form-control.input-sm(type="text", id="postcode", name="postcode", ng-model="model.order.address.postcode", required='required')
+      input.form-control.input-sm(type="text", id="postcode", name="postcode", ng-model="model.order.address.postcode", maxlength="10", required='required')
   .form-group(ng-class='{"has-error": address_form["country"].$invalid && model.step.2.submitted, "has-success": address_form["country"].$valid && model.step.2.submitted}')
     label.col-sm-6.control-label.required(for="country") Country
     .col-sm-6
-      select.input-sm.form-control(id="country", name="country", ng-model="model.order.address.country", ng-options="country.code as country.name for country in model.countries", required='required')
+      select.input-sm.form-control(id="country", name="country", ng-model="model.order.address.country", ng-options="country.code as country.name for country in model.countries", maxlength="50", required='required')
   .form-group(ng-class='{"has-error": address_form["phone"].$invalid && model.step.2.submitted, "has-success": address_form["phone"].$valid && model.step.2.submitted}')
     label.col-sm-6.control-label.required(for="phone") Phone
     .col-sm-6
-      input.form-control.input-sm(type="text", id="phone", name="phone", ng-model="model.order.address.phone", required='required')
+      input.form-control.input-sm(type="text", id="phone", name="phone", ng-model="model.order.address.phone", maxlength="15", required='required')
   .form-group
     .col-sm-offset-6.col-sm-6
       include ../templates/buttons_step

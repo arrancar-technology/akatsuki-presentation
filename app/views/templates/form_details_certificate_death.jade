@@ -13,15 +13,15 @@ form.form-horizontal.step.1.first(name="death_form", role="form", novalidate)
   .form-group(ng-class='{"has-error": death_form["place-of-death"].$invalid && model.step.1.submitted, "has-success": death_form["place-of-death"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="place-of-death") Place of Death
     .col-sm-6
-      input.form-control.input-sm(type="text", id="place-of-death", name="place-of-death", data-ng-model="model.order.certificate.place", required='required')
+      input.form-control.input-sm(type="text", id="place-of-death", name="place-of-death", data-ng-model="model.order.certificate.place", maxlength="50", required='required')
   .form-group(ng-class='{"has-error": death_form["last-name-at-death"].$invalid && model.step.1.submitted, "has-success": death_form["last-name-at-death"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="last-name-at-death") Last Name of Deceased
     .col-sm-6
-      input.form-control.input-sm(type="text", id="last-name-at-death", name="last-name-at-death", ng-model="model.order.certificate.lastName", required='required')
+      input.form-control.input-sm(type="text", id="last-name-at-death", name="last-name-at-death", ng-model="model.order.certificate.lastName", maxlength="50", required='required')
   .form-group(ng-class='{"has-error": death_form["first-name-at-death"].$invalid && model.step.1.submitted, "has-success": death_form["first-name-at-death"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="first-name-at-death") First Name of Deceased
     .col-sm-6
-      input.form-control.input-sm(type="text", id="first-name-at-death", name="first-name-at-death", ng-model="model.order.certificate.firstName", required='required')
+      input.form-control.input-sm(type="text", id="first-name-at-death", name="first-name-at-death", ng-model="model.order.certificate.firstName", maxlength="50", required='required')
 
   formName = 'death_form'
   include ../templates/form_details_service_information

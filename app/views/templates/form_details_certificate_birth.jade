@@ -13,31 +13,31 @@ form.form-horizontal.step.1.first(name="birth_form", role="form", novalidate)
   .form-group(ng-class='{"has-error": birth_form["place-of-birth"].$invalid && model.step.1.submitted, "has-success": birth_form["place-of-birth"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="place-of-birth") Place of Birth
     .col-sm-6
-      input.form-control.input-sm(type="text", id="place-of-birth", name="place-of-birth", data-ng-model="model.order.certificate.place", required='required')
+      input.form-control.input-sm(type="text", id="place-of-birth", name="place-of-birth", data-ng-model="model.order.certificate.place", maxlength="50", required='required')
   .form-group(ng-class='{"has-error": birth_form["last-name-at-birth"].$invalid && model.step.1.submitted, "has-success": birth_form["last-name-at-birth"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="last-name-at-birth") Last Name at Birth
     .col-sm-6
-      input.form-control.input-sm(type="text", id="last-name-at-birth", name="last-name-at-birth", ng-model="model.order.certificate.lastName", required='required')
+      input.form-control.input-sm(type="text", id="last-name-at-birth", name="last-name-at-birth", ng-model="model.order.certificate.lastName", maxlength="50", required='required')
   .form-group(ng-class='{"has-error": birth_form["first-name-at-birth"].$invalid && model.step.1.submitted, "has-success": birth_form["first-name-at-birth"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="first-name-at-birth") First Name at Birth
     .col-sm-6
-      input.form-control.input-sm(type="text", id="first-name-at-birth", name="first-name-at-birth", ng-model="model.order.certificate.firstName", required='required')
+      input.form-control.input-sm(type="text", id="first-name-at-birth", name="first-name-at-birth", ng-model="model.order.certificate.firstName", maxlength="50", required='required')
   .form-group
     label.col-sm-6.control-label(for="mother-maiden-name") Mother's Maiden Name
     .col-sm-6
-      input.form-control.input-sm(type="text", id="mother-maiden-name", ng-model="model.order.certificate.mother.maidenName")
+      input.form-control.input-sm(type="text", id="mother-maiden-name", ng-model="model.order.certificate.mother.maidenName", maxlength="50")
   .form-group
     label.col-sm-6.control-label(for="mother-first-name") Mother's First Name
     .col-sm-6
-      input.form-control.input-sm(type="text", id="mother-first-name", ng-model="model.order.certificate.mother.firstName")
+      input.form-control.input-sm(type="text", id="mother-first-name", ng-model="model.order.certificate.mother.firstName", maxlength="50")
   .form-group
     label.col-sm-6.control-label(for="father-last-name") Father's Last Name
     .col-sm-6
-      input.form-control.input-sm(type="text", id="father-last-name", ng-model="model.order.certificate.father.lastName")
+      input.form-control.input-sm(type="text", id="father-last-name", ng-model="model.order.certificate.father.lastName", maxlength="50")
   .form-group
     label.col-sm-6.control-label(for="father-first-name") Father's First Name
     .col-sm-6
-      input.form-control.input-sm(type="text", id="father-first-name", ng-model="model.order.certificate.father.firstName")
+      input.form-control.input-sm(type="text", id="father-first-name", ng-model="model.order.certificate.father.firstName", maxlength="50")
 
   formName = 'birth_form'
   include ../templates/form_details_service_information

@@ -13,23 +13,23 @@ form.form-horizontal.step.1.first(name="marriage_form", role="form", novalidate)
   .form-group(ng-class='{"has-error": marriage_form["place-of-marriage"].$invalid && model.step.1.submitted, "has-success": marriage_form["place-of-marriage"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="place-of-marriage") Place of Marriage
     .col-sm-6
-      input.form-control.input-sm(type="text", id="place-of-marriage", name="place-of-marriage", ng-model="model.order.certificate.place", required='required')
+      input.form-control.input-sm(type="text", id="place-of-marriage", name="place-of-marriage", ng-model="model.order.certificate.place", maxlength="50", required='required')
   .form-group(ng-class='{"has-error": marriage_form["woman-last-name"].$invalid && model.step.1.submitted, "has-success": marriage_form["woman-last-name"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="woman-last-name") Woman's Last Name
     .col-sm-6
-      input.form-control.input-sm(type="text", id="woman-last-name", name="woman-last-name", ng-model="model.order.certificate.woman.lastName", required='required')
+      input.form-control.input-sm(type="text", id="woman-last-name", name="woman-last-name", ng-model="model.order.certificate.woman.lastName", maxlength="50", required='required')
   .form-group(ng-class='{"has-error": marriage_form["woman-first-name"].$invalid && model.step.1.submitted, "has-success": marriage_form["woman-first-name"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="woman-first-name") Woman's First Name
     .col-sm-6
-      input.form-control.input-sm(type="text", id="woman-first-name", name="woman-first-name", ng-model="model.order.certificate.woman.firstName", required='required')
+      input.form-control.input-sm(type="text", id="woman-first-name", name="woman-first-name", ng-model="model.order.certificate.woman.firstName", maxlength="50", required='required')
   .form-group(ng-class='{"has-error": marriage_form["man-last-name"].$invalid && model.step.1.submitted, "has-success": marriage_form["man-last-name"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="man-last-name") Man's Last Name
     .col-sm-6
-      input.form-control.input-sm(type="text", id="man-last-name", name="man-last-name", ng-model="model.order.certificate.man.lastName", required='required')
+      input.form-control.input-sm(type="text", id="man-last-name", name="man-last-name", ng-model="model.order.certificate.man.lastName", maxlength="50", required='required')
   .form-group(ng-class='{"has-error": marriage_form["man-first-name"].$invalid && model.step.1.submitted, "has-success": marriage_form["man-first-name"].$valid && model.step.1.submitted}')
     label.col-sm-6.control-label.required(for="man-first-name") Man's First Name
     .col-sm-6
-      input.form-control.input-sm(type="text", id="man-first-name", name="man-first-name", ng-model="model.order.certificate.man.firstName", required='required')
+      input.form-control.input-sm(type="text", id="man-first-name", name="man-first-name", ng-model="model.order.certificate.man.firstName", maxlength="50", required='required')
 
   formName = 'marriage_form'
   include ../templates/form_details_service_information
