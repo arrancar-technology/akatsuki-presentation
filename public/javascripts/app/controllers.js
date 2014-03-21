@@ -13,6 +13,7 @@
           $scope.model.step[2] = {};
           $scope.model.step[3] = {};
           $scope.model.step.current = 1;
+          $scope.model.errors = {};
           orderId = $cookies.o_id;
           $scope.model.order = new Order();
           if (orderId) {
@@ -38,7 +39,7 @@
           expiryYearStart = new Date().getFullYear();
           $scope.model.yearsExpiry = (function() {
             _results = [];
-            for (var _i = expiryYearStart, _ref = expiryYearStart + 10; expiryYearStart <= _ref ? _i <= _ref : _i >= _ref; expiryYearStart <= _ref ? _i++ : _i--){ _results.push(_i); }
+            for (var _i = expiryYearStart, _ref = expiryYearStart + 15; expiryYearStart <= _ref ? _i <= _ref : _i >= _ref; expiryYearStart <= _ref ? _i++ : _i--){ _results.push(_i); }
             return _results;
           }).apply(this);
           $scope.model.numberOfCopies = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -68,6 +69,7 @@
           } else if ($scope.address_form.$valid && $scope.model.step.current === 2) {
             return $scope.model.step.current = 3;
           } else if ($scope.payment_form.$valid && $scope.model.step.current === 3) {
+            $scope.model.order.status = 'creating_charge_token';
             return Stripe.card.createToken({
               number: $scope.model.card.number,
               cvc: $scope.model.card.cvc,
@@ -75,11 +77,20 @@
               exp_year: $scope.model.card.expiryYear
             }, function(status, response) {
               if (response.error) {
-
+                $scope.model.order.status = 'error_creating_charge_token';
+                $scope.model.errors.payment = Lookups.messages.errors[response.error.code];
+                return $scope.$apply();
               } else {
+                $scope.model.order.status = 'created_charge_token';
                 $scope.model.order.charge.token = response.id;
-                return Order.create($scope.model.order, function(order) {
-                  return $window.location.href = "/certificate/success";
+                return Order.create($scope.model.order, function(result) {
+                  if (result.code) {
+                    $scope.model.order.status = 'error_charging_token';
+                    $scope.model.errors.payment = Lookups.messages.errors[result.code];
+                    return $scope.$apply();
+                  } else {
+                    return $window.location.href = "/certificate/success";
+                  }
                 });
               }
             });

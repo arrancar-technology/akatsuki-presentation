@@ -44,13 +44,8 @@ var actions = {
         description: order.email
       }, function(err, charge) {
         console.log('>> charging result: ', err, charge);
-        if (err && err.type === 'StripeCardError') {
-          // TODO: [DK] The card has been declined
-          send(result);
-        }
         if (err) {
-          // TODO: [DK] Handle error
-          send(result);
+          send(err);
         } else {
           order.status = constants.status.order.paid;
           order.charge.token = ''; // reset token after successful charge
@@ -59,6 +54,7 @@ var actions = {
             if (result) { console.log('>> result: ', result); }
 
             // TODO: [DK] send an email
+            // TODO: [DK] send sms!!!
             send(result);
           });
         }

@@ -8,6 +8,8 @@ controllers =
       $scope.model.step[2] = {} # Additional Details
       $scope.model.step[3] = {} # Payment Details
       $scope.model.step.current = 1
+      $scope.model.errors = {}
+
       orderId = $cookies.o_id
       $scope.model.order = new Order()
       if orderId
@@ -35,7 +37,7 @@ controllers =
       $scope.model.card = {}
 
       expiryYearStart = new Date().getFullYear()
-      $scope.model.yearsExpiry = [expiryYearStart..expiryYearStart+10]
+      $scope.model.yearsExpiry = [expiryYearStart..expiryYearStart+15]
       $scope.model.numberOfCopies = [1..10]
       $scope.model.numberOfApostilles = [0..10]
       $scope.model.countries = Lookups.countries
@@ -56,6 +58,7 @@ controllers =
       else if $scope.address_form.$valid && $scope.model.step.current == 2
         $scope.model.step.current = 3
       else if $scope.payment_form.$valid && $scope.model.step.current == 3
+        $scope.model.order.status = 'creating_charge_token'
         Stripe.card.createToken
           number: $scope.model.card.number
           cvc: $scope.model.card.cvc
@@ -63,11 +66,19 @@ controllers =
           exp_year: $scope.model.card.expiryYear
         , (status, response) ->
             if (response.error)
-              # TODO: [DK] show error on the page
+              $scope.model.order.status = 'error_creating_charge_token'
+              $scope.model.errors.payment = Lookups.messages.errors[response.error.code]
+              $scope.$apply()
             else
+              $scope.model.order.status = 'created_charge_token'
               $scope.model.order.charge.token = response.id
-              Order.create $scope.model.order, (order) ->
-               $window.location.href = "/certificate/success"
+              Order.create $scope.model.order, (result) ->
+                if(result.code)
+                  $scope.model.order.status = 'error_charging_token'
+                  $scope.model.errors.payment = Lookups.messages.errors[result.code]
+                  $scope.$apply()
+                else
+                  $window.location.href = "/certificate/success"
       else
         PopoverService.initializePopover $(element).attr('id') for element in $(".step.#{$scope.model.step.current} input[required]")
   ]

@@ -1,4 +1,9 @@
 form.form-horizontal.step.3.third(name="payment_form", role="form", novalidate)
+  .col-sm-offset-2.col-sm-8(data-ng-show="model.errors.payment")
+    .alert.alert-danger.alert-dismissable.text-center
+      button.close(type='button', data-dismiss='alert', aria-hidden='true') ×
+      .error {{model.errors.payment}}
+
   .form-group(ng-class='{"has-error": payment_form["card-number"].$invalid && model.step.3.submitted, "has-success": payment_form["card-number"].$valid && model.step.3.submitted}')
     label.col-sm-6.control-label.required(for="card-number") Card Number
     .col-sm-6

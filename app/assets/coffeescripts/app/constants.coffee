@@ -19,6 +19,13 @@ lookups =
     "Republic of Ireland"
     "British Overseas"
   ]
+  messages:
+    errors:
+      'incorrect_number': 'Sorry, card number is incorrect'
+      'expired_card': 'Sorry, card is expired'
+      'incorrect_cvc': 'Sorry, CVC number is incorrect'
+      'card_declined': 'Sorry, card is declined'
+      'processing_error': 'Sorry. there was an error, click for payment again'
   months:
     1: 'January',
     2: 'February',
