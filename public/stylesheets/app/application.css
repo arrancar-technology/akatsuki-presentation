@@ -236,3 +236,6 @@ footer {
 .main-container {
   min-height: 800px;
 }
+.logo {
+  padding-top: 0px;
+}
