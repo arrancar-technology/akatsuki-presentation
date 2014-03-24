@@ -1,0 +1,29 @@
+div(class= '{{certificatetype}}')
+  .row
+    .col-md-6: h4= '{{certificatetype}}'
+    .col-md-6
+      .btn-group.pull-right
+        button.btn.btn-info(type='button', ng-click='model.filter = "created"') Created
+        button.btn.btn-success(type='button', ng-click='model.filter = "paid"') Paid
+        button.btn.btn-warning(type='button', ng-click='model.filter = "processing"') Processing
+        button.btn.btn-success(type='button', ng-click='model.filter = "done"') Done
+  .row
+    table.table.table-hover.table-condensed
+      tr
+        td: strong #
+        td: strong First Name
+        td: strong Last Name
+        td: strong Email
+        td: strong Phone
+        td: strong Status
+        td: strong.pull-right Details
+      tr(ng-repeat="order in model.orders | filter: {certificate.type: certificatetype, status: model.filter}")
+        td {{$index+1}}
+        td: span {{ order.firstName || '--' }}
+        td: span {{ order.lastName || '--' }}
+        td: span {{ order.email || '--' }}
+        td: span {{ order.address.phone || '--' }}
+        td: span {{ order.status || '--' }}
+        td
+          .buttons.pull-right
+            button.btn.btn-primary(data-toggle='modal', data-target='.bs-modal-lg.{{certificatetype}}', ng-click="selectOrder(order._id)") Details

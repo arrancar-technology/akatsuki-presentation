@@ -1,12 +1,11 @@
-.modal.fade.bs-modal-lg(class="#{certificateType}", tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true', style='display: none;')
+.modal.fade.bs-modal-lg(class="{{certificatetype}}", tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true', style='display: none;')
   .modal-dialog.modal-lg
     .modal-content
       .modal-header
-        button.close(type='button', data-dismiss='modal', aria-hidden='true', ng-click='editableForm.$cancel()') ×
+        button.close(type='button', data-dismiss='modal', aria-hidden='true', ng-click='editableFormDeath.$cancel()') ×
         h4(id="myLargeModalLabel").modal-title Order Details
       .modal-body
-        editableForm = "editableForm" + certificateType
-        form(editable-form, name= editableForm, onaftersave='saveOrder()', novalidate)
+        form(editable-form, name='editableFormDeath', onaftersave='saveOrder()', novalidate)
           .form-group.row
             label.col-sm-6.control-label(for="day-of-death") Date of Death
             .col-sm-6.date-of-death-container
@@ -30,10 +29,10 @@
           include ../admin/modal_edit_order_details_address
 
           .row
-            button.btn.btn-default.pull-right(type='button', ng-click="#{editableForm}.$show()", ng-show="!#{editableForm}.$visible")
+            button.btn.btn-default.pull-right(type='button', ng-click="editableFormDeath.$show()", ng-show="!editableFormDeath.$visible")
               | Edit
-            span(ng-show="#{editableForm}.$visible")
-              button.btn.btn-primary(type='submit', ng-disabled="#{editableForm}.$waiting")
+            span(ng-show="editableFormDeath.$visible")
+              button.btn.btn-primary(type='submit', ng-disabled="editableFormDeath.$waiting")
                 | Save
-              button.btn.btn-default(type='button', ng-disabled="#{editableForm}.$waiting", ng-click="#{editableForm}.$cancel()")
+              button.btn.btn-default(type='button', ng-disabled="editableFormDeath.$waiting", ng-click="editableFormDeath.$cancel()")
                 | Cancel

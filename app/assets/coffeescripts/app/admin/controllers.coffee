@@ -1,15 +1,8 @@
 controllers =
-  OrdersController: ["$scope", "Order", "Lookups", ($scope, Order, Lookups) ->
+  OrdersListSectionController: ["$scope", "Order", ($scope, Order) ->
     $scope.model = {}
-    $scope.model.lists = {}
-    $scope.model.lists.birth = {}
-    $scope.model.lists.birth.filter = 'paid'
-    $scope.model.lists.marriage = {}
-    $scope.model.lists.marriage.filter = 'paid'
-    $scope.model.lists.death = {}
-    $scope.model.lists.death.filter = 'paid'
-
-    $scope.model.orders = Order.get {}, ->
+    $scope.model.orders = {}
+    $scope.model.filter = 'paid'
 
     $scope.selectOrder = (orderId) ->
       $scope.model.orderSelected = $scope.model.orders.find (order) -> order._id == orderId

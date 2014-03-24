@@ -1,12 +1,11 @@
-.modal.fade.bs-modal-lg(class="#{certificateType}", tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true', style='display: none;')
+.modal.fade.bs-modal-lg(class="{{certificatetype}}", tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true', style='display: none;')
   .modal-dialog.modal-lg
     .modal-content
       .modal-header
-        button.close(type='button', data-dismiss='modal', aria-hidden='true', ng-click='editableForm.$cancel()') ×
+        button.close(type='button', data-dismiss='modal', aria-hidden='true', ng-click='editableFormMarriage.$cancel()') ×
         h4(id="myLargeModalLabel").modal-title Order Details
       .modal-body
-        editableForm = "editableForm" + certificateType
-        form(editable-form, name= editableForm, onaftersave='saveOrder()', novalidate)
+        form(editable-form, name='editableFormMarriage', onaftersave='saveOrder()', novalidate)
           .form-group.row
             label.col-sm-6.control-label(for="date-of-marriage") Date of Marriage
             .col-sm-6.date-of-marriage-container
@@ -38,10 +37,10 @@
           include ../admin/modal_edit_order_details_address
 
           .row
-            button.btn.btn-default.pull-right(type='button', ng-click="#{editableForm}.$show()", ng-show="!#{editableForm}.$visible")
+            button.btn.btn-default.pull-right(type='button', ng-click="editableFormMarriage.$show()", ng-show="!editableFormMarriage.$visible")
               | Edit
-            span(ng-show="#{editableForm}.$visible")
-              button.btn.btn-primary(type='submit', ng-disabled="#{editableForm}.$waiting")
+            span(ng-show="editableFormMarriage.$visible")
+              button.btn.btn-primary(type='submit', ng-disabled="editableFormMarriage.$waiting")
                 | Save
-              button.btn.btn-default(type='button', ng-disabled="#{editableForm}.$waiting", ng-click="#{editableForm}.$cancel()")
+              button.btn.btn-default(type='button', ng-disabled="editableFormMarriage.$waiting", ng-click="editableFormMarriage.$cancel()")
                 | Cancel

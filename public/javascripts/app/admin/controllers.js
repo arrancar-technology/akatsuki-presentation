@@ -2,17 +2,11 @@
   var app, controllers;
 
   controllers = {
-    OrdersController: [
-      "$scope", "Order", "Lookups", function($scope, Order, Lookups) {
+    OrdersListSectionController: [
+      "$scope", "Order", function($scope, Order) {
         $scope.model = {};
-        $scope.model.lists = {};
-        $scope.model.lists.birth = {};
-        $scope.model.lists.birth.filter = 'paid';
-        $scope.model.lists.marriage = {};
-        $scope.model.lists.marriage.filter = 'paid';
-        $scope.model.lists.death = {};
-        $scope.model.lists.death.filter = 'paid';
-        $scope.model.orders = Order.get({}, function() {});
+        $scope.model.orders = {};
+        $scope.model.filter = 'paid';
         $scope.selectOrder = function(orderId) {
           return $scope.model.orderSelected = $scope.model.orders.find(function(order) {
             return order._id === orderId;

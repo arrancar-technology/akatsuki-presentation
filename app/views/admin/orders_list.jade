@@ -1,18 +1,15 @@
 extends ../layouts/admin
 block content
-  div(ng-controller="OrdersController")
+  div
     .blurb
       .col-md-offset-2.col-md-8
         h1 Orders
 
-        for certificateType in ['birth', 'marriage', 'death']
-          include ../templates/admin/order_certificate_list_section
-
         certificateType = 'birth'
-        include ../templates/admin/modal_edit_order_birth
+        order-list-section(certificatetype= certificateType)
 
         certificateType = 'marriage'
-        include ../templates/admin/modal_edit_order_marriage
+        order-list-section(certificatetype= certificateType)
 
         certificateType = 'death'
-        include ../templates/admin/modal_edit_order_death
+        order-list-section(certificatetype= certificateType)
