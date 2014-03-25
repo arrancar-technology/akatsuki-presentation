@@ -7,6 +7,7 @@ exports.routes = function (map) {
   map.get('/certificate/:section', 'certificate#additionalDetails');
 
   // Order
+  map.get('api/1/orders/custom', 'orders#get_by_query');
   map.resources('orders', { path: 'api/1/orders' });
 
   // Partials

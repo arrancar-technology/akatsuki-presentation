@@ -77,6 +77,12 @@ var actions = {
       console.log('>> order: ', order);
       send(order);
     });
+  },
+  get_by_query: function() {
+    db.collection('orders').find(req.query).toArray(function(err, result) {
+      if (err) { console.log('>> err: ', err); }
+      send(result);
+    });
   }
 };
 
@@ -84,3 +90,4 @@ action('index', actions.index);
 action('create', actions.save);
 action('update', actions.save);
 action('show', actions.show);
+action('get_by_query', actions.get_by_query);

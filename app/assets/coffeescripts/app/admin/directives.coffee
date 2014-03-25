@@ -1,5 +1,5 @@
 directives =
-  orderListSection: ["Order", (Order) ->
+  orderListSection: ["$http", ($http) ->
     restrict: 'E'
     scope:
       certificatetype: '@'
@@ -9,7 +9,12 @@ directives =
       scope.contentUrl = '/partials/order_list_section_' + scope.certificatetype
 
       scope.$watch "model.filter", (oldVal, newVal) ->
-        scope.model.orders = Order.get {}, ->
+        $http.get("/api/1/orders/custom?certificate.type=" + scope.certificatetype + "&status=" + scope.model.filter)
+          .success((data, status, headers, config) ->
+            scope.model.orders = data
+          )
+          .error (data, status, headers, config) ->
+            # TODO: [DK] display error on the page
   ]
 
 app = angular.module appName

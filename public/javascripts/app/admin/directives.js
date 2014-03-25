@@ -3,7 +3,7 @@
 
   directives = {
     orderListSection: [
-      "Order", function(Order) {
+      "$http", function($http) {
         return {
           restrict: 'E',
           scope: {
@@ -14,7 +14,9 @@
           link: function(scope, elem, attrs) {
             scope.contentUrl = '/partials/order_list_section_' + scope.certificatetype;
             return scope.$watch("model.filter", function(oldVal, newVal) {
-              return scope.model.orders = Order.get({}, function() {});
+              return $http.get("/api/1/orders/custom?certificate.type=" + scope.certificatetype + "&status=" + scope.model.filter).success(function(data, status, headers, config) {
+                return scope.model.orders = data;
+              }).error(function(data, status, headers, config) {});
             });
           }
         };
