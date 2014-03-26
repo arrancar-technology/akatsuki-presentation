@@ -60,7 +60,6 @@ var actions = {
         }
       });
     } else {
-      order.status = constants.status.order.created;
       db.collection('orders').save(order, function(err, result) {
         if (err) { console.log('>> err: ', err); }
         if (result) { console.log('>> result: ', result); }

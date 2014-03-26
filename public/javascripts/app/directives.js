@@ -13,6 +13,7 @@
             '$scope', '$cookies', '$window', 'Order', 'PopoverService', function($scope, $cookies, $window, Order, PopoverService) {
               $scope.model = {};
               $scope.model.order = new Order();
+              $scope.model.order.status = 'created';
               return $scope.proceed = function() {
                 var element, _i, _len, _ref, _results;
                 $scope.model.submitted = true;

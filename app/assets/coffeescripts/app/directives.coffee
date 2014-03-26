@@ -6,6 +6,7 @@ directives =
     controller: ['$scope', '$cookies', '$window', 'Order', 'PopoverService', ($scope, $cookies, $window, Order, PopoverService) ->
       $scope.model = {}
       $scope.model.order = new Order()
+      $scope.model.order.status = 'created'
       $scope.proceed = ->
         $scope.model.submitted = true
         if $scope.apply_form.$valid
