@@ -1,0 +1,37 @@
+.panel(class="panel-{{panelStyle}}")
+  .cnrflash(ng-show="mostPopular")
+    .cnrflash-inner
+      span.cnrflash-label
+        | MOST
+        br
+        | POPULAR
+  .panel-heading
+    h3.panel-title
+      | {{panelType.capitalize()}}
+  .panel-body
+    .the-price
+      h1
+        | £{{model.serviceType.price.certificate}}
+        span.subscript /cert
+      small + £{{model.serviceType.price.apostille}}/apostille (optional)
+    table.table
+      tr
+        td
+          | Dispatch in&nbsp;
+          strong {{model.serviceType.dispatchTime}}&nbsp;
+          | working day{{model.serviceType.dispatchTime > 1 ? 's' : ''}}
+      tr.active
+        td
+          | Email Tracking
+      tr
+        td
+          | {{trackingSms ? 'SMS Tracking' : '-'}}
+      tr.active
+        td
+          .btn-group
+            button.btn.btn-primary(type='button', ng-model='certificateType', btn-radio="'birth'") Birth
+            button.btn.btn-primary(type='button', ng-model='certificateType', btn-radio="'marriage'") Marriage
+            button.btn.btn-primary(type='button', ng-model='certificateType', btn-radio="'death'") Death
+
+  .panel-footer
+    a.btn.btn-success(href='/certificate/{{certificateType}}/{{panelType}}', ng-disabled='!certificateType', role='button') Apply Now

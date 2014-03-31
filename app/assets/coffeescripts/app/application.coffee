@@ -1,6 +1,6 @@
 appName = 'main-app'
 
-app = angular.module appName, ["ngResource", "ngCookies"]
+app = angular.module appName, ["ngResource", "ngCookies", 'ui.bootstrap']
 
 # Show form when click on apply
 $('.apply-button').on 'click', ->

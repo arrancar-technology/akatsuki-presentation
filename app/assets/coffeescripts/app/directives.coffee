@@ -19,6 +19,21 @@ directives =
     ]
     templateUrl: '/partials/form_apply'
   ]
+  pricingPanel: [() ->
+    restrict: 'E'
+    scope:
+      panelType: '@'
+      panelStyle: '@'
+      mostPopular: '@'
+      trackingEmail: '@'
+      trackingSms: '@'
+    controller: ['$scope', 'Lookups', ($scope, Lookups) ->
+      $scope.model = {}
+      $scope.model.serviceType = Lookups.serviceTypes[$scope.panelType]
+    ]
+    templateUrl: '/partials/pricing_panel'
+  ]
 
 app = angular.module appName
 app.directive 'applyForm', directives.applyForm
+app.directive 'pricingPanel', directives.pricingPanel

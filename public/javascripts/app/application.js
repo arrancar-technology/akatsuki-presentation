@@ -3,7 +3,7 @@
 
   appName = 'main-app';
 
-  app = angular.module(appName, ["ngResource", "ngCookies"]);
+  app = angular.module(appName, ["ngResource", "ngCookies", 'ui.bootstrap']);
 
   $('.apply-button').on('click', function() {
     var targetForm;

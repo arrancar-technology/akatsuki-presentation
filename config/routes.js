@@ -4,7 +4,9 @@ exports.routes = function (map) {
 
   // Certificate Details
   map.get('/certificate/success', 'certificate#success');
-  map.get('/certificate/:section', 'certificate#additionalDetails');
+  map.get('/certificate/:section/:serviceType?', 'certificate#additionalDetails');
+
+  map.get('/pricing', 'static#pricing');
 
   // Order
   map.get('api/1/orders/custom', 'orders#get_by_query');

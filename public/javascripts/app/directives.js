@@ -38,11 +38,34 @@
           templateUrl: '/partials/form_apply'
         };
       }
+    ],
+    pricingPanel: [
+      function() {
+        return {
+          restrict: 'E',
+          scope: {
+            panelType: '@',
+            panelStyle: '@',
+            mostPopular: '@',
+            trackingEmail: '@',
+            trackingSms: '@'
+          },
+          controller: [
+            '$scope', 'Lookups', function($scope, Lookups) {
+              $scope.model = {};
+              return $scope.model.serviceType = Lookups.serviceTypes[$scope.panelType];
+            }
+          ],
+          templateUrl: '/partials/pricing_panel'
+        };
+      }
     ]
   };
 
   app = angular.module(appName);
 
   app.directive('applyForm', directives.applyForm);
+
+  app.directive('pricingPanel', directives.pricingPanel);
 
 }).call(this);

@@ -12,4 +12,4 @@ small.row.apostilledCopies
   .col-sm-6 : {{model.order.certificate.numberOfApostilles || '--' }}
 small.row.total: strong
   .col-sm-6 Total
-  .col-sm-6 : £{{model.order.certificate.numberOfCopies * model.priceList[model.order.certificate.serviceType] + (model.order.certificate.numberOfApostilles || 0) * model.priceList.apostille}}
+  .col-sm-6 : £{{model.order.certificate.numberOfCopies * model.serviceTypes[model.order.certificate.serviceType].price.certificate + (model.order.certificate.numberOfApostilles || 0) * model.serviceTypes[model.order.certificate.serviceType].price.apostille}}

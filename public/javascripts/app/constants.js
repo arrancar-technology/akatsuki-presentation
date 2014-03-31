@@ -1,27 +1,30 @@
 (function() {
-  var app, lookups, priceList;
-
-  priceList = {
-    standard: 25,
-    rapid: 40,
-    prime: 60,
-    apostille: 75
-  };
+  var app, lookups;
 
   lookups = {
-    priceList: priceList,
-    serviceTypes: [
-      {
-        type: 'standard',
-        label: "Standard - £" + priceList.standard + " - dispatch within 10 working days"
-      }, {
-        type: 'rapid',
-        label: "Rapid - £" + priceList.rapid + " - dispatch within 5 working days"
-      }, {
-        type: 'prime',
-        label: "Prime - £" + priceList.prime + " - dispatch within next working day"
+    serviceTypes: {
+      standard: {
+        price: {
+          certificate: 25,
+          apostille: 75
+        },
+        dispatchTime: 10
+      },
+      rapid: {
+        price: {
+          certificate: 40,
+          apostille: 120
+        },
+        dispatchTime: 5
+      },
+      prime: {
+        price: {
+          certificate: 60,
+          apostille: 180
+        },
+        dispatchTime: 1
       }
-    ],
+    },
     eventCountries: ["England and Wales", "North Ireland", "Scotland", "Republic of Ireland", "British Overseas"],
     messages: {
       errors: {

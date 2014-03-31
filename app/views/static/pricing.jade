@@ -1,0 +1,11 @@
+extends ../layouts/application
+block content
+  .row.vert.pricing-container(ng-controller="PricingController")
+    .col-sm-offset-1.col-sm-10
+      .row
+        .col-xs-12.col-sm-4
+          pricing-panel(panel-type="standard", panel-style="primary", tracking-email='true')
+        .col-xs-12.col-sm-4
+          pricing-panel(panel-type="rapid", panel-style="success", tracking-email='true', tracking-sms='true', most-popular='true')
+        .col-xs-12.col-sm-4
+          pricing-panel(panel-type="prime", panel-style="info", tracking-email='true', tracking-sms='true')
