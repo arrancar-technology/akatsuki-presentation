@@ -31,7 +31,7 @@ directives =
       $scope.model = {}
       $scope.model.serviceType = Lookups.serviceTypes[$scope.panelType]
     ]
-    templateUrl: '/partials/pricing_panel'
+    templateUrl: '/partials/price_panel'
   ]
 
 app = angular.module appName

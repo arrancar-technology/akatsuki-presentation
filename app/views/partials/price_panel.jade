@@ -1,4 +1,4 @@
-.panel(class="panel-{{panelStyle}}")
+.panel(class="{{panelType}} panel-{{panelStyle}}")
   .cnrflash(ng-show="mostPopular")
     .cnrflash-inner
       span.cnrflash-label
@@ -16,22 +16,22 @@
       small + £{{model.serviceType.price.apostille}}/apostille (optional)
     table.table
       tr
-        td
+        td.feature
           | Dispatch in&nbsp;
           strong {{model.serviceType.dispatchTime}}&nbsp;
           | working day{{model.serviceType.dispatchTime > 1 ? 's' : ''}}
       tr.active
-        td
+        td.feature
           | Email Tracking
       tr
-        td
+        td.feature
           | {{trackingSms ? 'SMS Tracking' : '-'}}
       tr.active
         td
           .btn-group
-            button.btn.btn-primary(type='button', ng-model='certificateType', btn-radio="'birth'") Birth
-            button.btn.btn-primary(type='button', ng-model='certificateType', btn-radio="'marriage'") Marriage
-            button.btn.btn-primary(type='button', ng-model='certificateType', btn-radio="'death'") Death
+            button.certificate.btn.btn-primary(type='button', ng-model='certificateType', btn-radio="'birth'") Birth
+            button.certificate.btn.btn-primary(type='button', ng-model='certificateType', btn-radio="'marriage'") Marriage
+            button.certificate.btn.btn-primary(type='button', ng-model='certificateType', btn-radio="'death'") Death
 
   .panel-footer
-    a.btn.btn-success(href='/certificate/{{certificateType}}/{{panelType}}', ng-disabled='!certificateType', role='button') Apply Now
+    a.apply-now.btn.btn-success(href='/certificate/{{certificateType}}/{{panelType}}', ng-disabled='!certificateType', role='button') Apply Now
