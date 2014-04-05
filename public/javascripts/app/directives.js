@@ -25,7 +25,7 @@
                     return $window.location.href = "/certificate/" + $scope.formtype;
                   });
                 }
-                _ref = $(".applyForm input[required]");
+                _ref = $(".applyForm." + $scope.formtype + " input[required]");
                 _results = [];
                 for (_i = 0, _len = _ref.length; _i < _len; _i++) {
                   element = _ref[_i];

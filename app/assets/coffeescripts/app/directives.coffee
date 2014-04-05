@@ -15,7 +15,7 @@ directives =
           Order.create $scope.model.order, (order) ->
             $cookies.o_id = order._id
             $window.location.href = "/certificate/#{$scope.formtype}"
-        PopoverService.initializePopover $(element).attr('id') for element in $(".applyForm input[required]")
+        PopoverService.initializePopover $(element).attr('id') for element in $(".applyForm." + $scope.formtype + " input[required]")
     ]
     templateUrl: '/partials/form_apply'
   ]
