@@ -5,7 +5,7 @@ formTitle = "Details"
 formTitleSubText = "Please fill in the details for " + section + " certificate"
 
 .blurb(id= "#{section}-section", class= section)
-  .container.text-center
+  .container
     .row
       .col-md-7
         h1= sectionTitle
@@ -16,13 +16,14 @@ formTitleSubText = "Please fill in the details for " + section + " certificate"
         include ../templates/accordion
       .col-md-5.certificate-hide
         .row
-          .col-md-offset-1.col-md-12
-            h2 APPLY NOW
-          .col-md-offset-3.col-md-8.text-center
+          .col-md-12
+            .pod-content= podContent
+        .row
+          .col-md-offset-2.col-md-8.text-center
             .featurette-item
               i.fa.fa-pencil.dark.apply-button(data-target-form= section)
-              h4 APPLY NOW
-              p Apply with 3 Easy Steps!!!
+              h2 APPLY NOW
+              p  with 3 Easy Steps!!!
       .col-md-5.certificate-show.hidden
         .row
           .col-md-12.text-right
