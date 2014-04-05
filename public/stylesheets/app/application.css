@@ -327,3 +327,30 @@ footer {
   font-weight: bold;
   text-align: center;
 }
+@media only screen and (min-width: 768px) {
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .navbar-collapse.collapse {
+    display: block !important;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .navbar-toggle {
+    display: block !important;
+    float: right;
+  }
+  .navbar-header {
+    float: none;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .navbar-toggle {
+    display: none !important;
+  }
+  .navbar-header {
+    float: left;
+  }
+}
