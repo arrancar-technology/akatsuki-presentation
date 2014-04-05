@@ -47,6 +47,7 @@
             panelType: '@',
             panelStyle: '@',
             mostPopular: '@',
+            scanAndEmail: '@',
             trackingEmail: '@',
             trackingSms: '@'
           },

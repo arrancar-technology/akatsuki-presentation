@@ -22,11 +22,22 @@
           | working day{{model.serviceType.dispatchTime > 1 ? 's' : ''}}
       tr.active
         td.feature
+          | Free delivery
+      tr
+        td.feature
+          | Support response in&nbsp;
+          strong {{model.serviceType.supportResponseTime}}&nbsp;
+          | hour{{model.serviceType.supportResponseTime > 1 ? 's' : ''}}
+      tr.active
+        td.feature
           | Email Tracking
       tr
         td.feature
           | {{trackingSms ? 'SMS Tracking' : '-'}}
       tr.active
+        td.feature
+          | {{scanAndEmail ? 'Scan and email documents' : '-'}}
+      tr
         td
           .btn-group
             button.certificate.btn.btn-primary(type='button', ng-model='certificateType', btn-radio="'birth'") Birth

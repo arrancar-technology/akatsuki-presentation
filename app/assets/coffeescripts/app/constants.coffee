@@ -3,12 +3,15 @@ lookups =
     standard:
       price: certificate: 25, apostille: 75
       dispatchTime: 10
+      supportResponseTime: 48
     rapid:
       price: certificate: 40, apostille: 120
       dispatchTime: 5
+      supportResponseTime: 24
     prime:
       price: certificate: 60, apostille: 180
       dispatchTime: 1
+      supportResponseTime: 4
   eventCountries: [
     "England and Wales"
     "North Ireland"

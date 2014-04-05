@@ -25,6 +25,7 @@ directives =
       panelType: '@'
       panelStyle: '@'
       mostPopular: '@'
+      scanAndEmail: '@'
       trackingEmail: '@'
       trackingSms: '@'
     controller: ['$scope', 'Lookups', ($scope, Lookups) ->
