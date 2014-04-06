@@ -5,11 +5,11 @@ lookups =
       dispatchTime: 10
       supportResponseTime: 48
     rapid:
-      price: certificate: 40, apostille: 120
+      price: certificate: 40, apostille: 100
       dispatchTime: 5
       supportResponseTime: 24
     prime:
-      price: certificate: 60, apostille: 180
+      price: certificate: 60, apostille: 150
       dispatchTime: 1
       supportResponseTime: 4
   eventCountries: [

@@ -14,7 +14,7 @@
       rapid: {
         price: {
           certificate: 40,
-          apostille: 120
+          apostille: 100
         },
         dispatchTime: 5,
         supportResponseTime: 24
@@ -22,7 +22,7 @@
       prime: {
         price: {
           certificate: 60,
-          apostille: 180
+          apostille: 150
         },
         dispatchTime: 1,
         supportResponseTime: 4

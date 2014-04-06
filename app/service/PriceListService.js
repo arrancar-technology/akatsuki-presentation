@@ -8,11 +8,11 @@ function PriceListService() {
     },
     rapid: {
       certificate: 40,
-      apostille: 120
+      apostille: 100
     },
     prime: {
       certificate: 60,
-      apostille: 180
+      apostille: 150
     }
   };
 }
