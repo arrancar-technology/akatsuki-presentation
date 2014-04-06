@@ -18,7 +18,7 @@ div(class= '{{certificatetype}}')
         td: strong Status
         td: strong.pull-right Details
       tr(ng-repeat="order in model.orders | filter: {certificate.type: certificatetype, status: model.filter}")
-        td {{$index+1}}
+        td: span {{ order.referenceNumber }}
         td: span {{ order.firstName || '--' }}
         td: span {{ order.lastName || '--' }}
         td: span {{ order.email || '--' }}

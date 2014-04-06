@@ -20,8 +20,20 @@ module.exports = function (compound) {
     app.use(express.cookieParser('fJKL123jk'));
     app.use(express.session());
 
+    // Initialise LoginService
     var loginService = require('./../app/service/LoginService').init(compound);
     loginService.initialize(app);
+
+    // Initialise UtilityService
+    var db = require('./../app/service/DbService')(compound);
+    db.collection('orders').find().sort({_id: -1}).limit(1).toArray(function(err, orders) {
+      if (err) { console.log('>> err: ', err); }
+
+      var utilityService = require('./../app/service/UtilityService'),
+          lastReferenceNumber = orders[0] ? (orders[0].referenceNumber || utilityService.SEED_ORDER_REFERENCE_NUMBER) : utilityService.SEED_ORDER_REFERENCE_NUMBER;
+
+      utilityService.init(lastReferenceNumber);
+    });
 
     app.use(app.router);
 

@@ -7,10 +7,11 @@
 //PUT       /orders/:id       orders#update
 //GET       /orders/:id       orders#show.
 var db = require('./app/service/DbService')(compound),
-  priceListService = require('./app/service/PriceListService')(),
-  constants = require('./app/types/Constants'),
-  stripePrivateKey = process.env.STRIPE_PRIVATE_KEY || 'sk_test_D5DgGB4bKmT9isRiYR9yA4ED',
-  stripe = require('stripe')(stripePrivateKey);
+    utilityService = require('./app/service/UtilityService').getInstance(),
+    priceListService = require('./app/service/PriceListService')(),
+    constants = require('./app/types/Constants'),
+    stripePrivateKey = process.env.STRIPE_PRIVATE_KEY || 'sk_test_D5DgGB4bKmT9isRiYR9yA4ED',
+    stripe = require('stripe')(stripePrivateKey);
 
 var actions = {
   index: function() {
@@ -35,6 +36,8 @@ var actions = {
 
     var chargeToken = order.charge && order.charge.token;
     if(chargeToken) {
+      order.referenceNumber = utilityService.createReferenceNumber();
+
       order.charge.amount = priceListService.getPriceFor(order);
       console.log('>> charging order. chargeToken: ' + chargeToken);
       stripe.charges.create({
