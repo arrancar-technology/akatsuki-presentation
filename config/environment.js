@@ -13,6 +13,7 @@ module.exports = function (compound) {
     app.set('jsDirectory', '/javascripts/');
     app.set('cssDirectory', '/stylesheets/');
     app.set('cssEngine', 'stylus');
+    app.set('view engine', 'jade');
     app.set('view options', { layout: false });
     app.use(express.bodyParser());
     app.use(express.methodOverride());
@@ -23,6 +24,43 @@ module.exports = function (compound) {
     loginService.initialize(app);
 
     app.use(app.router);
+
+    app.use(function(req, res){
+      res.status(404);
+
+      if (req.accepts('html')) {
+        res.render('404', { title: "Simply Certificate" });
+        return;
+      }
+
+      if (req.accepts('json')) {
+        res.send({ error: 'Not found' });
+        return;
+      }
+
+      res.type('txt').send('Not found');
+    });
+
+    /*jshint unused: false */
+    app.use(function(err, req, res, next){ // [DK]: Expressjs requires 'next' to be there even if you don't use it
+      res.status(err.status || 500);
+      res.render('500', { title: "Simply Certificate" });
+    });
+    /*jshint unused: true */
+
+    app.get('/404', function(req, res, next){
+      next();
+    });
+
+    app.get('/403', function(req, res, next){
+      var err = new Error('not allowed!');
+      err.status = 403;
+      next(err);
+    });
+
+    app.get('/500', function(req, res, next){
+      next(new Error('keyboard cat!'));
+    });
   });
 
 };
