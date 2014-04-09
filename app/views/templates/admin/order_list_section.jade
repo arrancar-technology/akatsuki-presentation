@@ -7,10 +7,10 @@ div(class= '{{certificatetype}}')
           input.search-field.form-control(ng-model="model.$", placeholder="Filter")
         .col-md-9
           .btn-group.pull-right
-            button.btn.btn-info(type='button', ng-click='model.filter = "created"') Created
-            button.btn.btn-success(type='button', ng-click='model.filter = "paid"') Paid
-            button.btn.btn-warning(type='button', ng-click='model.filter = "processing"') Processing
-            button.btn.btn-success(type='button', ng-click='model.filter = "done"') Done
+            button.btn.btn-info(type='button', ng-model='model.filter', btn-radio="'created'") Created
+            button.btn.btn-success(type='button', ng-model='model.filter', btn-radio="'paid'") Paid
+            button.btn.btn-warning(type='button', ng-model='model.filter', btn-radio="'processing'") Processing
+            button.btn.btn-success(type='button', ng-model='model.filter', btn-radio="'done'") Done
   .row
     table.table.table-hover.table-condensed
       tr

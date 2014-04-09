@@ -38,6 +38,7 @@ module.exports = function(grunt) {
                     '<%= files.src.public.dirVendor %>/angular-resource/angular-resource.min.js',
                     '<%= files.src.public.dirVendor %>/angular-route/angular-route.min.js',
                     '<%= files.src.public.dirVendor %>/angular-xeditable/dist/js/xeditable.min.js',
+                    '<%= files.src.public.dirVendor %>/angular-bootstrap/ui-bootstrap-tpls.min.js',
                     '<%= files.src.public.dirVendor %>/jquery/jquery.min.js',
                     '<%= files.src.public.dirVendor %>/jquery.inview/jquery.inview.min.js',
                     '<%= files.src.public.dirVendor %>/bootstrap/dist/js/bootstrap.min.js',

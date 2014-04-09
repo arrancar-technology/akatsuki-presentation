@@ -3,7 +3,7 @@
 
   appName = 'admin-app';
 
-  app = angular.module(appName, ['ngResource', 'ngRoute', 'xeditable']);
+  app = angular.module(appName, ['ngResource', 'ngRoute', 'xeditable', 'ui.bootstrap']);
 
   app.config([
     '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
