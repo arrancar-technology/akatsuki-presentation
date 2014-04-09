@@ -1,12 +1,16 @@
 div(class= '{{certificatetype}}')
   .row
-    .col-md-6: h4= '{{certificatetype}}'
-    .col-md-6
-      .btn-group.pull-right
-        button.btn.btn-info(type='button', ng-click='model.filter = "created"') Created
-        button.btn.btn-success(type='button', ng-click='model.filter = "paid"') Paid
-        button.btn.btn-warning(type='button', ng-click='model.filter = "processing"') Processing
-        button.btn.btn-success(type='button', ng-click='model.filter = "done"') Done
+    .col-md-2: h3= '{{certificatetype}}'
+    .col-md-10
+      .row
+        .col-md-3.pull-right
+          input.search-field.form-control(ng-model="model.$", placeholder="Filter")
+        .col-md-9
+          .btn-group.pull-right
+            button.btn.btn-info(type='button', ng-click='model.filter = "created"') Created
+            button.btn.btn-success(type='button', ng-click='model.filter = "paid"') Paid
+            button.btn.btn-warning(type='button', ng-click='model.filter = "processing"') Processing
+            button.btn.btn-success(type='button', ng-click='model.filter = "done"') Done
   .row
     table.table.table-hover.table-condensed
       tr
@@ -17,7 +21,7 @@ div(class= '{{certificatetype}}')
         td: strong Phone
         td: strong Status
         td: strong.pull-right Details
-      tr(ng-repeat="order in model.orders | filter: {certificate.type: certificatetype, status: model.filter}")
+      tr(ng-repeat="order in model.orders | filter: {certificate.type: certificatetype, status: model.filter, $: model.$}")
         td: span {{ order.referenceNumber }}
         td: span {{ order.firstName || '--' }}
         td: span {{ order.lastName || '--' }}
