@@ -7,6 +7,11 @@
       .modal-body
         form(editable-form, name='editableFormDeath', onaftersave='saveOrder()', novalidate)
           .form-group.row
+            label.col-sm-6.control-label(for="status") Status
+            .col-sm-6.status
+              span(id="status", editable-text='model.orderSelected.status', e-name='status', onbeforesave='', e-required) {{ model.orderSelected.status || '--' }}
+
+          .form-group.row
             label.col-sm-6.control-label(for="day-of-death") Date of Death
             .col-sm-6.date-of-death-container
               span.col-md-2(id="", editable-text='model.orderSelected.certificate.day', e-name='day', onbeforesave='', e-required) {{ model.orderSelected.certificate.day || '--' }} /&nbsp;
