@@ -8,6 +8,7 @@
 //GET       /orders/:id       orders#show.
 var db = require('./app/service/DbService')(compound),
     utilityService = require('./app/service/UtilityService').getInstance(),
+    emailService = require('./app/service/EmailService')(),
     priceListService = require('./app/service/PriceListService')(),
     constants = require('./app/types/Constants'),
     stripePrivateKey = process.env.STRIPE_PRIVATE_KEY || 'sk_test_D5DgGB4bKmT9isRiYR9yA4ED',
@@ -56,7 +57,8 @@ var actions = {
             if (err) { console.log('>> err: ', err); }
             if (result) { console.log('>> result: ', result); }
 
-            // TODO: [DK] send an email
+            emailService.sendSuccessEmailFor(order);
+
             // TODO: [DK] send sms!!!
             send(result);
           });

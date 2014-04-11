@@ -24,7 +24,8 @@
     "mongoskin": "~0.6.1",
     "passport": "~0.2.0",
     "passport-local": "~0.1.6",
-    "stripe": "~2.4.2"
+    "stripe": "~2.4.2",
+    "mailgun": "~0.4.2"
   },
   "devDependencies": {
     "co-generators": "*",
