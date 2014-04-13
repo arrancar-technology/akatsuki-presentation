@@ -7,7 +7,7 @@ function EmailService() {
   mailGun = new Mailgun('key-1d3k06fyrimls7rbsrwh8-l19r62-yn2');
 }
 
-EmailService.prototype.sendSuccessEmailFor = function (order) {
+EmailService.prototype.sendSuccessMessageFor = function (order) {
   mailGun.sendRaw('no-reply@simplycertificate.co.uk',
     [order.email],
     'From: no-reply@simplycertificate.co.uk' +

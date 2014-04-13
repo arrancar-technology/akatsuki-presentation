@@ -9,9 +9,10 @@
 var db = require('./app/service/DbService')(compound),
     utilityService = require('./app/service/UtilityService').getInstance(),
     emailService = require('./app/service/EmailService')(),
+    smsService = require('./app/service/SmsService')(),
     priceListService = require('./app/service/PriceListService')(),
     constants = require('./app/types/Constants'),
-    stripePrivateKey = process.env.STRIPE_PRIVATE_KEY || 'sk_test_D5DgGB4bKmT9isRiYR9yA4ED',
+    stripePrivateKey = process.env.STRIPE_PRIVATE_KEY || 'sk_test_HQxbf0KgiKCHD3D7gzUl09pG',
     stripe = require('stripe')(stripePrivateKey);
 
 var actions = {
@@ -57,9 +58,11 @@ var actions = {
             if (err) { console.log('>> err: ', err); }
             if (result) { console.log('>> result: ', result); }
 
-            emailService.sendSuccessEmailFor(order);
+            emailService.sendSuccessMessageFor(order);
+            if (order.certificate.serviceType === constants.serviceType.prime) {
+              smsService.sendSuccessMessageFor(order);
+            }
 
-            // TODO: [DK] send sms!!!
             send(result);
           });
         }

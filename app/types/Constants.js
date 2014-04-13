@@ -6,6 +6,11 @@ var constants = {
       processing: 'processing',
       done: 'done'
     }
+  },
+  serviceType: {
+    standard: 'standard',
+    rapid: 'rapid',
+    prime: 'prime'
   }
 };
 

@@ -13,7 +13,7 @@ var actions = {
   additionalDetails: function () {
     var section = req.params.section,
         title = 'Simply Certificate - ' + section.capitalize()  + ' Certificate',
-        stripePublicKey = process.env.STRIPE_PUBLIC_KEY || 'pk_test_UCpDjFVwLLJsMWzoK3PQyGl8';
+        stripePublicKey = process.env.STRIPE_PUBLIC_KEY || 'pk_test_fgOdS2r4FsJ9sfCgzsaZ0RM9';
 
     render(section, {title: title, stripePublicKey: stripePublicKey});
   },
