@@ -53,12 +53,12 @@ module.exports = function (compound) {
       res.type('txt').send('Not found');
     });
 
-    /*jshint unused: false */
-    app.use(function(err, req, res, next){ // [DK]: Expressjs requires 'next' to be there even if you don't use it
-      res.status(err.status || 500);
-      res.render('500', { title: "Simply Certificate" });
-    });
-    /*jshint unused: true */
+//    /*jshint unused: false */
+//    app.use(function(err, req, res, next){ // [DK]: Expressjs requires 'next' to be there even if you don't use it
+//      res.status(err.status || 500);
+//      res.render('500', { title: "Simply Certificate" });
+//    });
+//    /*jshint unused: true */
 
     app.get('/404', function(req, res, next){
       next();
