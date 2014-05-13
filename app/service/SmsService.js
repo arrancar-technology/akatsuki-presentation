@@ -8,7 +8,7 @@ var smsService,
 function getNormalizedPhoneNumber(phoneNumber) {
   var normalizedPhoneNumber;
   if (phoneNumber.indexOf('+44') === 0) {
-    normalizedPhoneNumber = phoneNumber
+    normalizedPhoneNumber = phoneNumber;
   } else if (phoneNumber.indexOf('0') === 0) {
     normalizedPhoneNumber = phoneNumber.replace("0", "+44");
   }
@@ -27,7 +27,7 @@ SmsService.prototype.sendSuccessMessageFor = function (order) {
       to: normalizedPhoneNumber,
       from: FROM_PHONE_NUMBER,
       body: "Thanks for your order, your reference number is " + order.referenceNumber + ". Simply Certificate"
-    }, function(error, message) {
+    }, function(error) {
       if (error) {
         console.log(error.message);
       }

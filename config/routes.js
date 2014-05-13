@@ -6,8 +6,6 @@ exports.routes = function (map) {
   map.get('/certificate/success', 'certificate#success');
   map.get('/certificate/:section/:serviceType?', 'certificate#additionalDetails');
 
-  map.get('/pricing', 'static#pricing');
-
   // Order
   map.get('api/1/orders/custom', 'orders#get_by_query');
   map.resources('orders', { path: 'api/1/orders' });
@@ -35,4 +33,6 @@ exports.routes = function (map) {
 
   // Google Webmaster Tool verification
   map.get('googlef46f912f19ecdab2.html', 'static#googleWebmasterToolVerify');
+
+  map.get('/:staticPage', 'static#staticPage');
 };

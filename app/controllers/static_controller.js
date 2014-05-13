@@ -1,11 +1,20 @@
+require('sugar');
+
+var staticPages = ['terms-and-conditions', 'faq', 'pricing', 'privacy-policy', 'about-us', 'contact-us'];
+
 var actions = {
   googleWebmasterToolVerify: function(){
     send('google-site-verification: googlef46f912f19ecdab2.html');
   },
-  pricing: function(){
-    render('pricing', {title: 'Simply Certificate - Pricing'});
+  staticPage: function(){
+    var staticPage = req.params.staticPage;
+    if (staticPages.indexOf(staticPage) > -1) {
+      render(staticPage.underscore(), { title: 'Simply Certificate - ' + staticPage.titleize() });
+    } else {
+      res.status(404).render('404', { title: 'Simply Certificate' });
+    }
   }
 };
 
 action('googleWebmasterToolVerify', actions.googleWebmasterToolVerify);
-action('pricing', actions.pricing);
+action('staticPage', actions.staticPage);
