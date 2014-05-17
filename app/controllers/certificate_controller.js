@@ -9,11 +9,16 @@ var actions = {
     render(section, {title: title, stripePublicKey: stripePublicKey});
   },
   success: function() {
-    var order = req.session.order;
+    var model = {},
+      order = req.session.order;
 
-    // TODO: [DK] redirect to homepage if there is no order in the session.
+    model.order = order;
 
-    render({title: 'Simply Certificate - Order Success', order: order});
+    if(!order) {
+      redirect('/');
+    } else {
+      render({title: 'Simply Certificate - Order Success', model: model});
+    }
   }
 };
 

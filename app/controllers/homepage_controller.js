@@ -11,8 +11,8 @@ action('show', function(){
     'Received replacement birth certificate in 11 working days. Exceptional service.',
     'Irish birth certificate was received in 5 working days, I used rapid service and it arrived in time, will highly recommend the service to family and friends.',
     'Birth certificate was ordered and I received updates by email with every step. Excellent service, highly recommended.',
-    'Received marriage certificate with apostille stamp within 10 working days. Whenever I emailed or called, I was updated with progress, exceptional customer service.',
-  ]
+    'Received marriage certificate with apostille stamp within 10 working days. Whenever I emailed or called, I was updated with progress, exceptional customer service.'
+  ];
   var testimonialIndex = new Date().getMilliseconds() % 7;
   render(layout, {title: 'Simply Certificate', testimonialIndex: testimonialIndex, testimonials: testimonials});
 });

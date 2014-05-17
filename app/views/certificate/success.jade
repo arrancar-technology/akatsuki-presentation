@@ -1,10 +1,21 @@
 extends ../layouts/application
 block content
   .blurb
-    .container.text-center
+    .container
+      .row
+        .col-md-offset-5.col-md-7
+          img.logo.medium(src= "/images/logo.png")
       .row
         .col-md-5
-          h1 Thanks for your order
-          p.lead Thanks Lockon, we received your certificate order. You can find your order details below, and also you'll get an email that contains your order details. Please don't hesitate to contact us with any question you have. Simply Certificate Team
-        .col-md-7
-          img(src= "/images/logo.png")
+          h2 Thanks for your order
+      .row: .col-md-8
+        p
+          | Thanks&nbsp;
+          strong #{model.order.firstName}
+          | , we received your certificate order. You will get an email that contains
+          | your order details.
+
+        p Please don't hesitate to contact us with any question you have.
+
+        br
+        p.pull-right: strong Simply Certificate Team

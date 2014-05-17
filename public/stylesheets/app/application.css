@@ -242,6 +242,10 @@ footer {
 .logo {
   height: 50px;
 }
+.logo.medium {
+  width: 320px;
+  height: 83px;
+}
 .pricing-container .panel {
   text-align: center;
 }

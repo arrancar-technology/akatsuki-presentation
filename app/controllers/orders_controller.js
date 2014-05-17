@@ -62,6 +62,7 @@ var actions = {
             if (order.certificate.serviceType === constants.serviceType.prime) {
               smsService.sendSuccessMessageFor(order);
             }
+            req.session.order = order;
 
             send(result);
           });
