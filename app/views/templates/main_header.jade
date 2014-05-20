@@ -6,8 +6,79 @@
         p.lead
         p.lead Simply Certificate makes ordering certified, legal copies of any UK legal document fast, safe and easy.
       .col-md-7
-        videoLink = "//www.youtube.com/embed/3yspVFKvM_I"
-        learnMoreLinkText = "Learn More.."
-        learnMoreText = "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS."
-        include ../templates/video
-        include ../templates/accordion
+        .video-container
+          iframe(width="560", height="315", src="//www.youtube.com/embed/3yspVFKvM_I", frameborder="0", allowfullscreen="")
+        .panel-group(id= "accordion-main")
+          .panel
+            .row.text-center
+              .col-xs-12
+                .panel-heading
+                  h4.panel-title
+                    a(data-toggle='collapse', data-parent="#accordion-main", href="#collapseOne-main") Learn More...
+            .row
+              .col-xs-12
+                .panel-collapse.collapse(id= "collapseOne-main")
+                  .panel-body
+                    p
+                      strong Simply Certificate&nbsp;
+                      | makes ordering certified, legal copies of any UK legal document
+                      | fast, safe and easy.
+                    p
+                      | You can get a replacement or duplicate of any UK marriage or civil partnership
+                      | certificate, death certificate or birth certificate delivered to your door that is
+                      | suitable for any legal purpose. We specialise
+                      | in documents from Scotland, England, Whales, Northern Ireland (UK Registered) and
+                      | even the Republic of Ireland.
+                    p
+                      | We are a private company, and are not a part of or affiliated with the Foreign &
+                      | Commonwealth Office, the General Register Office, or any other governmental
+                      | organisation. Our researchers are experts at locating and retrieving official and
+                      | historical records. We provide a total service, with prompt and attentive customer
+                      | support, diligent research, and home delivery of a legal, official certificate.
+                    p
+                      | We retrieve certified copies of any certificates from the General Register Office and
+                      | Apostilles from the Foreign & Commonwealth Office on your behalf. The General
+                      | Register Office maintains the national archive of birth marriage and death records
+                      | which dates back to 1837.
+                    p
+                      | While it is possible to have the General Register Office retrieve a document for you,
+                      | we provide additional services that make the experience a lot less frustrating than
+                      | dealing with an unsympathetic bureaucracy.
+
+                    ul
+                      li
+                        | Your order is despatched in 7 working days or less, guaranteed. The General
+                        | Register Office requires at least three weeks to respond.
+                      li
+                        | We handle every aspect your order. If for some reason we cannot retrieve your
+                        | records with the information you supply, we will do an extended search at no
+                        | added cost, and only proceed with your order after verifying with you that we
+                        | have found the correct documents.
+                      li
+                        | We reply to all customer emails the same day, generally within a few hours.
+                        | The General Register Office usually takes 5 days to reply.
+                      li
+                        | We can scan your documents and send them electronically to speed the
+                        | process. This service is not offered by the General Register Office.
+
+                    p: strong
+                      | All of the certificates and documents we provide are the&nbsp;
+                      u full, legal documents
+                      | , suitable for any purpose.
+
+                    h3 Added Value
+
+                    p
+                      strong Simply Certificate&nbsp;
+                      | helps you by locating your documents for you, and handling
+                      | the sometimes difficult process of retrieving them form the UK authorities. We
+                      | respond to your enquiries rapidly, and deliver your documents to your home or
+                      | place of business via Royal Mail or courier. We also provide ongoing support when
+                      | researching your family history.
+
+                    p
+                      | All Certificates we provide are appropriate for any legal purpose. They are sent by 1st
+                      | or 2nd class post, and courier service is available on request.
+
+                    p
+                      | We accept all major credit and debit cards.
