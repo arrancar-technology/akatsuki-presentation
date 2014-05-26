@@ -1,8 +1,4 @@
 action('show', function(){
-  // TODO: [DK] remove this after go live
-  var environment = process.env.NODE_ENV || 'development';
-  var layout = environment === 'prod01' && req.query.debug !== 'true' ? 'show_prod' : 'show';
-
   var testimonials = [
     'All documents were lost due to moving, but we were able to get birth certificate through Simply Certificate and saved me a lot of time and hassle.',
     'Internet site was very user friendly and I ordered birth certificates for the whole family.',
@@ -14,5 +10,5 @@ action('show', function(){
     'Received marriage certificate with apostille stamp within 10 working days. Whenever I emailed or called, I was updated with progress, exceptional customer service.'
   ];
   var testimonialIndex = new Date().getMilliseconds() % 7;
-  render(layout, {title: 'Simply Certificate', testimonialIndex: testimonialIndex, testimonials: testimonials});
+  render('show', {title: 'Simply Certificate', testimonialIndex: testimonialIndex, testimonials: testimonials});
 });
