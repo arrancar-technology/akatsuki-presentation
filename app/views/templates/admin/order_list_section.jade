@@ -20,6 +20,7 @@ div(class= '{{certificatetype}}')
         td: strong Email
         td: strong Phone
         td: strong Status
+        td: strong Create Date
         td: strong.pull-right Details
       tr(ng-repeat="order in model.orders | filter: {certificate.type: certificatetype, status: model.filter, $: model.$}")
         td: span {{ order.referenceNumber }}
@@ -28,6 +29,7 @@ div(class= '{{certificatetype}}')
         td: span {{ order.email || '--' }}
         td: span {{ order.address.phone || '--' }}
         td: span {{ order.status || '--' }}
+        td: span {{ order._id | extractCreateDate }}
         td
           .buttons.pull-right
             button.btn.btn-primary(data-toggle='modal', data-target='.bs-modal-lg.{{certificatetype}}', ng-click="selectOrder(order._id)") Details

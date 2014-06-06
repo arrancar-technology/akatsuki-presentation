@@ -42,7 +42,8 @@ module.exports = function(grunt) {
                     '<%= files.src.public.dirVendor %>/jquery/jquery.min.js',
                     '<%= files.src.public.dirVendor %>/jquery.inview/jquery.inview.min.js',
                     '<%= files.src.public.dirVendor %>/bootstrap/dist/js/bootstrap.min.js',
-                    '<%= files.src.public.dirVendor %>/sugar/release/sugar.min.js'
+                    '<%= files.src.public.dirVendor %>/sugar/release/sugar.min.js',
+                    '<%= files.src.public.dirVendor %>/moment/min/moment.min.js'
                   ]
                 },
                 css: {

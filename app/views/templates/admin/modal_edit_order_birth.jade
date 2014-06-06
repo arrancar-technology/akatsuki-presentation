@@ -7,6 +7,10 @@
       .modal-body
         form(editable-form, name='editableFormBirth', onaftersave='saveOrder()', novalidate)
           .form-group.row
+            label.col-sm-6.control-label(for="status") Create Date
+            .col-sm-6.create-date
+              span(id="create-date") {{ model.orderSelected._id | extractCreateDate }}
+          .form-group.row
             label.col-sm-6.control-label(for="status") Status
             .col-sm-6.status
               span(id="status", editable-text='model.orderSelected.status', e-name='status', onbeforesave='', e-required) {{ model.orderSelected.status || '--' }}
