@@ -3,13 +3,36 @@
 
   controllers = {
     OrdersListSectionController: [
-      "$scope", "Order", function($scope, Order) {
+      "$scope", "$http", "Order", function($scope, $http, Order) {
         $scope.model = {};
         $scope.model.orders = {};
         $scope.model.filter = 'paid';
         $scope.selectOrder = function(orderId) {
           return $scope.model.orderSelected = $scope.model.orders.find(function(order) {
             return order._id === orderId;
+          });
+        };
+        $scope.emailCustomer = function(orderId) {
+          var order;
+          order = $scope.model.orders.find(function(order) {
+            return order._id === orderId;
+          });
+          return $http({
+            method: 'GET',
+            url: '/admin/sendCheckingInEmail',
+            params: {
+              email: order.email,
+              firstName: order.firstName,
+              certificateType: order.certificate.type
+            }
+          }).success(function(data, status) {
+            alert('Email sent successfully');
+            order.status = 'done';
+            return Order.update({
+              id: order._id
+            }, order);
+          }).error(function(data, status) {
+            return alert('Email sent failed!!!');
           });
         };
         return $scope.saveOrder = function() {

@@ -1,4 +1,5 @@
-var passport = require('passport');
+var passport = require('passport'),
+    emailService = require('./app/service/EmailService')();
 
 function addUserToLocals(args) {
   args.req.locals.user = args.req.user; // needed for jade templates
@@ -16,6 +17,10 @@ var actions = {
   },
   orders_list: function () {
     render({title: 'Admin - Orders - UK Certificate'});
+  },
+  sendCheckingInEmail: function () {
+    emailService.sendCheckingInEmail(req.query.email, req.query.firstName, req.query.certificateType);
+    send({message: 'email sent successfully'});
   },
   login_get: function () {
     render('login', {title: 'Admin - Login - UK Certificate', redirectUrl: req.query.redirectUrl || ''});
@@ -36,6 +41,7 @@ var actions = {
 action('index', actions.index);
 action('status', actions.status);
 action('orders_list', actions.orders_list);
+action('sendCheckingInEmail', actions.sendCheckingInEmail);
 action('login_get', actions.login_get);
 action('login_post', actions.login_post);
 action('logout', actions.logout);

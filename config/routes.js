@@ -19,6 +19,7 @@ exports.routes = function (map) {
   map.get('admin/status', 'admin#status', [loginService.ensureAuthenticated]);
   map.get('admin/status/*', 'admin#status', [loginService.ensureAuthenticated]);
   map.get('admin/orders', 'admin#orders_list', [loginService.ensureAuthenticated]);
+  map.get('admin/sendCheckingInEmail', 'admin#sendCheckingInEmail', [loginService.ensureAuthenticated]);
   map.resources('status', { path: 'api/1/status' }, [loginService.ensureAuthenticated]);
 
   // Fixtures

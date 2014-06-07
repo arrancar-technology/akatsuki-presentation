@@ -33,3 +33,5 @@ div(class= '{{certificatetype}}')
         td
           .buttons.pull-right
             button.btn.btn-primary(data-toggle='modal', data-target='.bs-modal-lg.{{certificatetype}}', ng-click="selectOrder(order._id)") Details
+          .buttons.pull-left
+            button.btn.btn-primary(ng-show="{{ model.filter === 'created' }}", ng-click="emailCustomer(order._id)") Email
