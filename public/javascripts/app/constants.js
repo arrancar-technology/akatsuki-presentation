@@ -24,7 +24,7 @@
           certificate: 60,
           apostille: 150
         },
-        dispatchTime: 1,
+        dispatchTime: 2,
         supportResponseTime: 4
       }
     },

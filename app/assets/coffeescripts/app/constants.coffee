@@ -10,7 +10,7 @@ lookups =
       supportResponseTime: 24
     prime:
       price: certificate: 60, apostille: 150
-      dispatchTime: 1
+      dispatchTime: 2
       supportResponseTime: 4
   eventCountries: [
     "England and Wales"
