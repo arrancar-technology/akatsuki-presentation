@@ -2,15 +2,15 @@ lookups =
   serviceTypes:
     standard:
       price: certificate: 25, apostille: 75
-      dispatchTime: 10
+      dispatchTime: certificate: 10, apostille: 7
       supportResponseTime: 48
     rapid:
       price: certificate: 40, apostille: 100
-      dispatchTime: 5
+      dispatchTime: certificate: 5, apostille: 4
       supportResponseTime: 24
     prime:
       price: certificate: 60, apostille: 150
-      dispatchTime: 2
+      dispatchTime: certificate: 2, apostille: 1
       supportResponseTime: 4
   eventCountries: [
     "England and Wales"

@@ -18,10 +18,12 @@
       tr
         td.feature
           | Despatch in&nbsp;
-          strong {{model.serviceType.dispatchTime}}&nbsp;
-          | working day{{model.serviceType.dispatchTime > 1 ? 's' : ''}}
+          strong {{model.serviceType.dispatchTime.certificate}}&nbsp;
+          | working day{{model.serviceType.dispatchTime.certificate > 1 ? 's' : ''}}
           br
-          small up to +7 days with apostille
+          small up to&nbsp;
+          strong +{{model.serviceType.dispatchTime.apostille}}&nbsp;
+          | day{{model.serviceType.dispatchTime.apostille > 1 ? 's' : ''}} with apostille
       tr.active
         td.feature
           | Free delivery

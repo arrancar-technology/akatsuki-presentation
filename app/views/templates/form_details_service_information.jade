@@ -7,7 +7,7 @@
   label.col-sm-6.control-label.required(for="service-type") Service Type
   .col-sm-6
     .input-group-btn
-      select.input-sm.form-control(id="service-type", name="service-type", ng-model="model.order.certificate.serviceType", ng-options="key as key.capitalize() + ' - £' + value.price.certificate + ' - despatch within ' + value.dispatchTime  + ' working day' + (value.dispatchTime > 1 ? 's' : '') for (key, value) in model.serviceTypes", required='required')
+      select.input-sm.form-control(id="service-type", name="service-type", ng-model="model.order.certificate.serviceType", ng-options="key as key.capitalize() + ' - £' + value.price.certificate + ' - despatch within ' + value.dispatchTime.certificate  + ' working day' + (value.dispatchTime.certificate > 1 ? 's' : '') for (key, value) in model.serviceTypes", required='required')
 .form-group(ng-class='{"has-error": #{formName}["number-of-copies"].$invalid && model.step.1.submitted, "has-success": #{formName}["number-of-copies"].$valid && model.step.1.submitted}')
   label.col-sm-6.control-label.required(for="number-of-copies") Number of Copies
   .col-sm-6
@@ -18,4 +18,4 @@
   .col-sm-6
     .input-group-btn
       select.input-sm.form-control(id="number-of-apostilles", name="number-of-apostilles", ng-model="model.order.certificate.numberOfApostilles", ng-options="number for number in model.numberOfApostilles", required='required')
-        option(value="") -- (£{{model.serviceTypes[model.order.certificate.serviceType].price.apostille}} per stamp, up to +7 despatch days)
+        option(value="") -- (£{{model.serviceTypes[model.order.certificate.serviceType].price.apostille}} per stamp, up to +{{model.serviceTypes[model.order.certificate.serviceType].dispatchTime.apostille}} despatch day{{model.serviceTypes[model.order.certificate.serviceType].dispatchTime.apostille > 1 ? 's' : ''}})
