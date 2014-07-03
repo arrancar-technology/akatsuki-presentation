@@ -22,6 +22,12 @@
             .col-sm-6
               span(id="place-of-death", editable-text='model.orderSelected.certificate.place', e-name="place-of-death", onbeforesave='', e-required) {{ model.orderSelected.certificate.place || '--' }}
           .form-group.row
+            label.col-sm-6.control-label(for="date-of-birth") Date of Birth
+            .col-sm-6.date-of-birth-container
+              span.col-md-2(id="", editable-text='model.orderSelected.certificate.birth.day', e-name='day', onbeforesave='', e-required) {{ model.orderSelected.certificate.birth.day || '--' }} /&nbsp;
+              span.col-md-2(id="", editable-text='model.orderSelected.certificate.birth.month', e-name='month', onbeforesave='', e-required) {{ model.orderSelected.certificate.birth.month || '--' }} /&nbsp;
+              span.col-md-2(id="", editable-text='model.orderSelected.certificate.birth.year', e-name='year', onbeforesave='', e-required) {{ model.orderSelected.certificate.birth.year || '--' }}
+          .form-group.row
             label.col-sm-6.control-label(for="last-name-at-death") Last Name of Deceased
             .col-sm-6
               span(id="last-name-at-death", editable-text='model.orderSelected.certificate.lastName', e-name="last-name-at-death", onbeforesave='', e-required) {{ model.orderSelected.certificate.lastName || '--' }}

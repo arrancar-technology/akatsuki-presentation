@@ -11,6 +11,9 @@
         small.row.placeOfDeath
           .col-sm-6 Place of Death
           .col-sm-6 : {{model.order.certificate.place || '--' }}
+        small.row.dateOfBirth
+          .col-sm-6 Date of Birth
+          .col-sm-6 : {{model.order.certificate.birth.day || '--' }} / {{model.months[model.order.certificate.birth.month] || '--' }} / {{model.order.certificate.birth.year || '--' }}
         small.row.lastNameAtDeath
           .col-sm-6 Last Name of Deceased
           .col-sm-6 : {{model.order.certificate.lastName || '--' }}
