@@ -1,11 +1,6 @@
-!!! 5
-html(ng-app='main-app')
-  head
-    title= title
-    link(href='/stylesheets/vendor-app.css', media='screen', rel='stylesheet', type='text/css')
-    link(href='/stylesheets/app/application.css', media='screen', rel='stylesheet', type='text/css')
-  body
-    .container
-      h1 Simply Certificate
+extends ./layouts/application
+block content
+  .container.blurb: .row: .col-md-8.col-md-offset-1
       h2 404 - Please try again
-      p Could not found what you are looking for...
+      p Could not found what you are looking for
+      h3 Please try top menu or footer for the links...
