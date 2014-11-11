@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /terms-and-conditions
+Disallow: /privacy-policy

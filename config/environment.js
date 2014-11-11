@@ -1,5 +1,6 @@
 var express = require('express')
-  , config = require('./config');
+  , config = require('./config')
+  , robots = require('robots.txt');
 
 module.exports = function (compound) {
   var app = compound.app;
@@ -19,6 +20,7 @@ module.exports = function (compound) {
     app.use(express.methodOverride());
     app.use(express.cookieParser('fJKL123jk'));
     app.use(express.session());
+    app.use(robots(__dirname + '/robots.txt'));
 
     // Initialise LoginService
     var loginService = require('./../app/service/LoginService').init(compound);
@@ -52,6 +54,7 @@ module.exports = function (compound) {
 
       res.type('txt').send('Not found');
     });
+
 
 //    /*jshint unused: false */
 //    app.use(function(err, req, res, next){ // [DK]: Expressjs requires 'next' to be there even if you don't use it
