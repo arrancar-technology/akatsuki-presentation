@@ -11,7 +11,15 @@ var actions = {
       'Received marriage certificate with apostille stamp within 10 working days. Whenever I emailed or called, I was updated with progress, exceptional customer service.'
     ];
     var testimonialIndex = new Date().getMilliseconds() % 7;
-    render('homepage', {title: 'Simply Certificate', testimonialIndex: testimonialIndex, testimonials: testimonials});
+
+    var model = {
+      title: 'Welcome to Simply Certificate',
+      metaDescription: 'Simply Certificate offers a faster, more convenient way of replacing or getting a copy of official UK birth, death or marriage certificates.',
+      testimonials: testimonials,
+      testimonialIndex: testimonialIndex
+    };
+
+    render('homepage', model);
   },
   birth: function () {
     var model = {
