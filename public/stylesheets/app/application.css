@@ -90,7 +90,7 @@ h1 {
   margin-bottom: 15px;
 }
 .featurette-item i {
-  border: 3px solid #fff;
+  border: 3px solid #000;
   border-radius: 50%;
   display: inline-block;
   font-size: 56px;
@@ -113,16 +113,6 @@ h1 {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-.gallery {
-  padding: 50px 0;
-}
-.call-to-action {
-  background: #eee;
-  padding: 50px 0;
-}
-.call-to-action .btn {
-  margin: 10px;
 }
 footer {
   padding: 100px 0;
@@ -332,6 +322,24 @@ footer {
   text-align: center;
 }
 @media (max-width: 1000px ) {
+  h1 {
+    font-size: 25px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  h4 {
+    font-size: 14px;
+  }
+  .lead {
+    font-size: 15px;
+  }
+  .vert {
+    padding-top: 30px;
+  }
   .navbar-header {
     float: none;
   }
@@ -360,10 +368,12 @@ footer {
     display: block !important;
   }
 }
-.pod-content {
-  font-size: 18px;
-  margin-bottom: 20px;
+.certificate-hide .featurette-item {
+  margin-top: 40px;
 }
 .testimonial {
   background: rgba(0,0,0,0.3);
+}
+.content-birth {
+  margin-bottom: 50px;
 }

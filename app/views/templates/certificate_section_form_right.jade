@@ -1,32 +1,36 @@
-sectionTitle = section.toUpperCase() + " Certificate"
 sectionTitleSubText = "Replace your " + section + " certificate in 3 simple steps"
 
 formTitle = "Details"
 formTitleSubText = "Please fill in the details for " + section + " certificate"
 
-.blurb(id= "#{section}-section", class= section)
+.vert(id= "#{section}-section", class= section)
   .container
     .row
-      .col-md-offset-5.col-md-7
+      .col-sm-12
         h1= sectionTitle
         p.lead= sectionTitleSubText
     .row
-      .col-md-5.certificate-hide
+      .col-sm-5.certificate-hide
         .row
-          .col-md-12
-            .pod-content= podContent
-        .row
-          .col-md-offset-3.col-md-8.text-center
+          .col-sm-offset-3.col-sm-8.text-center
             .featurette-item
               i.fa.fa-pencil.dark.apply-button(data-target-form= section)
               h2 APPLY NOW
-              p with 3 Easy Steps!!!
-      .col-md-5.certificate-show.hidden
+              p in 3 Easy Steps!
+      .col-sm-5.certificate-show.hidden
         .row
-          .col-md-12.text-right
+          .col-sm-12.text-right
             h2= formTitle
             p.lead= formTitleSubText
-          .col-md-12.text-right
+          .col-sm-12.text-right
             apply-form(formtype= section)
-      .col-md-7
+      .col-sm-7
         include ../templates/video
+
+.vert
+  .container
+    hr
+    .row
+      .col-sm-offset-2.col-sm-8
+        .lead: em= podContent
+    hr

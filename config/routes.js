@@ -1,8 +1,11 @@
 exports.routes = function (map) {
 
-  map.get('/', 'homepage#show');
+  map.get('/', 'homepage#homepage');
 
-  // Certificate Details
+  // Certificate Homepages
+  map.get('/replacement-birth-certificate', 'homepage#birth');
+
+  // Certificate Order Pages
   map.get('/certificate/success', 'certificate#success');
   map.get('/certificate/:section/:serviceType?', 'certificate#additionalDetails');
 
