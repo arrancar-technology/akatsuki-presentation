@@ -4,6 +4,8 @@ exports.routes = function (map) {
 
   // Certificate Homepages
   map.get('/replacement-birth-certificate', 'homepage#birth');
+  map.get('/replacement-marriage-certificate', 'homepage#marriage');
+  map.get('/copy-of-death-certificate', 'homepage#death');
 
   // Certificate Order Pages
   map.get('/certificate/success', 'certificate#success');

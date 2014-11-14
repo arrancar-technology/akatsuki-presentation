@@ -29,8 +29,28 @@ var actions = {
     };
 
     render('birth', model);
+  },
+  marriage: function () {
+    var model = {
+      title: 'Replacement Marriage Certificate | Marriage Certificate Copy',
+      metaDescription: 'If you need an official replacement UK marriage certificate because you have lost it, Simply Certificate can help make the process easy.',
+      sectionTitle: 'Replacement Marriage Certificate'
+    };
+
+    render('marriage', model);
+  },
+  death: function () {
+    var model = {
+      title: 'Death Certificate | Order Copy of Death Certificate',
+      metaDescription: 'Do you need a copy or replacement of an official UK death certificate? Simply Certificate saves you time by doing the hard work for you.',
+      sectionTitle: 'Death Certificates'
+    };
+
+    render('death', model);
   }
 };
 
 action('homepage', actions.homepage);
 action('birth', actions.birth);
+action('marriage', actions.marriage);
+action('death', actions.death);
