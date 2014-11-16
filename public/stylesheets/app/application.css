@@ -380,3 +380,6 @@ footer {
 .content {
   margin-bottom: 50px;
 }
+.video-container iframe {
+  border-style: none;
+}

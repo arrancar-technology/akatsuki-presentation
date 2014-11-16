@@ -1,6 +1,7 @@
 var express = require('express')
   , config = require('./config')
-  , robots = require('robots.txt');
+  , robots = require('robots.txt')
+  , path = require('path');
 
 module.exports = function (compound) {
   var app = compound.app;
@@ -21,6 +22,7 @@ module.exports = function (compound) {
     app.use(express.cookieParser('fJKL123jk'));
     app.use(express.session());
     app.use(robots(__dirname + '/robots.txt'));
+    app.locals.basedir = path.join(app.root, 'app/views');
 
     // Initialise LoginService
     var loginService = require('./../app/service/LoginService').init(compound);
