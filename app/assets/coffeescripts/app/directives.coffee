@@ -1,6 +1,6 @@
 directives =
-  applyForm: [() ->
-    restrict: 'E'
+  apply: [() ->
+    restrict: 'C'
     scope:
       formtype: '@'
     controller: ['$scope', '$cookies', '$window', 'Order', 'PopoverService', ($scope, $cookies, $window, Order, PopoverService) ->
@@ -36,5 +36,5 @@ directives =
   ]
 
 app = angular.module appName
-app.directive 'applyForm', directives.applyForm
+app.directive 'apply', directives.apply
 app.directive 'pricingPanel', directives.pricingPanel

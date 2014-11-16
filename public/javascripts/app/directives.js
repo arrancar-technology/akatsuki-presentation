@@ -2,10 +2,10 @@
   var app, directives;
 
   directives = {
-    applyForm: [
+    apply: [
       function() {
         return {
-          restrict: 'E',
+          restrict: 'C',
           scope: {
             formtype: '@'
           },
@@ -65,7 +65,7 @@
 
   app = angular.module(appName);
 
-  app.directive('applyForm', directives.applyForm);
+  app.directive('apply', directives.apply);
 
   app.directive('pricingPanel', directives.pricingPanel);
 
