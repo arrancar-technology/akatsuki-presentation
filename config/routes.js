@@ -18,6 +18,9 @@ exports.routes = function (map) {
   // Partials
   map.get('partials/:partial', 'partials#show');
 
+  // Blog
+  map.get('/blog', 'blog#index');
+
   // Admin
   var loginService = require('./../app/service/LoginService').getInstance();
   map.get('admin', 'admin#index', [loginService.ensureAuthenticated]);

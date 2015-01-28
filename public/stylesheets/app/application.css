@@ -383,3 +383,7 @@ footer {
 .video-container iframe {
   border-style: none;
 }
+a.title {
+  text-decoration: none;
+  color: #333;
+}

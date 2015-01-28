@@ -1,0 +1,17 @@
+extends ../layouts/application
+block content
+  .container.content.vert
+    .row
+      .col-sm-offset-3.col-sm-6
+        h1 All Posts
+    .row
+      .col-sm-offset-3.col-sm-6
+        each article in articles
+          article
+            h3
+              a(href= article.url).title= article.title
+            p.date.text-right: b= article.date
+            p.synopsis= article.synopsis + " ..."
+            a.read-more(href= article.url) Read More
+
+          hr
