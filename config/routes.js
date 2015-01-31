@@ -20,6 +20,7 @@ exports.routes = function (map) {
 
   // Blog
   map.get('/blog', 'blog#index');
+  map.get('/blog/:articleTitle', 'blog#show');
 
   // Admin
   var loginService = require('./../app/service/LoginService').getInstance();
