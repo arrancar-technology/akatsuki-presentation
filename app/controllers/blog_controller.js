@@ -6,17 +6,17 @@ require('sugar');
 
 var articles = [
   {
-    title: 'What Do I Need A Birth Certificate For?',
-    synopsis: 'Birth certificates are a very handy document in terms of identification and applying for other legal documents. Make sure you register your child’s birth so that they have their birth certificate. If your own birth certificate has become lost or',
-    date: '28th January, 2015',
-    url: '/blog/what-do-i-need-a-birth-certificate-for'
-  } /* TODO: [DK] Uncomment on 10th of February 2015,
-  {
     title: 'How Can I Trace My Family History?',
     synopsis: "You want to trace your family's history and build your family tree, but you're not sure where to start and it seems like a lot of paperwork. Here's a simplified guide on how to get",
     date: '10th February, 2015',
     url: '/blog/how-can-i-trace-my-family-history'
-  } */
+  },
+  {
+    title: 'What Do I Need A Birth Certificate For?',
+    synopsis: 'Birth certificates are a very handy document in terms of identification and applying for other legal documents. Make sure you register your child’s birth so that they have their birth certificate. If your own birth certificate has become lost or',
+    date: '28th January, 2015',
+    url: '/blog/what-do-i-need-a-birth-certificate-for'
+  }
 ];
 
 var actions = {
