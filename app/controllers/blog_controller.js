@@ -6,6 +6,12 @@ require('sugar');
 
 var articles = [
   {
+    title: 'How To Get A Death Certificate?',
+    synopsis: "A death certificate is an essential legal document in the process of settling a loved one's affairs. When a family member sadly passes away the paperwork involved is understandably not at the forefront of a person's mind. However, you will need to",
+    date: '06 March, 2015',
+    url: '/blog/how-to-get-a-death-certificate'
+  },
+  {
     title: 'How Can I Trace My Family History?',
     synopsis: "You want to trace your family's history and build your family tree, but you're not sure where to start and it seems like a lot of paperwork. Here's a simplified guide on how to get",
     date: '10th February, 2015',
