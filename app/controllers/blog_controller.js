@@ -5,12 +5,12 @@ var markdown = require( "markdown" ).markdown
 require('sugar');
 
 var articles = [
-  {
-    title: 'Replacing Damaged Or Lost Certificates',
-    synopsis: "We live in a country that is particularly partial to inclement weather. From storms to flooding, adverse changes in the weather can lead to the loss or destruction of personal property.",
-    date: '21 March, 2015',
-    url: '/blog/replacing-damaged-or-lost-certificates'
-  },
+  //{
+  //  title: 'Replacing Damaged Or Lost Certificates',
+  //  synopsis: "We live in a country that is particularly partial to inclement weather. From storms to flooding, adverse changes in the weather can lead to the loss or destruction of personal property.",
+  //  date: '21 March, 2015',
+  //  url: '/blog/replacing-damaged-or-lost-certificates'
+  //},
   {
     title: 'How To Get A Death Certificate?',
     synopsis: "A death certificate is an essential legal document in the process of settling a loved one's affairs. When a family member sadly passes away the paperwork involved is understandably not at the forefront of a person's mind. However, you will need to",

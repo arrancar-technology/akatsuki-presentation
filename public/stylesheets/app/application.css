@@ -173,12 +173,12 @@ ol.progtrckr li.progtrckr-todo:before {
 }
 ol.progtrckr li.progtrckr-done {
   color: #000;
-  border-bottom: 4px solid #9acd05;
+  border-bottom: 4px solid #9acd32;
 }
 ol.progtrckr li.progtrckr-done:before {
   content: "\2713";
   color: #fff;
-  background-color: #9acd05;
+  background-color: #9acd32;
   height: 1.2em;
   width: 1.2em;
   line-height: 1.2em;
@@ -321,12 +321,12 @@ footer {
   font-weight: bold;
   text-align: center;
 }
-@media (max-width: 767px ) {
+@media (max-width: 767px) {
   .certificate-container {
     margin-top: 30px;
   }
 }
-@media (max-width: 1000px ) {
+@media (max-width: 1000px) {
   h1 {
     font-size: 25px;
   }
