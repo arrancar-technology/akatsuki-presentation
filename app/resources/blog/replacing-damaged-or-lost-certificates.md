@@ -31,5 +31,3 @@ For more information on how to get your replacement certificates fast:
 Call us on: 0800 228 9750
 
 Or send an email to: [support@simplycertificate.co.uk](mailto:support@simplycertificate.co.uk)
-
-&nbsp;
