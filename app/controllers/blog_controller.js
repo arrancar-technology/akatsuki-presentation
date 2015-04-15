@@ -6,6 +6,12 @@ require('sugar');
 
 var articles = [
   {
+    title: 'Death Certificates: A Practical Guide',
+    synopsis: "A death certificate is an essential document needed in the settling of a deceased person’s affairs. Beyond the legal implications of it as an official document there are other reasons a death certificate will be needed.",
+    date: '01 May, 2015',
+    url: '/blog/death-certificates-a-practical-guide'
+  },
+  {
     title: 'What Documents Do I Need For My Wedding?',
     synopsis: "It's coming up to your very special day. You've planned the dress, the flower arrangements and the reception, it's all coming together. But in order for your wedding day to go ahead without a hitch there's also the paperwork that goes alongside.",
     date: '15 April, 2015',
@@ -37,6 +43,8 @@ var articles = [
   }
 ];
 
+var ILLICIT_CHARACTERS = ":";
+
 var actions = {
   index: function () {
     var model = {
@@ -48,7 +56,7 @@ var actions = {
   },
   show: function() {
     var article = articles.find(function(article) {
-      return article.title.indexOf(req.params.articleTitle.spacify().humanize().capitalize(true)) >= 0;
+      return article.title.replace(ILLICIT_CHARACTERS, "").indexOf(req.params.articleTitle.spacify().humanize().capitalize(true)) >= 0;
     });
 
     var filename = 'app/resources/blog/' + req.params.articleTitle + '.md';
