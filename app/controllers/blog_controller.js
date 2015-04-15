@@ -6,6 +6,12 @@ require('sugar');
 
 var articles = [
   {
+    title: 'What Documents Do I Need For My Wedding?',
+    synopsis: "It's coming up to your very special day. You've planned the dress, the flower arrangements and the reception, it's all coming together. But in order for your wedding day to go ahead without a hitch there's also the paperwork that goes alongside.",
+    date: '15 April, 2015',
+    url: '/blog/what-documents-do-i-need-for-my-wedding'
+  },
+  {
     title: 'Replacing Damaged Or Lost Certificates',
     synopsis: "We live in a country that is particularly partial to inclement weather. From storms to flooding, adverse changes in the weather can lead to the loss or destruction of personal property.",
     date: '01 April, 2015',
