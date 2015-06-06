@@ -6,6 +6,12 @@ require('sugar');
 
 var articles = [
   {
+    title: 'Birth Certificates: How It Works With Surrogacy',
+    synopsis: "Last year over 150 babies were born in the United Kingdom to surrogate parents. A surrogacy agreement implies that a woman will carry a couple's baby, as they are unable to carry a child themselves, but then have no legal role in the child's",
+    date: '06 Jun, 2015',
+    url: '/blog/birth-certificates-how-it-works-with-surrogacy'
+  },
+  {
     title: 'Death Certificates: A Practical Guide',
     synopsis: "A death certificate is an essential document needed in the settling of a deceased person’s affairs. Beyond the legal implications of it as an official document there are other reasons a death certificate will be needed.",
     date: '01 May, 2015',
@@ -56,6 +62,7 @@ var actions = {
   },
   show: function() {
     var article = articles.find(function(article) {
+      console.log('title: ', req.params.articleTitle);
       return article.title.replace(ILLICIT_CHARACTERS, "").indexOf(req.params.articleTitle.spacify().humanize().capitalize(true)) >= 0;
     });
 
