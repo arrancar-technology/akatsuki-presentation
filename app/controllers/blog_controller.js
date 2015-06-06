@@ -6,6 +6,12 @@ require('sugar');
 
 var articles = [
   {
+    title: '4 Reasons You Will Need Your Marriage Certificate',
+    synopsis: "A marriage certificate is not just the proof of your union with your partner, it is also a very important legal document",
+    date: '21 Jun, 2015',
+    url: '/blog/4-reasons-you-will-need-your-marriage-certificate'
+  },
+  {
     title: 'Birth Certificates: How It Works With Surrogacy',
     synopsis: "Last year over 150 babies were born in the United Kingdom to surrogate parents. A surrogacy agreement implies that a woman will carry a couple's baby, as they are unable to carry a child themselves, but then have no legal role in the child's",
     date: '06 Jun, 2015',
