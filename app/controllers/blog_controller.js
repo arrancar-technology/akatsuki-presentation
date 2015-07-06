@@ -6,6 +6,12 @@ require('sugar');
 
 var articles = [
   {
+    title: "What Is A Long Form Birth Certificate?",
+    synopsis: "There are two versions of your birth certificate available in Britain, a long and short form. A birth certificate works as evidence of a person's name, date and place of birth. This type of documentation is required as personal identification",
+    date: '18 Jul, 2015',
+    url: '/blog/what-is-a-long-form-birth-certificate'
+  },
+  {
     title: "Registering A Birth After The Death Of Father",
     synopsis: "Having to register a birth after the death of a parent is a sad and unfortunate position to be in. As both parents would typically need to be present in order to have their names included on the",
     date: '03 Jul, 2015',
