@@ -6,6 +6,12 @@ require('sugar');
 
 var articles = [
   {
+    title: "Registering A Birth After The Death Of Father",
+    synopsis: "Having to register a birth after the death of a parent is a sad and unfortunate position to be in. As both parents would typically need to be present in order to have their names included on the",
+    date: '03 Jul, 2015',
+    url: '/blog/registering-a-birth-after-the-death-of-father'
+  },
+  {
     title: '4 Reasons You Will Need Your Marriage Certificate',
     synopsis: "A marriage certificate is not just the proof of your union with your partner, it is also a very important legal document",
     date: '21 Jun, 2015',
