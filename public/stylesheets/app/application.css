@@ -321,6 +321,9 @@ footer {
   font-weight: bold;
   text-align: center;
 }
+img[alt='birth certificate of princess charlotte'] {
+  width: 500px;
+}
 @media (max-width: 1000px) {
   h1 {
     font-size: 25px;
@@ -371,7 +374,7 @@ footer {
     display: block !important;
   }
   img[alt='birth certificate of princess charlotte'] {
-    width: 500px;
+    width: 400px;
   }
 }
 @media (max-width: 767px) {
