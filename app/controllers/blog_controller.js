@@ -6,6 +6,12 @@ require('sugar');
 
 var articles = [
   {
+    title: "Three Parent Birth Certificates: What Are They?",
+    synopsis: "Three parent birth certificates are not a common occurrence and they are not often needed. But with the changing world meaning that families are different to how they used to be, some countries are discussing or even issuing, three parent",
+    date: '22 Aug, 2015',
+    url: '/blog/three-parent-birth-certificates-what-are-they'
+  },
+  {
     title: "Birth Of Princess Charlotte Is Registered: How To Register A Birth In The Uk",
     synopsis: "The Duke and Duchess of Cambridge's second child, Princess Charlotte Elizabeth Diana, has her birth officially registered on 5th May 2015. Kensington Palace tweeted a picture of her birth certificate in",
     date: '7 Aug, 2015',
