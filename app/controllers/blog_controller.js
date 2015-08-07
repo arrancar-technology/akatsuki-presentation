@@ -6,6 +6,12 @@ require('sugar');
 
 var articles = [
   {
+    title: "Birth Of Princess Charlotte Is Registered: How To Register A Birth In The Uk",
+    synopsis: "The Duke and Duchess of Cambridge's second child, Princess Charlotte Elizabeth Diana, has her birth officially registered on 5th May 2015. Kensington Palace tweeted a picture of her birth certificate in",
+    date: '7 Aug, 2015',
+    url: '/blog/birth-of-princess-charlotte-is-registered-how-to-register-a-birth-in-the-uk'
+  },
+  {
     title: "What Is A Long Form Birth Certificate?",
     synopsis: "There are two versions of your birth certificate available in Britain, a long and short form. A birth certificate works as evidence of a person's name, date and place of birth. This type of documentation is required as personal identification",
     date: '18 Jul, 2015',
@@ -80,7 +86,6 @@ var actions = {
   },
   show: function() {
     var article = articles.find(function(article) {
-      console.log('title: ', req.params.articleTitle);
       return article.title.replace(ILLICIT_CHARACTERS, "").indexOf(req.params.articleTitle.spacify().humanize().capitalize(true)) >= 0;
     });
 
