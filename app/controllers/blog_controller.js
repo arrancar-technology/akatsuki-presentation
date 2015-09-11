@@ -6,6 +6,12 @@ require('sugar');
 
 var articles = [
   {
+    title: "How To Build Your Family Tree Using Birth, Marriage And Death Certificates",
+    synopsis: "Building your family tree is an interesting and fascinating process. When you start your research, you will soon find out that birth and marriage certificates are the cornerstone of genealogical research. In fact, by using them, you can quickly go back in time and",
+    date: '05 Sep, 2015',
+    url: '/blog/how-to-build-your-family-tree-using-birth-marriage-and-death-certificates'
+  },
+  {
     title: "Three Parent Birth Certificates: What Are They?",
     synopsis: "Three parent birth certificates are not a common occurrence and they are not often needed. But with the changing world meaning that families are different to how they used to be, some countries are discussing or even issuing, three parent",
     date: '22 Aug, 2015',
@@ -79,8 +85,6 @@ var articles = [
   }
 ];
 
-var ILLICIT_CHARACTERS = ":";
-
 var actions = {
   index: function () {
     var model = {
@@ -92,7 +96,7 @@ var actions = {
   },
   show: function() {
     var article = articles.find(function(article) {
-      return article.title.replace(ILLICIT_CHARACTERS, "").indexOf(req.params.articleTitle.spacify().humanize().capitalize(true)) >= 0;
+      return article.title.replace(/[,:]/g, "").indexOf(req.params.articleTitle.spacify().humanize().capitalize(true)) >= 0;
     });
 
     var filename = 'app/resources/blog/' + req.params.articleTitle + '.md';
