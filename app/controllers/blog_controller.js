@@ -6,6 +6,12 @@ require('sugar');
 
 var articles = [
   {
+    title: "Stolen Birth Certificates: What Should You Do?",
+    synopsis: "If your birth certificate is stolen, it is essential that you report it to the authorities as soon as possible and take steps to ensure that it is not being used",
+    date: '22 Sep, 2015',
+    url: '/blog/stolen-birth-certificates-what-should-you-do'
+  },
+  {
     title: "How To Build Your Family Tree Using Birth, Marriage And Death Certificates",
     synopsis: "Building your family tree is an interesting and fascinating process. When you start your research, you will soon find out that birth and marriage certificates are the cornerstone of genealogical research. In fact, by using them, you can quickly go back in time and",
     date: '05 Sep, 2015',
