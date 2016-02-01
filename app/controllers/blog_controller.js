@@ -6,6 +6,12 @@ require('sugar');
 
 var articles = [
   {
+    title: "Birth Certificate Replacement",
+    synopsis: "Birth certificates give people the right to a lawfully registered identity through family ties, nationality and name. Without a birth certificate",
+    date: '01 Feb, 2016',
+    url: '/blog/birth-certificate-replacement'
+  },
+  {
     title: "Stolen Birth Certificates: What Should You Do?",
     synopsis: "If your birth certificate is stolen, it is essential that you report it to the authorities as soon as possible and take steps to ensure that it is not being used",
     date: '22 Sep, 2015',
