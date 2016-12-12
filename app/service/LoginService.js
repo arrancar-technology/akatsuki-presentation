@@ -1,12 +1,13 @@
 var loginService
   , passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy;
+  , LocalStrategy = require('passport-local').Strategy
+  , ObjectID = require('mongodb').ObjectID;
 
 function LoginService(compound) {
   var db = require('./DbService')(compound);
 
   function findById(id, fn) {
-    var _id = db.collection('users').id(id);
+    var _id = new ObjectID(id);
     db.collection('users').findOne({_id: _id}, function (err, user) {
       if (err) { console.log('>> err: ', err); }
       console.log('>> user: ', user);
