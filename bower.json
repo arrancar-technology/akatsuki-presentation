@@ -12,6 +12,7 @@
     "animate.css": "~3.0.0",
     "jquery.inview": "*",
     "sugar": "~1.4.1",
-    "angular-xeditable": "~0.1.8"
+    "angular-xeditable": "~0.1.8",
+    "angular-bootstrap": "^0.12.0"
   }
 }

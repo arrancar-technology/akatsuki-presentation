@@ -2,7 +2,7 @@
 
 run-app:
 	./node_modules/grunt-cli/bin/grunt build
-	PORT=5000 ./node_modules/forever/bin/forever ./node_modules/nodemon/nodemon.js server.js
+	PORT=5000 ./node_modules/forever/bin/forever ./node_modules/.bin/nodemon server.js
 
 test-app:
 	grunt test
